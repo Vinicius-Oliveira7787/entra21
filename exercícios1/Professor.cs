@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace getting_started
+namespace Professor
 {
-	class Professor
+	class Program
 	{
 		static void Exercise1()
 		{
