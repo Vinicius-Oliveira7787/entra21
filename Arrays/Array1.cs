@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace array1
+namespace Array1
 {
     class Program
     {

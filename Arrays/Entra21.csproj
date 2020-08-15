@@ -3,6 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <StartupObject>Array1.Program</StartupObject>
+    <!-- <StartupObject>Array2.Program</StartupObject> -->
   </PropertyGroup>
 
 </Project>
