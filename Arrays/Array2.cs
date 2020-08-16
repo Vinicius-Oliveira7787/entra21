@@ -6,8 +6,8 @@ namespace Array2
 	{
         static void Exercise1()
 		{
-// 1)Popule dois vetores com 10 valores cada. 
-// Após esta operação, troque o conteúdo dos vetores.
+            // 1)Popule dois vetores com 10 valores cada. 
+            // Após esta operação, troque o conteúdo dos vetores.
             const int arraylenght = 10;
             var a = new double [arraylenght];
             var b = new double [arraylenght];
@@ -33,48 +33,143 @@ namespace Array2
         }
         static void Exercise2()
 		{
-            // 2)Dado um vetor qualquer com 10 números, 
-            //faça um programa que informa se há ou não números repetidos nesse vetor.
+        // 2)Dado um vetor qualquer com 10 números, 
+        //faça um programa que informa se há ou não números repetidos nesse vetor.
 
-         var a = new double [4];
-         var numerosRepetidos = false;   
-            for (int i = 0; i < a.Length; i++)
-            {
-                System.Console.WriteLine("Digite um número");
-                    a[i] = double.Parse(Console.ReadLine());
-
-                for (int j = i + 1; j < a.Length; j++)
-                {   
-                    if (a[i] == a[j] && j != i)
-                    {
-                        numerosRepetidos = true;
-                        break;
-                    }
+        var a = new double [10];
+        var numerosRepetidos = false;   
+            
+        for (int i = 0; i < a.Length; i++)
+        {
+            System.Console.WriteLine("Digite um número");
+                a[i] = double.Parse(Console.ReadLine());
+        }
+            
+        for (int i = 0; i < a.Length; i++)
+        {
+            for (int j = 1; j < a.Length; j++)
+            {  
+                if (i != j && a[i] == a[j])
+                {
+                    numerosRepetidos = true;
+                    break;
+                }
+                    
+                else if (numerosRepetidos)
+                {
+                    break;
                 }
             }
+        }
         var message = numerosRepetidos ? "há números repetidos nesse vetor." : "não há números repetidos nesse vetor.";
         System.Console.WriteLine($"{message}");
-
         }
         static void Exercise3()
 		{
-// 3)Um certa empresa fez uma pesquisa para saber se as pessoas gostaram ou não de um novo produto lançado no mercado. Para isso, forneceu-se o sexo do entrevistado e a sua resposta (sim ou não). Sabendo-se que foram entrevistadas 10 pessoas, fazer um algoritmo que calcule e escreva:
-// • O número de pessoas que responderam sim;
-// • O número de pessoas que responderam não;
-// • A percentagem de pessoas do sexo feminino que responderam sim;
-// • A percentagem de pessoas do sexo masculino que responderam não;
+        // 3)Um certa empresa fez uma pesquisa para saber 
+        // se as pessoas gostaram ou não de um novo produto lançado no mercado. 
+        // Para isso, forneceu-se o sexo do entrevistado e a sua resposta (sim ou não). 
+        // Sabendo-se que foram entrevistadas 10 pessoas, fazer um algoritmo que calcule e escreva:
+        // • O número de pessoas que responderam sim;
+        // • O número de pessoas que responderam não;
+        // • A percentagem de pessoas do sexo feminino que responderam sim;
+        // • A percentagem de pessoas do sexo masculino que responderam não;
+        var numeroDeEntrevistados = 10;
+        (int sim, int nao) avaliacao = (0, 0);
+        (int mulheresSim, int homensNao) avaliacaoSexo = (0, 0);
+
+        for (int i = 0; i < numeroDeEntrevistados; i++)
+        {
+            System.Console.WriteLine("Você gostou da apresentação de nosso novo produto? Responda com sim ou não");
+            var resultAvaliacao = Console.ReadLine();
+            
+            if (resultAvaliacao == "sim")
+            {
+                avaliacao.sim++;
+            }
+            else if (resultAvaliacao == "não")
+            {
+                avaliacao.nao++;
+            }
+        
+            System.Console.WriteLine("Qual seu sexo?");
+                var resultSexo = Console.ReadLine();
+            if (resultSexo == "masculino" && resultAvaliacao == "não")
+            {
+                avaliacaoSexo.homensNao++;
+            }
+             
+            else if (resultSexo == "feminino" && resultAvaliacao == "sim")
+            {
+                avaliacaoSexo.mulheresSim++;
+            }
+        }
+        var totalMulheresSim = (avaliacaoSexo.mulheresSim * 100) / numeroDeEntrevistados;
+        var totalHomensNao = (avaliacaoSexo.homensNao * 100) / numeroDeEntrevistados;
+
+        System.Console.WriteLine($"porcentagem de homens que responderam não: {totalHomensNao}%");
+        System.Console.WriteLine($"porcentagem de mulheres que responderam sim: {totalMulheresSim}%");
+        System.Console.WriteLine($"O número de pessoas que responderam sim foi de: {avaliacao.sim}");
+        System.Console.WriteLine($"O número de pessoas que responderam não foi de: {avaliacao.nao}");
         }
         static void Exercise4()
 		{
-// 4)Desenvolver um programa que efetue a leitura de cinco elementos de uma matriz // A do tipo vetor. No final, apresente o total da soma de todos os elementos // que sejam impares.
+        // 4)Desenvolver um programa que efetue a leitura de cinco elementos de uma matriz 
+        // A do tipo vetor. No final, apresente o total da soma de todos os elementos // que sejam impares.
+        
+            var a = new double[5];
+            var finalResult = 0.0;
+            
+            for (int i = 0; i < a.Length; i++)
+            {
+                System.Console.WriteLine("Digite um número:");
+                a[i] = double.Parse(Console.ReadLine());
+            
+                if (a[i] % 2 != 0)
+                {
+                    finalResult += a[i];
+                }
+            }
+            System.Console.WriteLine($"A soma total de todos os elementos que são impares é: {finalResult}");
         }
         static void Exercise5()
 		{
-// 5)Contar quantos valores de um vetor de 10 posições são positivos.
+        // 5)Contar quantos valores de um vetor de 10 posições são positivos.
+
+        var a = new double[10];
+        var totalDeNumerosPositivos = 0.0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                System.Console.WriteLine("Digite um número:");
+                a[i] = double.Parse(Console.ReadLine());
+                
+                if (a[i] > -1)
+                {
+                    totalDeNumerosPositivos += a[i];
+                }
+            }
+        System.Console.WriteLine($"O total de valores positivos digitados é de:{totalDeNumerosPositivos}");
         }
         static void Exercise6()
 		{
-// 6)Ler um vetor de 10 posições (aceitar somente números positivos). Escrever a seguir o valor do maior elemento de Q e a respectiva posição que ele ocupa no vetor.
+        // 6)Ler um vetor de 10 posições (aceitar somente números positivos). 
+        //Escrever a seguir o valor do maior elemento de A e a respectiva posição que ele ocupa no vetor.
+
+        var a = new double[3];
+            for (int i = 0; i < a.Length; i++)
+            {
+                
+                System.Console.WriteLine("Digite um número:");
+                a[i] = double.Parse(Console.ReadLine());
+                
+                if (a[i] < 0)
+                {
+                    System.Console.WriteLine("somente números positivos, tente novamente");
+                    i--;
+                }
+                
+            }
         }
         static void Exercise7()
 		{
@@ -90,7 +185,7 @@ namespace Array2
         }
     static void Main(string[] args)
 		{
-            Exercise2();
+            Exercise6();
 		}
 	}
 }

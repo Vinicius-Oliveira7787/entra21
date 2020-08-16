@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <!-- <StartupObject>Professor.Program</StartupObject> -->
-    <StartupObject>D1.Program</StartupObject>
+    <!-- <StartupObject>D1.Program</StartupObject> -->
   </PropertyGroup>
 
 </Project>
