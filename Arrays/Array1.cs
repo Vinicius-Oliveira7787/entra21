@@ -120,10 +120,51 @@ namespace Array1
             var message = arraySaoIguais ? "São iguais" : "Não são iguais";
             System.Console.WriteLine(message);
         }
+        static void Exercise5()
+        {
+            // 5-Leia um array A com 15 elementos, 
+            // e calcule a média aritmética dos mesmos, em seguida, 
+            // diga quantos dos elementos lidos estão abaixo, acima e na média.
 
+            (int above, int average, int bellow) contador = (0, 0, 0);
+            
+            var a = new double[15];
+            var soma = 0.0;
+            
+            //1 3 5 9 /3
+            for (int i = 0; i < a.Length; i++)
+            {
+                System.Console.WriteLine("Digite um número:");
+                    a[i] = double.Parse(Console.ReadLine());
+                    soma += a[i];
+            }
+            
+            var media = soma / a.Length;
+            foreach (var item in a)
+            {
+                if (item > media)
+                {
+                    contador.above++;
+                    continue;//no caso do else, ficaria sem essa função.
+                }
+                if (item == media)
+                {
+                    contador.average++;
+                    continue;//no caso do else, ficaria sem essa função.
+                }
+                // else
+                // {
+                    contador.bellow++;
+                // }
+                    
+            }
+            System.Console.WriteLine($"\nO total acima da média é:{contador.above}");
+            System.Console.WriteLine($"O total na média é:{contador.average}");
+            System.Console.WriteLine($"O total abaixo da média é:{contador.bellow}");
+        }
         static void Main(string[] args)
         {
-            Exercise1();
+            Exercise5();
         }         
     }            
 }            

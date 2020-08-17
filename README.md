@@ -39,7 +39,6 @@
     names[0] = "Lucas";
     // names terá o valor Lucas na posição de número 0
 
-    
     // Tupla/Tuple
     (string name, int votes) firstCandidate = ("", 0)
 

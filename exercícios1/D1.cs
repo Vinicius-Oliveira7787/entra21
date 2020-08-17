@@ -193,7 +193,29 @@ namespace D1
                 Console.WriteLine("O primeiro número NAO é maior que a soma dos demais");
             }
 		}
+        static void Exercise10()
+		{
+        // 10)Ler 02 números reais do teclado (A e B), 
+        // verificar e imprimir qual deles é maior, ou a mensagem "A = B" caso sejam iguais.
+        var tecla = new double [2];
+        var maiorNumero = 0.0;
 
+        for (int i = 0; i < tecla.Length; i++)
+        {
+        System.Console.WriteLine("DIGITE UMA TECLA");
+            tecla[i] = int.Parse(Console.ReadLine());
+
+            if (tecla[i] > tecla[i + 1])
+            {
+                maiorNumero = tecla[i];
+            }
+            else if (tecla[i] > tecla[i + 1])
+            {
+                maiorNumero = tecla[i + 1];
+            }
+        }
+            System.Console.WriteLine($"O maior número é {maiorNumero}");
+        }
 		static void Exercise11()
 		{
             var firstNumber = 0;
@@ -224,7 +246,58 @@ namespace D1
                 System.Console.WriteLine("DIVISÃO POR ZERO");
             }
 		}
+        static void Exercise12()
+        {
+        //12)Ler 4 números inteiros e calcular a soma dos que forem pares
 
+        var numbers = new double[4];
+        var total = 0.0;
+        
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            System.Console.WriteLine("Digite um número:");
+            numbers[i] = int.Parse(Console.ReadLine());
+        
+            if (numbers[i] % 2 == 0)
+            {
+                total += numbers[i];
+            }
+        }
+        System.Console.WriteLine($"{total}");
+
+
+        // (int numero1Par, int numero2Par, int numero3Par, int numero4Par) numerosPares = (0, 0, 0, 0);
+        // System.Console.WriteLine("Digite um número:");
+        // var result1 = int.Parse(Console.ReadLine());
+
+        // System.Console.WriteLine("Digite um número:");
+        // var result2 = int.Parse(Console.ReadLine());
+
+        // System.Console.WriteLine("Digite um número:");
+        // var result3 = int.Parse(Console.ReadLine());
+
+        // System.Console.WriteLine("Digite um número:");
+        // var result4 = int.Parse(Console.ReadLine());
+
+        // if (result1 % 2 == 0)
+        // {
+        //     numerosPares.numero1Par = result1; 
+        // }
+        // if (result2 % 2 == 0)
+        // {
+        //     numerosPares.numero2Par = result2; 
+        // }
+        // if (result3 % 2 == 0)
+        // {
+        //     numerosPares.numero3Par = result3; 
+        // }
+        // if (result4 % 2 == 0)
+        // {
+        //     numerosPares.numero4Par = result4; 
+        // }
+        // var total = numerosPares.numero1Par + numerosPares.numero2Par + numerosPares.numero3Par + numerosPares.numero4Par;
+        // System.Console.WriteLine($"{total}");
+        }
 		static void Exercise13()
 		{
             var biggestNumber = 0;
@@ -296,10 +369,16 @@ namespace D1
                 }
             }
 		}
-        
         static void Main(string[] args)
 		{
-            Exercise1();
+            //Exercise12();
+
+            var somaTotal = 0; //variavel que efetuara a soma dos números
+            for (int contador = 0; contador < 101; contador++) //cria a variavel contador, diz a condição para que se repitao laço de repetição(contador < 101) e incrementa 1 número a variavel contador toda vez q o laço se repete.
+            {
+                somaTotal += contador; //a variavel somaTotal está somando seu número com o número do contador.
+            }
+            System.Console.WriteLine(somaTotal); //o console escreve a variavel somaTotal
 		}
 	}
 }
