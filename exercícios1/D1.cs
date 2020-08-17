@@ -371,14 +371,7 @@ namespace D1
 		}
         static void Main(string[] args)
 		{
-            //Exercise12();
-
-            var somaTotal = 0; //variavel que efetuara a soma dos números
-            for (int contador = 0; contador < 101; contador++) //cria a variavel contador, diz a condição para que se repitao laço de repetição(contador < 101) e incrementa 1 número a variavel contador toda vez q o laço se repete.
-            {
-                somaTotal += contador; //a variavel somaTotal está somando seu número com o número do contador.
-            }
-            System.Console.WriteLine(somaTotal); //o console escreve a variavel somaTotal
+            Exercise12();
 		}
 	}
 }
