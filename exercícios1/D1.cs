@@ -27,7 +27,6 @@ namespace D1
                 System.Console.WriteLine(counter);
             }
 		}
-
 		static void Exercise2()
 		{
 			var sum = 0;
@@ -40,7 +39,6 @@ namespace D1
 			System.Console.WriteLine("a soma dos números inteiros entre 1 e 100 é");
 			System.Console.WriteLine(sum);
 		}
-
 		static void Exercise3()
 		{
             for (int counter = 1; counter < 200; counter += 2)
@@ -48,7 +46,6 @@ namespace D1
 				System.Console.WriteLine(counter);
             }
 		}
-
 		static void Exercise4()
 		{
 			var sum = 0.0;
@@ -68,7 +65,6 @@ namespace D1
 				sum += Int32.Parse(result);
             }
 		}
-
 		static void Exercise5()
 		{
 			var womenBetween18And35 = 0;
@@ -92,7 +88,6 @@ namespace D1
 			var percentage = (womenBetween18And35 * 100) / 5;
 			System.Console.WriteLine($"{percentage}%");
 		}
-
 		static void Exercise6()
 		{
 			const string registerMode = "1";
@@ -172,7 +167,40 @@ namespace D1
 				System.Console.WriteLine($"Com o total de: {winner.votes} votos!");
 			}
 		}
+        static void Exercise7()
+        {
+        // 7)Calcular a quantidade de dinheiro gasta por um fumante. 
+        // Dados: o número de anos que ele fuma, o nº de cigarros fumados por dia e o preço de uma carteira.
 
+        System.Console.WriteLine("Quantos anos você fuma cigarro?");
+            var anosFumados = int.Parse(Console.ReadLine()) * 365;
+
+        System.Console.WriteLine("Quantos cigarros você fuma por dia?");
+            var cigarrosDias = int.Parse(Console.ReadLine());
+
+        System.Console.WriteLine("Digite o preço da carteira:");
+            var precoCarteira = double.Parse(Console.ReadLine());
+
+        var valorTotalGasto = anosFumados * cigarrosDias * precoCarteira;
+        System.Console.WriteLine($"{valorTotalGasto.ToString("0,00")}");
+        }
+        static void Exercise8()
+        {
+            //8)Ler dois números inteiros, X e Y, e apresentar mensagem informando se o X é múltiplo de Y.
+            var saoMultiplos = false;
+            
+            System.Console.WriteLine("Digite um número:");
+                var resultA = double.Parse(Console.ReadLine());
+            System.Console.WriteLine("Digite um número:");
+                var resultB = double.Parse(Console.ReadLine());
+
+            if (resultA % resultB == 0)
+            {
+                saoMultiplos = true;
+            }
+            var message = saoMultiplos ? "Os números são multiplos" : "Os números não são multiplos";
+            System.Console.WriteLine(message);
+        }
 		static void Exercise9()
 		{
             Console.WriteLine("Forneça um número");
@@ -316,7 +344,6 @@ namespace D1
             System.Console.WriteLine("O maior número é:");
             System.Console.WriteLine(biggestNumber);
 		}
-
 		static void Exercise14()
 		{
             var smaller = Double.MinValue;
@@ -349,7 +376,84 @@ namespace D1
             System.Console.WriteLine(middle);
             System.Console.WriteLine(greater);
 		}
+        static void Exercise15()
+        {
+        //15)Ler 10 números e imprimir quantos são múltiplos de 3 e quantos são múltiplos de 5.
 
+        //var numerosMultiplosDe3 = 0;
+        //var numerosMultiplosDe5 = 0;
+        (int numerosMultiplosDe3, int numerosMultiplosDe5) numeros = (0, 0);
+        
+        for (int i = 0; i < 10; i++)
+        {
+            System.Console.WriteLine("Digite um número:");        
+            var result = Double.Parse(Console.ReadLine());
+        
+            if (result % 3 == 0)
+            {
+                numeros.numerosMultiplosDe3++;
+                continue;
+            }
+            
+            else if (result % 5 == 0)
+            {
+                numeros.numerosMultiplosDe5++;
+            }
+        }
+        System.Console.WriteLine($"Total de números multiplos de 3 = {numeros.numerosMultiplosDe3}");
+        System.Console.WriteLine($"Total de números multiplos de 5 = {numeros.numerosMultiplosDe5}");
+        
+        // foreach (var item in a)
+        // {
+        //     if (item % 3 == 0)
+        //     {
+        //         System.Console.WriteLine($"O número {item} é multiplo de 3");
+        //     }
+        //     if (item % 5 == 0)
+        //     {
+        //         System.Console.WriteLine($" O número {item} é multiplo de 5");
+        //     }
+        // }
+
+        }
+        static void Exercise16()
+        {
+        // 16)Ler o salário de uma pessoa e imprimir o Salário Líquido 
+        // de acordo com a redução do imposto descrito ao lado:
+        // Menor ou igual a R$ 600,00 - ISENTO
+        // Maior que R$ 600,00 e menor ou igual a 100 - 20% desconto
+        // Maior que R$ 1.200,00 e menor ou igual a R$2000 - 25% desconto
+        // Maior que R$ 2.000,00 - 30% desconto
+        
+        System.Console.WriteLine("Digite seu salário:");
+        var result = double.Parse(Console.ReadLine());
+
+        if (result <= 600)
+        {
+            System.Console.WriteLine("Isento de imposto");
+            return;
+        }
+        
+        else if (result <= 1200)
+        {
+            var salario = result * 0.8;
+            System.Console.WriteLine($"Seu salário recebe 20% de desconto resultando em: {salario}");
+            return;
+        }
+        else if (result <= 2000)
+        {
+            var salario = result * 0.75;
+            System.Console.WriteLine($"Seu salário recebe 25% de desconto resultando em: {salario}");
+            return;
+        }
+        else if (result >= 2000)
+        {
+            var salario = result * 0.7;
+            System.Console.WriteLine($"Seu salário recebe 30% de desconto resultando em: {salario}");
+        }
+
+        
+        }
 		static void Exercise17()
 		{
             while (true)
@@ -369,9 +473,34 @@ namespace D1
                 }
             }
 		}
+        static void Exercise18()
+        {
+            // 18)As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia, 
+            // e R$ 1,00 se forem compradas pelo menos 12. 
+            // Escreva um programa que leia o número de maçãs compradas, calcule e
+            // escreva o custo total da compra.
+            double meiaDuzia = 1.30;
+            double duzia = 1.00;
+            var maca = 0.0;
+
+            System.Console.WriteLine("Quantas maçãs você deseja comprar?");
+            var result = double.Parse(Console.ReadLine());
+
+            if (result < 12)
+            {
+                maca = meiaDuzia * result;
+                System.Console.WriteLine(maca.ToString("0.00")); //14,3
+            }
+            
+            if (result >= 12)
+            {
+                maca = duzia * result;
+                System.Console.WriteLine(maca.ToString("0.00"));
+            }
+        }
         static void Main(string[] args)
 		{
-            Exercise12();
+            Exercise16();
 		}
 	}
 }
