@@ -31,28 +31,31 @@ namespace Array1
 		{
             // 2-Ler um array com 10 inteiros 
             // e mostrar os números na ordem direta e inversa a que foram lidos.
-        
-            var a = new int[10];
             
+            var a = new int[10];
             for (int i = 0; i < a.Length; i++)
             {
+                System.Console.WriteLine("Digite um número:");
                 a[i] = int.Parse(Console.ReadLine());
             }
+            
+            System.Console.WriteLine("igual foi digitado:");
             for (int i = 0; i < a.Length; i++)
             {
-                System.Console.WriteLine($"igual foi digitado:{a[i]}");    
-                
+                System.Console.WriteLine(a[i]);    
             }
-                for (int b = 9; b > -1; b--)
-                {
-                    System.Console.WriteLine($"Reversodo do digitado: {a[b]}");    
-                }
+            
+            System.Console.WriteLine("Reversodo do digitado:");
+            for (int k = 9; k > -1; k--)
+            {
+                System.Console.WriteLine(a[k]);    
+            }
         }
         static void Exercise3()
 		{
-            // 3-Leia 10 elementos e armazene em um array A. 
-        // Em seguida, solicite pelo teclado um número qualquer e pesquise no array se o número existe. 
-        // Caso, seja verdade imprima a mensagem: “O número existe no array”, caso contrário “Número inexistente”.
+        // 3-Leia 10 elementos e armazene em um array A. 
+        // Em seguida, solicite pelo teclado um número qualquer e pesquise no array se o número existe. Caso,  
+        // seja verdade imprima a mensagem: “O número existe no array”, caso contrário “Número inexistente”.
         
         var arrayLenght = 10;
         var a = new double[arrayLenght];
@@ -164,7 +167,7 @@ namespace Array1
         }
         static void Main(string[] args)
         {
-            Exercise5();
+            Exercise2();
         }         
     }            
 }            

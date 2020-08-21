@@ -42,7 +42,7 @@ namespace Array2
         for (int i = 0; i < a.Length; i++)
         {
             System.Console.WriteLine("Digite um número");
-                a[i] = double.Parse(Console.ReadLine());
+            a[i] = double.Parse(Console.ReadLine());
         }
             
         for (int i = 0; i < a.Length; i++)
@@ -144,9 +144,9 @@ namespace Array2
                 System.Console.WriteLine("Digite um número:");
                 a[i] = double.Parse(Console.ReadLine());
                 
-                if (a[i] > -1)
+                if (a[i] > 0)
                 {
-                    totalDeNumerosPositivos += a[i];
+                    totalDeNumerosPositivos++;
                 }
             }
         System.Console.WriteLine($"O total de valores positivos digitados é de:{totalDeNumerosPositivos}");
@@ -156,32 +156,82 @@ namespace Array2
         // 6)Ler um vetor de 10 posições (aceitar somente números positivos). 
         //Escrever a seguir o valor do maior elemento de A e a respectiva posição que ele ocupa no vetor.
 
-        var a = new double[3];
+            var a = new double[3];
+
+            (double maiorNumero, int posicao) numero = (0.0, 0);
+
             for (int i = 0; i < a.Length; i++)
             {
                 
                 System.Console.WriteLine("Digite um número:");
                 a[i] = double.Parse(Console.ReadLine());
                 
-                if (a[i] < 0)
+                if (a[i] < 1)
                 {
                     System.Console.WriteLine("somente números positivos, tente novamente");
                     i--;
+                    continue;
                 }
-                
+                if (a[i] > numero.maiorNumero)
+                {
+                    numero.maiorNumero = a[i];
+                    numero.posicao = i;
+                }
             }
+            System.Console.WriteLine($"Maior número digitado: {numero.maiorNumero}");
+            System.Console.WriteLine($"Sua posição {numero.posicao}");
         }
         static void Exercise7()
 		{
-// 7)Crie e popule um vetor A e imprima na tela o número de vezes que existe um número residindo na mesma posição do vetor que seu valor numérico.
+            // 7)Crie e popule um vetor A e imprima na tela o número de vezes que existe um número 
+            //residindo na mesma posição do vetor que seu valor numérico.
+
+
         }
         static void Exercise8()
 		{
-// 8)Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto. No final, imprima quantas destas são vogais.
+            // 8)Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto. 
+            //No final, imprima quantas destas são vogais.
+
+            var x = new string[10];
+            var vogais = 0;
+
+            for (int i = 0; i < x.Length; i++)
+            {
+                System.Console.WriteLine("Digite uma letra do alfabeto");
+                x[i] = Console.ReadLine();
+            }
+            for (int i = 0; i < x.Length; i++)
+            {
+                if (x[i] == "A" && x[i] == "e" && x[i] == "i" && x[i] == "o" && x[i] == "u")
+                {
+                    vogais++;
+                    System.Console.WriteLine($"{x[i]} é uma vogal");
+                }    
+            }
+            System.Console.WriteLine($"{vogais} são vogais.");
         }
         static void Exercise9()
 		{
-// 9)Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto. No final, imprima a string resultante da soma das strings que residem em índices pares.
+        // 9)Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto.
+        // No final, imprima a string resultante da soma das strings que residem em índices pares.
+
+            var x = new string[10];
+            var vogais = 0;
+
+            for (int i = 0; i < x.Length; i++)
+            {
+                System.Console.WriteLine("Digite uma letra do alfabeto");
+                x[i] = Console.ReadLine();
+            }
+            for (int i = 0; i < x.Length; i++)
+            {
+                if (x[i] == "A" && x[i] == "e" && x[i] == "i" && x[i] == "o" && x[i] == "u")
+                {
+                    vogais++;
+                }    
+            }
+            System.Console.WriteLine($"{vogais} são vogais.");
         }
     static void Main(string[] args)
 		{

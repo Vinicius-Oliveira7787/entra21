@@ -22,7 +22,7 @@ namespace D1
 
 			System.Console.WriteLine("apenas os pares");
 
-            for (int counter = 2; counter < 11; counter += 2)
+            for (int counter = 0; counter < 11; counter += 2)
             {
                 System.Console.WriteLine(counter);
             }
@@ -38,8 +38,8 @@ namespace D1
 
 			System.Console.WriteLine("a soma dos números inteiros entre 1 e 100 é");
 			System.Console.WriteLine(sum);
-		}
-		static void Exercise3()
+		}	
+        static void Exercise3()
 		{
             for (int counter = 1; counter < 200; counter += 2)
             {
@@ -48,28 +48,24 @@ namespace D1
 		}
 		static void Exercise4()
 		{
-			var sum = 0.0;
+			(double sum,int result, int counter) x = (0.0, 0, 0);
 
-            for (int counter = 0; true; counter++)
+            for (; x.result != 0; x.counter++)
             {
                 System.Console.WriteLine("Digite uma idade");
-				var result = Console.ReadLine();
-
-				if (result == "0")
-				{
-                    var average = (sum / counter).ToString("0.00");
-			        System.Console.WriteLine($"A média da turma é: {average}");
-					break;
-				}
+				x.result = Int32.Parse(Console.ReadLine());
 				
-				sum += Int32.Parse(result);
+				x.sum += x.result;
             }
+            var average = (x.sum / x.counter).ToString("0.00");
+			System.Console.WriteLine($"A média da turma é: {average}");
 		}
 		static void Exercise5()
 		{
 			var womenBetween18And35 = 0;
+            int counter = 0;
 
-            for (int counter = 0; counter < 5; counter++)
+            for (; counter < 5; counter++)
             {
 				System.Console.WriteLine("Qual é o seu nome?");
 				Console.ReadLine();
@@ -85,7 +81,7 @@ namespace D1
 
 			System.Console.WriteLine("Porcentagem de mulheres que tem entre 18 e 35 anos");
 
-			var percentage = (womenBetween18And35 * 100) / 5;
+			var percentage = (womenBetween18And35 * 100) / counter;
 			System.Console.WriteLine($"{percentage}%");
 		}
 		static void Exercise6()
@@ -166,8 +162,8 @@ namespace D1
 				System.Console.WriteLine($"O vencedor é: {winner.name}");
 				System.Console.WriteLine($"Com o total de: {winner.votes} votos!");
 			}
-		}
-        static void Exercise7()
+		}   
+        static void Exercise7()  
         {
         // 7)Calcular a quantidade de dinheiro gasta por um fumante. 
         // Dados: o número de anos que ele fuma, o nº de cigarros fumados por dia e o preço de uma carteira.
@@ -182,7 +178,7 @@ namespace D1
             var precoCarteira = double.Parse(Console.ReadLine());
 
         var valorTotalGasto = anosFumados * cigarrosDias * precoCarteira;
-        System.Console.WriteLine($"{valorTotalGasto.ToString("0,00")}");
+        System.Console.WriteLine($"Total gasto: {valorTotalGasto.ToString("0,00")}");
         }
         static void Exercise8()
         {
@@ -203,46 +199,86 @@ namespace D1
         }
 		static void Exercise9()
 		{
-            Console.WriteLine("Forneça um número");
-            var firstNumber = Double.Parse(Console.ReadLine());
+            // 9)Fazer um algoritmo para ler 03 números reais do teclado
+            // e verificar se o primeiro é maior que a soma dos outros dois.
 
-            Console.WriteLine("Forneça um número");
-            var secondNumber = Double.Parse(Console.ReadLine());
+            // Console.WriteLine("Forneça um número");
+            // var firstNumber = Double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Forneça um número");
-            var thirdNumber = Double.Parse(Console.ReadLine());
+            // Console.WriteLine("Forneça um número");
+            // var secondNumber = Double.Parse(Console.ReadLine());
 
-            if (firstNumber > (secondNumber + thirdNumber))
+            // Console.WriteLine("Forneça um número");
+            // var thirdNumber = Double.Parse(Console.ReadLine());
+
+            // if (firstNumber > (secondNumber + thirdNumber))
+            // {
+            //     Console.WriteLine("O primeiro número é maior que a soma dos demais");
+            // }
+            // else
+            // {
+            //     Console.WriteLine("O primeiro número NAO é maior que a soma dos demais");
+            // }
+
+            var x = new double[3];
+            var y = false;
+
+            for (int k = 0; k < x.Length; k++)
             {
-                Console.WriteLine("O primeiro número é maior que a soma dos demais");
+                Console.WriteLine("Forneça um número");
+                x[k] = Double.Parse(Console.ReadLine());
             }
-            else
+            for (int i = 0; i < x.Length; i++)
             {
-                Console.WriteLine("O primeiro número NAO é maior que a soma dos demais");
+            for (int k = 1; k < x.Length; k++)
+            {
+                for (int j = 2; j < x.Length; j++)
+                {
+                    
+                if (i != k && k != j && x[i] > (x[k] + x[j]))
+                {
+                    y = true;
+                    break;
+                }
+                }
+            }    
             }
+            var K = y ? "O primeiro número é maior que a soma dos demais" : "O primeiro número NAO é maior que a soma dos demais";
+            System.Console.WriteLine($"{K}");
 		}
         static void Exercise10()
 		{
         // 10)Ler 02 números reais do teclado (A e B), 
         // verificar e imprimir qual deles é maior, ou a mensagem "A = B" caso sejam iguais.
-        var tecla = new double [2];
-        var maiorNumero = 0.0;
 
+        var tecla = new double [2];
+        //var maiorNumero = 0.0;
         for (int i = 0; i < tecla.Length; i++)
         {
-        System.Console.WriteLine("DIGITE UMA TECLA");
+            System.Console.WriteLine("DIGITE UMA TECLA");
             tecla[i] = int.Parse(Console.ReadLine());
-
-            if (tecla[i] > tecla[i + 1])
-            {
-                maiorNumero = tecla[i];
-            }
-            else if (tecla[i] > tecla[i + 1])
-            {
-                maiorNumero = tecla[i + 1];
-            }
         }
-            System.Console.WriteLine($"O maior número é {maiorNumero}");
+       
+        for (int i = 0; i < tecla.Length; i++)
+        {
+            for (int k = 1; k < tecla.Length; k++)
+            {
+                if (i != k && tecla[i] > tecla[k])
+                {
+                    //maiorNumero = tecla[i];
+                    System.Console.WriteLine($"O maior número é {tecla[i]}");
+                    break;
+                }
+                
+                else if (i != k && tecla[i] == tecla[k])
+                {
+                    System.Console.WriteLine("A = B");
+                    break;
+                }
+            }
+
+        }
+
         }
 		static void Exercise11()
 		{
@@ -328,9 +364,12 @@ namespace D1
         }
 		static void Exercise13()
 		{
-            var biggestNumber = 0;
+            //13)Ler 10 valores e determinar o maior dentre eles.
 
-            for (int counter = 0; counter < 10; counter++)
+            var biggestNumber = 0;
+            var numbers = 10;
+
+            for (int counter = 0; counter < numbers; counter++)
             {
                 System.Console.WriteLine("Forneça um número");
                 var input = Int32.Parse(Console.ReadLine());
@@ -341,8 +380,7 @@ namespace D1
                 }
             }
 
-            System.Console.WriteLine("O maior número é:");
-            System.Console.WriteLine(biggestNumber);
+            System.Console.WriteLine($"O maior número é: {biggestNumber}");
 		}
 		static void Exercise14()
 		{
@@ -403,6 +441,16 @@ namespace D1
         System.Console.WriteLine($"Total de números multiplos de 3 = {numeros.numerosMultiplosDe3}");
         System.Console.WriteLine($"Total de números multiplos de 5 = {numeros.numerosMultiplosDe5}");
         
+
+        //forma para escrever o valor linha por linha
+        
+        // var a = new double[10];
+        // for (int i = 0; i < a.Length; i++)
+        // {
+        //     System.Console.WriteLine("Digite um número:");        
+        //     a[i] = Double.Parse(Console.ReadLine());
+        // }
+
         // foreach (var item in a)
         // {
         //     if (item % 3 == 0)
@@ -452,20 +500,20 @@ namespace D1
             System.Console.WriteLine($"Seu salário recebe 30% de desconto resultando em: {salario}");
         }
 
-        
         }
 		static void Exercise17()
 		{
-            while (true)
+            // 17)Imprimir a tabuada de qualquer número fornecido pelo usuário
+            // até que o usuário forneça o valor –1.
+
+            for (var input = 0; input != -1;)
             {
                 Console.WriteLine("Forneça um número");
-                var input = Int32.Parse(Console.ReadLine());
-
-                if (input == -1)
-                {
-                    break;
-                }
-
+                input = Int32.Parse(Console.ReadLine());
+                // if (input == -1)
+                // {
+                //     break;
+                // }
                 Console.WriteLine("Tabuada:");
                 for (var i = 1; i < 11; i++)
                 {
@@ -489,10 +537,10 @@ namespace D1
             if (result < 12)
             {
                 maca = meiaDuzia * result;
-                System.Console.WriteLine(maca.ToString("0.00")); //14,3
+                System.Console.WriteLine(maca.ToString("0.00"));
             }
             
-            if (result >= 12)
+            else if (result >= 12)
             {
                 maca = duzia * result;
                 System.Console.WriteLine(maca.ToString("0.00"));
@@ -500,7 +548,7 @@ namespace D1
         }
         static void Main(string[] args)
 		{
-            Exercise16();
+            Exercise10();
 		}
 	}
 }
