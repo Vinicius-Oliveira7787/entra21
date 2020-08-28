@@ -517,7 +517,7 @@ namespace D1
                 Console.WriteLine("Tabuada:");
                 for (var i = 1; i < 11; i++)
                 {
-                    Console.WriteLine(input * i);
+                    Console.WriteLine($"{input}x{i} = {input * i}");
                 }
             }
 		}
@@ -548,7 +548,7 @@ namespace D1
         }
         static void Main(string[] args)
 		{
-            Exercise10();
+            Exercise17();
 		}
 	}
 }
