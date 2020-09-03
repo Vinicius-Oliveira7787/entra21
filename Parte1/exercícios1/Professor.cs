@@ -299,7 +299,7 @@ namespace Professor
         
         static void Main(string[] args)
 		{
-            Exercise6();
+            Exercise1();
 		}
 	}
 }

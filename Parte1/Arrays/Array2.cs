@@ -217,25 +217,22 @@ namespace Array2
         // No final, imprima a string resultante da soma das strings que residem em índices pares.
 
             var x = new string[10];
-            var vogais = 0;
+            var stringResult = "";
 
             for (int i = 0; i < x.Length; i++)
             {
                 System.Console.WriteLine("Digite uma letra do alfabeto");
                 x[i] = Console.ReadLine();
             }
-            for (int i = 0; i < x.Length; i++)
+            for (int i = 2; i < x.Length; i+= 2)
             {
-                if (x[i] == "A" && x[i] == "e" && x[i] == "i" && x[i] == "o" && x[i] == "u")
-                {
-                    vogais++;
-                }    
+                stringResult += x[i];
             }
-            System.Console.WriteLine($"{vogais} são vogais.");
+            System.Console.WriteLine($"{stringResult}");
         }
     static void Main(string[] args)
 		{
-            Exercise6();
+            Exercise9();
 		}
 	}
 }

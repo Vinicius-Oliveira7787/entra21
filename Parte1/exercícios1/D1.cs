@@ -548,7 +548,7 @@ namespace D1
         }
         static void Main(string[] args)
 		{
-            Exercise17();
+            Exercise3();
 		}
 	}
 }
