@@ -11,25 +11,33 @@ namespace Array2
             const int arraylenght = 10;
             var a = new double [arraylenght];
             var b = new double [arraylenght];
-            (double vetor1, double vetor2) finalResult = (0.00, 0.00);
+            var vetores = new (double vetor1, double vetor2)[arraylenght];
 
             for (int i = 0; i < arraylenght; i++)
             {
-            System.Console.WriteLine("Digite um número:");
+            System.Console.WriteLine($"Digite um número para o vetor 1 na posição{i}");
                 a[i] = double.Parse(Console.ReadLine());
-                finalResult.vetor1+= a[i];
+            }
+            for (int i = 0; i < arraylenght; i++)
+            {
+            System.Console.WriteLine($"Digite um número para o vetor 2 na posição{i}");
+                b[i] = double.Parse(Console.ReadLine());
             }
 
             for (int i = 0; i < arraylenght; i++)
             {
-            System.Console.WriteLine("Digite um número");
-                b[i] = double.Parse(Console.ReadLine());
-                finalResult.vetor2+= b[i];
+                vetores[i].vetor1 = (a[i] * a[i]) / 3.75;
             }
-                System.Console.WriteLine(finalResult.vetor1);
-                System.Console.WriteLine(finalResult.vetor2);
-                //não tá tão errado assim né? kkkkkkkkkkkk
-                //falto criatividade na hora de trocar hahaah ^_^ 
+            for (int i = 0; i < arraylenght; i++)
+            {
+                vetores[i].vetor2 = (b[i] * b[i]) / 5.50;
+            }
+            
+            for (int i = 0; i < arraylenght; i++)
+            {
+                System.Console.WriteLine($"{vetores[i].vetor1}");
+                System.Console.WriteLine($"{vetores[i].vetor2}");
+            }
         }
         static void Exercise2()
 		{
@@ -43,20 +51,30 @@ namespace Array2
         {
             System.Console.WriteLine("Digite um número");
             a[i] = double.Parse(Console.ReadLine());
-        }
-            
-        for (int i = 0; i < a.Length; i++)
+        }      
+        // for (int i = 0; i < a.Length; i++)
+        // {
+        //     for (int j = 1; j < a.Length; j++)
+        //     {  
+        //         if (i != j && a[i] == a[j])
+        //         {
+        //             numerosRepetidos = true;
+        //             break;
+        //         }
+                    
+        //         else if (!numerosRepetidos)
+        //         {
+        //             break;
+        //         }
+        //     }
+        // }
+        foreach (var item in a)
         {
-            for (int j = 1; j < a.Length; j++)
-            {  
-                if (i != j && a[i] == a[j])
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (item == a[i])
                 {
                     numerosRepetidos = true;
-                    break;
-                }
-                    
-                else if (numerosRepetidos)
-                {
                     break;
                 }
             }
@@ -115,7 +133,7 @@ namespace Array2
         static void Exercise4()
 		{
         // 4)Desenvolver um programa que efetue a leitura de cinco elementos de uma matriz 
-        // A do tipo vetor. No final, apresente o total da soma de todos os elementos // que sejam impares.
+        // A do tipo vetor. No final, apresente o total da soma de todos os elementos que sejam impares.
         
             var a = new double[5];
             var finalResult = 0.0;
@@ -144,7 +162,7 @@ namespace Array2
                 System.Console.WriteLine("Digite um número:");
                 a[i] = double.Parse(Console.ReadLine());
                 
-                if (a[i] > 0)
+                if (a[i] > -1)
                 {
                     totalDeNumerosPositivos++;
                 }
@@ -156,9 +174,9 @@ namespace Array2
         // 6)Ler um vetor de 10 posições (aceitar somente números positivos). 
         //Escrever a seguir o valor do maior elemento de A e a respectiva posição que ele ocupa no vetor.
 
-            var a = new double[3];
+            var a = new double[10];
 
-            (double maiorNumero, int posicao) numero = (0.0, 0);
+            (double biggest, int position) number = (0.0, 0);
 
             for (int i = 0; i < a.Length; i++)
             {
@@ -172,14 +190,14 @@ namespace Array2
                     i--;
                     continue;
                 }
-                if (a[i] > numero.maiorNumero)
+                if (a[i] > number.biggest)
                 {
-                    numero.maiorNumero = a[i];
-                    numero.posicao = i;
+                    number.biggest = a[i];
+                    number.position = i;
                 }
             }
-            System.Console.WriteLine($"Maior número digitado: {numero.maiorNumero}");
-            System.Console.WriteLine($"Sua posição {numero.posicao}");
+            System.Console.WriteLine($"Maior número digitado: {number.biggest}");
+            System.Console.WriteLine($"Sua posição no arranjo: {number.position}");
         }
         static void Exercise7()
 		{
@@ -209,7 +227,7 @@ namespace Array2
                     System.Console.WriteLine($"{x[i]} é uma vogal");
                 }    
             }
-            System.Console.WriteLine($"{vogais} são vogais.");
+            System.Console.WriteLine($"{vogais} letras são vogais.");
         }
         static void Exercise9()
 		{
