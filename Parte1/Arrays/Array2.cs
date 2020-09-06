@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Array2
 {
@@ -204,7 +205,29 @@ namespace Array2
             // 7)Crie e popule um vetor A e imprima na tela o número de vezes que existe um número 
             //residindo na mesma posição do vetor que seu valor numérico.
 
+        System.Console.WriteLine("Quantos números você quer inserir?");
+            var index = int.Parse(Console.ReadLine());
+        var myList = new List<double>(index);
+        var equalNumbers = 0.0;
 
+            for (int i = 0; i < myList.Count; i++)
+            {
+                System.Console.WriteLine("Digite um número");
+                while(true)
+                {
+                    try
+                    {
+                        myList[i] = double.Parse(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        System.Console.WriteLine("Número inválido!");                
+                    }
+                }
+                equalNumbers = (myList[i] == i) ? equalNumbers +=1 : equalNumbers;
+            }
+            System.Console.WriteLine($"Há {equalNumbers} números na mesma posição dos seus valores.");
         }
         static void Exercise8()
 		{
