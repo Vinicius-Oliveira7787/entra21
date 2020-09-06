@@ -162,7 +162,7 @@ namespace Array2
                 System.Console.WriteLine("Digite um número:");
                 a[i] = double.Parse(Console.ReadLine());
                 
-                if (a[i] > -1)
+                if (a[i] > 0)
                 {
                     totalDeNumerosPositivos++;
                 }
