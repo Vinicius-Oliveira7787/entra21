@@ -447,20 +447,21 @@ namespace Entra21_2
 
         return returnedSalaryDiscount;
         }
-        public List<int> Exercise17(List<int> tabuada)
+        public List<string> Exercise17(List<int> tabuada)
         {
         //17)Imprimir a tabuada de qualquer número fornecido pelo usuário até que o usuário forneça o valor –1.
 
-        var returnoTabuada = new List<int>();
+        var returnoTabuada = new List<string>();
 
         foreach (var item in tabuada)
         {
             for (int i = 1; i < tabuada.Count; i++)
             {
-                returnoTabuada[i] = tabuada[i] * i;
+                var temporary = $"{item * i}";
+                returnoTabuada.Add($"{temporary}");
             }
         }
-        return returnoTabuada;
+            return returnoTabuada;
         }
         // static void Main(string[] args)
 		// {

@@ -331,26 +331,32 @@ namespace Entra21_2
         [Fact]
         public void exercise17()
         {
+                //     Assert.Collection(
+                // returnedValues,
+                // item1 => { Assert.Equal(tabuada[i] * i, item1); },
+                // item2 => { Assert.Equal(tabuada[i] * i, item2); },
+                // item3 => { Assert.Equal(tabuada[i] * i, item3); },
+                // item4 => { Assert.Equal(tabuada[i] * i, item4); },
+                // item5 => { Assert.Equal(tabuada[i] * i, item5); },
+                // item6 => { Assert.Equal(tabuada[i] * i, item6); },
+                // item7 => { Assert.Equal(tabuada[i] * i, item7); },
+                // item8 => { Assert.Equal(tabuada[i] * i, item8); },
+                // item9 => { Assert.Equal(tabuada[i] * i, item9); },
+                // item10 => { Assert.Equal(tabuada[i] * i, item10); });
             // Dado / Setup
             var exercises = new Program();
-            var tabuada = new List<int>(){1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1};
+            var tabuada = new List<int>(){1, 2, 3, 4, 5, 6, 7, 8, 9, 10,};
                             
             // Quando / Ação
-            List<int> returnedValues = exercises.Exercise17(tabuada);
+            List<string> returnedValues = exercises.Exercise17(tabuada);
 
-            Assert.Collection(
-                returnedValues,
-                item1 => { Assert.Equal(1, item1); },
-                item2 => { Assert.Equal(2, item2); },
-                item3 => { Assert.Equal(3, item3); },
-                item4 => { Assert.Equal(4, item4); },
-                item5 => { Assert.Equal(5, item5); },
-                item6 => { Assert.Equal(6, item6); },
-                item7 => { Assert.Equal(7, item7); },
-                item8 => { Assert.Equal(8, item8); },
-                item9 => { Assert.Equal(9, item9); },
-                item10 => { Assert.Equal(10, item10); }
-            ); 
+            foreach (var item in tabuada)
+            {
+            for (int i = 1; i < tabuada.Count; i++)
+            {
+                Assert.Equal(tabuada, returnedValues);
+            }
+            }
         }   
     }
 }

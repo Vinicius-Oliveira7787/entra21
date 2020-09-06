@@ -12,7 +12,6 @@ namespace Array2
             const int arraylenght = 10;
             var a = new double [arraylenght];
             var b = new double [arraylenght];
-            var vetores = new (double vetor1, double vetor2)[arraylenght];
 
             for (int i = 0; i < arraylenght; i++)
             {
@@ -27,17 +26,17 @@ namespace Array2
 
             for (int i = 0; i < arraylenght; i++)
             {
-                vetores[i].vetor1 = (a[i] * a[i]) / 3.75;
+                a[i] = (a[i] * a[i]) / 3.75;
             }
             for (int i = 0; i < arraylenght; i++)
             {
-                vetores[i].vetor2 = (b[i] * b[i]) / 5.50;
+                b[i] = (b[i] * b[i]) / 5.50;
             }
             
             for (int i = 0; i < arraylenght; i++)
             {
-                System.Console.WriteLine($"{vetores[i].vetor1}");
-                System.Console.WriteLine($"{vetores[i].vetor2}");
+                System.Console.WriteLine($"{a[i]}");
+                System.Console.WriteLine($"{b[i]}");
             }
         }
         static void Exercise2()
@@ -53,6 +52,19 @@ namespace Array2
             System.Console.WriteLine("Digite um número");
             a[i] = double.Parse(Console.ReadLine());
         }      
+        foreach (var item in a)
+        {
+            for (int i = 1; i < a.Length; i++)
+            {
+                if (item == a[i])
+                {
+                    numerosRepetidos = true;
+                    break;
+                }
+            }
+        }
+        var message = numerosRepetidos ? "há números repetidos nesse vetor." : "não há números repetidos nesse vetor.";
+        System.Console.WriteLine($"{message}");
         // for (int i = 0; i < a.Length; i++)
         // {
         //     for (int j = 1; j < a.Length; j++)
@@ -69,19 +81,6 @@ namespace Array2
         //         }
         //     }
         // }
-        foreach (var item in a)
-        {
-            for (int i = 0; i < a.Length; i++)
-            {
-                if (item == a[i])
-                {
-                    numerosRepetidos = true;
-                    break;
-                }
-            }
-        }
-        var message = numerosRepetidos ? "há números repetidos nesse vetor." : "não há números repetidos nesse vetor.";
-        System.Console.WriteLine($"{message}");
         }
         static void Exercise3()
 		{
@@ -234,21 +233,18 @@ namespace Array2
             // 8)Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto. 
             //No final, imprima quantas destas são vogais.
 
-            var x = new string[10];
+            var x = new string[4];
             var vogais = 0;
 
             for (int i = 0; i < x.Length; i++)
             {
                 System.Console.WriteLine("Digite uma letra do alfabeto");
                 x[i] = Console.ReadLine();
-            }
-            for (int i = 0; i < x.Length; i++)
-            {
-                if (x[i] == "A" || x[i] == "e" || x[i] == "i" || x[i] == "o" || x[i] == "u")
+                
+                if (x[i] == "a" || x[i] == "e" || x[i] == "i" || x[i] == "o" || x[i] == "u")
                 {
                     vogais++;
-                    System.Console.WriteLine($"{x[i]} é uma vogal");
-                }    
+                }
             }
             System.Console.WriteLine($"{vogais} letras são vogais.");
         }
@@ -273,7 +269,7 @@ namespace Array2
         }
     static void Main(string[] args)
 		{
-            Exercise9();
+            Exercise8();
 		}
 	}
 }
