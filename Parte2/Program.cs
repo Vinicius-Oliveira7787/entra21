@@ -409,15 +409,58 @@ namespace Entra21_2
         var finalResult = $"{numbersMultipleByThree},{numbersMultipleByFive}";
         return finalResult;
         }
-        static void Exercise16()
+        public string Exercise16(List<double> Salary)
         {
         // 16)Ler o salário de uma pessoa e imprimir o Salário Líquido de acordo com a redução do imposto descrito ao lado:
         // Menor ou igual a R$ 600,00 - ISENTO
         // Maior que R$ 600,00 e menor ou igual a 100 - 20% desconto
         // Maior que R$ 1.200,00 e menor ou igual a R$2000 - 25% desconto
         // Maior que R$ 2.000,00 - 30% desconto
+        var returnedSalaryDiscount = "";
 
-        
+        for (int i = 0; i < Salary.Count; i++)
+        {
+            if (Salary[i] <= 600)
+            {
+                returnedSalaryDiscount += $"ISENTO,";    
+                continue;
+            }
+
+            if(Salary[i] > 600 && Salary[i] < 1200)
+            {
+                //returnedSalaryDiscount += $"{Salary[i] * 0.80}";
+                returnedSalaryDiscount += " 20%,";
+                continue;
+            }
+
+            if(Salary[i] > 1200 && Salary[i] < 2000)
+            {
+                returnedSalaryDiscount += " 25%,";
+                continue;
+            }
+
+            if(Salary[i] > 2000)
+            {
+                returnedSalaryDiscount += " 30%";
+            }
+        }
+
+        return returnedSalaryDiscount;
+        }
+        public List<int> Exercise17(List<int> tabuada)
+        {
+        //17)Imprimir a tabuada de qualquer número fornecido pelo usuário até que o usuário forneça o valor –1.
+
+        var returnoTabuada = new List<int>();
+
+        foreach (var item in tabuada)
+        {
+            for (int i = 1; i < tabuada.Count; i++)
+            {
+                returnoTabuada[i] = tabuada[i] * i;
+            }
+        }
+        return returnoTabuada;
         }
         // static void Main(string[] args)
 		// {

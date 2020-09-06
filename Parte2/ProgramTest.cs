@@ -313,6 +313,44 @@ namespace Entra21_2
             string expectedOutput = "7,2";
             
             Assert.Equal(expectedOutput, returnedValue);
+        }
+        [Fact]
+        public void exercise16()
+        {
+            // Dado / Setup
+            var exercises = new Program();
+            var salary = new List<double>(){600, 975, 1400, 5000};
+                            
+            // Quando / Ação
+            string returnedValue = exercises.Exercise16(salary);
+
+            string expectedOutput = "ISENTO, 20%, 25%, 30%";
+            
+            Assert.Equal(expectedOutput, returnedValue);
+        }   
+        [Fact]
+        public void exercise17()
+        {
+            // Dado / Setup
+            var exercises = new Program();
+            var tabuada = new List<int>(){1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1};
+                            
+            // Quando / Ação
+            List<int> returnedValues = exercises.Exercise17(tabuada);
+
+            Assert.Collection(
+                returnedValues,
+                item1 => { Assert.Equal(1, item1); },
+                item2 => { Assert.Equal(2, item2); },
+                item3 => { Assert.Equal(3, item3); },
+                item4 => { Assert.Equal(4, item4); },
+                item5 => { Assert.Equal(5, item5); },
+                item6 => { Assert.Equal(6, item6); },
+                item7 => { Assert.Equal(7, item7); },
+                item8 => { Assert.Equal(8, item8); },
+                item9 => { Assert.Equal(9, item9); },
+                item10 => { Assert.Equal(10, item10); }
+            ); 
         }   
     }
 }
