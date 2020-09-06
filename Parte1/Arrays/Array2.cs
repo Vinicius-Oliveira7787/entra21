@@ -221,7 +221,7 @@ namespace Array2
             }
             for (int i = 0; i < x.Length; i++)
             {
-                if (x[i] == "A" && x[i] == "e" && x[i] == "i" && x[i] == "o" && x[i] == "u")
+                if (x[i] == "A" || x[i] == "e" || x[i] == "i" || x[i] == "o" || x[i] == "u")
                 {
                     vogais++;
                     System.Console.WriteLine($"{x[i]} é uma vogal");
