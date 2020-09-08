@@ -201,8 +201,8 @@ namespace Array2
         }
         static void Exercise7()
 		{
-            // 7)Crie e popule um vetor A e imprima na tela o número de vezes que existe um número 
-            //residindo na mesma posição do vetor que seu valor numérico.
+        // 7)Crie e popule um vetor A e imprima na tela o número de vezes que existe um número 
+        //residindo na mesma posição do vetor que seu valor numérico.
 
         System.Console.WriteLine("Quantos números você quer inserir?");
             var index = int.Parse(Console.ReadLine());

@@ -447,22 +447,76 @@ namespace Entra21_2
 
         return returnedSalaryDiscount;
         }
-        public List<string> Exercise17(List<int> tabuada)
+        public List<double> Exercise17(List<int> tabuada)
         {
         //17)Imprimir a tabuada de qualquer número fornecido pelo usuário até que o usuário forneça o valor –1.
 
-        var returnoTabuada = new List<string>();
-
+        var returnoTabuada = new List<double>();
         foreach (var item in tabuada)
         {
-            for (int i = 1; i < tabuada.Count; i++)
+            for (int i = 1; i < 11; i++)
             {
-                var temporary = $"{item * i}";
-                returnoTabuada.Add($"{temporary}");
+                var temporary = item * i;
+                returnoTabuada.Add(temporary);
             }
         }
             return returnoTabuada;
         }
+        public List<string> Exercise18(List<double> apples)
+        {
+        // 18)As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia, 
+        // e R$ 1,00 se forem compradas pelo menos 12. 
+        // Escreva um programa que leia o número de maçãs compradas, calcule e
+        // escreva o custo total da compra. 
+        (double menosDeUmaDuzia, double maisDeUmaDuzia) apple = (1.30, 1.00);
+        var answers = new List<string>();
+
+        foreach (var item in apples)
+        {
+            if (item >= 12)
+            {
+                answers.Add($"R${item * apple.maisDeUmaDuzia}");
+            }
+            if (item < 12)
+            {
+                answers.Add($"R${item * apple.menosDeUmaDuzia}");
+            }
+        }
+        return answers;
+        }
+        // public string ExerciseArrays1Q4()
+        // {
+        //     // 4-Leia dois arrays A e B com 10 elementos.  
+        //     // Em seguida, compare os arrays e verifique se os mesmos são iguais ou diferentes.
+
+        //     const int arrayLenght = 4;
+            
+        //     var firstArray = new double?[arrayLenght] {0, 2, 3, 1};
+        //     var secondArray = new double[arrayLenght] {7, 1, 9, 1};
+        //     var saoIguais = false;
+        //     var arraySaoIguais = true;
+
+        //     foreach (var item in secondArray)
+        //     {
+        //         for (int j = 0; j < secondArray.Length; j++)
+        //         {
+        //             if(firstArray[j] == item) 
+        //             {
+        //                 saoIguais = true;
+        //                 firstArray[j] = null;
+        //                 arraySaoIguais = true;
+        //                 break;
+        //             }
+        //             if(!saoIguais)
+        //             {
+        //                 arraySaoIguais = false;
+        //             }
+        //         }
+        //     }
+            
+        //     var message = arraySaoIguais ? "São iguais" : "Não são iguais";
+        //     return message;
+        // }
         // static void Main(string[] args)
 		// {
  

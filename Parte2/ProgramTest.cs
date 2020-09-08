@@ -345,18 +345,46 @@ namespace Entra21_2
                 // item10 => { Assert.Equal(tabuada[i] * i, item10); });
             // Dado / Setup
             var exercises = new Program();
-            var tabuada = new List<int>(){1, 2, 3, 4, 5, 6, 7, 8, 9, 10,};
+            var tabuada = new List<int>(){1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
                             
             // Quando / Ação
-            List<string> returnedValues = exercises.Exercise17(tabuada);
+            List<double> returnedValues = exercises.Exercise17(tabuada);
 
-            foreach (var item in tabuada)
+            var expectedOutput = new List<double>()
             {
-            for (int i = 1; i < tabuada.Count; i++)
-            {
-                Assert.Equal(tabuada, returnedValues);
-            }
-            }
-        }   
+                1,2,3,4,5,6,7,8,9,10,2,4,6,8,10,12,14,16,18,20,3,6,9,12,15,18,21,24,27,30,4,8,12,16,20,24,28,32,36,40,5,10,15,20,25,30,35,40,45,50,6,12,18,24,30,36,42,48,54,60,7,14,21,28,35,42,49,56,63,70,8,16,24,32,40,48,56,64,72,80,9,18,27,36,45,54,63,72,81,90,10,20,30,40,50,60,70,80,90,100
+            };
+           
+            Assert.Equal(expectedOutput, returnedValues);
+        }
+                [Fact]
+        public void exercise18()
+        {
+
+            // Dado / Setup
+            var exercises = new Program();
+            var appleList = new List<double>(){12, 24, 10};
+                            
+            // Quando / Ação
+            List<string> returnedValues = exercises.Exercise18(appleList);
+
+            var expectedOutput = new List<string>(){"R$12", "R$24", "R$13"};
+
+            Assert.Equal(expectedOutput, returnedValues);
+        }
+        // [Fact]
+        // public void exercise27()
+        // {
+        //     // Dado / Setup
+        //     var exercises = new Program();
+        //     var salary = new List<double>(){600, 975, 1400, 5000};
+                            
+        //     // Quando / Ação
+        //     string returnedValue = exercises.Exercise27();
+
+        //     //string expectedOutput = "ISENTO, 20%, 25%, 30%";
+            
+        //     //Assert.Equal(expectedOutput, returnedValue);
+        // }      
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace D1
 {
@@ -548,7 +549,69 @@ namespace D1
         }
         static void Main(string[] args)
 		{
-            Exercise3();
+            Exercise17();
+
+//             double value = 0;
+//             double result = 0;
+//             var array = new string[2];
+            
+//             Console.WriteLine("Qual conversão você quer realizar?");
+//                 for (int i = 0; i < 2; i++)
+//                 {
+//                     System.Console.WriteLine($"Centímetros");
+//                     System.Console.WriteLine($"Metros");
+//                     System.Console.WriteLine($"Quilômetros");
+//                         array[i] = Console.ReadLine();
+//                 }
+//             System.Console.WriteLine("\nDigite o valor:");
+//             value = double.Parse(Console.ReadLine());
+
+//             if (array[0] == array[1])
+//             {
+//                 System.Console.WriteLine($"Você não pode comverter de {array[0]} para {array[1]}");
+//             }
+            
+//             while (array[0] == "Centímetros")
+//             {
+//                 var centimetros = true;
+// var centimetrous=centimetros ? $"Para metros: {result = value / 100}" : $"Para Quilômetros: {result = value / 100000}";
+//                 if (array[1] == "Metros")
+//                 {
+//                     System.Console.WriteLine(centimetrous);
+//                     break;
+//                 }
+//                 centimetros = false;
+//                 System.Console.WriteLine(centimetrous);
+//                 break;
+//             }
+
+//             while (array[0] == "Metros")
+//             {
+//                 var metros = true;
+// var m=metros ? $"Para Centímetros: {result = value * 100}" : $"Para Quilômetros:{result = value / 1000}";
+//                 if (array[1] == "Centímetros")
+//                 {
+//                     System.Console.WriteLine(m);
+//                     break;
+//                 }
+//                 metros = false;
+//                 System.Console.WriteLine(m);
+//                 break;
+//             }
+            
+//             while (array[0] == "Quilômetros")
+//             {
+//                 var metros = true;
+// var q=quilometros ? $"Para Centímetros: {result = value * 100000}" : $"Para Metros: {result = value * 1000}";
+//                 if (array[1] == "Centímetros")
+//                 {
+//                     System.Console.WriteLine(q);
+//                     break;
+//                 }
+//                 metros = false;
+//                 System.Console.WriteLine(q);
+//                 break;
+            // }           
 		}
 	}
 }
