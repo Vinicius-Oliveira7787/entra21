@@ -437,6 +437,19 @@ namespace Entra21_2
 
             Assert.Equal(expectedOutputTrue, returnedAnswerTrue);
             Assert.Equal(expectedOutputFalse, returnedAnswerFalse);
+        } 
+        [Fact]
+        public void ExerciseArrays1Q5()
+        {
+            // Dado / Setup
+            var exercises = new Program();
+                            
+            // Quando / Ação
+            string returnedAnswer = exercises.ExerciseArrays1Q5();
+
+            string expectedOutput = "2, 0, 2";
+
+            Assert.Equal(expectedOutput, returnedAnswer);
         }     
     }
 }

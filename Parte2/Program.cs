@@ -623,10 +623,39 @@ namespace Entra21_2
             var message = arraySaoIguais ? "São iguais" : "Não são iguais";
             return message;
         } 
-        public string ExerciseArray2Q1()
+        public string ExerciseArrays1Q5()
         {
-            
+        //Leia um array A com 15 elementos, e calcule a média aritmética dos mesmos, 
+        //em seguida, diga quantos dos elementos lidos estão abaixo, acima e na média
+
+        var myList = new List<double>(){2,4,6,8};
+        var sum = 0.0;
+        (int aboveAverage, int average, int belowAverage) counter = (0, 0, 0);
+        for(int i = 0; i < myList.Count; i++)
+        {
+            sum += myList[i];
         }
+        var average = sum / myList.Count;
+        foreach (var item in myList)
+        {
+            if (item > average)
+            {
+                counter.aboveAverage++;//2
+                continue;
+            }
+            
+            if (item == average)
+            {
+                counter.average++;
+                continue;
+            }
+            counter.belowAverage++;//2
+        }
+        var returnedValues = $"{counter.aboveAverage}, {counter.average}, {counter.belowAverage}";
+        return returnedValues;
+        }
+    }
+}
         //static void Main(string[] args)
 		// {
  
@@ -640,5 +669,3 @@ namespace Entra21_2
         //     resultado.finalResult = resultado.centena + resultado.dezena + resultado.unidade;
         //     System.Console.WriteLine($"\nR: {resultado.finalResult}");
 		// }
-    }
-}
