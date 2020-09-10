@@ -559,5 +559,19 @@ var expectedOutputPercentageMenDislikedWomenLiked = "30% dos homens não gostara
 
             Assert.Equal(expectedOutput, returnedAnswer);
         }
+        [Fact]
+        public void ExerciseArrays2Q9()
+        {
+            // Dado / Setup
+            var exercises = new Program();
+            var letters = new List<string>(){"H", "b", "U", "d", "N", "f", "T", "h", "E", "j", "R"};
+                            
+            // Quando / Ação
+            string returnedAnswer = exercises.ExerciseArrays2Q9(letters);
+
+            var expectedOutput = "HUNTER";
+
+            Assert.Equal(expectedOutput, returnedAnswer);
+        }
     }
 }

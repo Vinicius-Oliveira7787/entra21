@@ -819,6 +819,21 @@ var returnedAnswers = $"{percentMenDisliked}% dos homens não gostaram, {percent
         }
         return returnedNumberOfvowels;
         }
+        public string ExerciseArrays2Q9(List<string> letters)
+        {
+//Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto. 
+//No final, imprima a string resultante da soma das strings que residem em índices pares.
+
+        var resultantString = "";
+        for (int i = 0; i < letters.Count; i++)
+        {
+            if (i % 2 == 0)
+            {
+                resultantString += letters[i]; 
+            }
+        }
+        return resultantString;
+        }
     }
 }
         //static void Main(string[] args)
