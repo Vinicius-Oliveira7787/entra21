@@ -59,18 +59,21 @@ namespace Exercises1
 // 4)Calcular a média de idade de uma turma qualquer. 
 // O algoritmo deve parar quando for digitada a idade igual a zero.    
             double sum = 0;
-            var answers = ages.Count;
-
-            for (int i = 0; i < answers; i++)
+            var average = 0.0;
+            var zero = false;
+            int i = 0;
+            for (; i < ages.Count; i++)
             {
                 if (ages[i] == 0)
                 {
+                    zero = true;
+                    // average = (sum / i);
                     break;
                 }
                 sum += ages[i];
             }
-
-            var average = (sum / answers);
+            var sla = zero ? average = (sum / i) : average = (sum / ages.Count);
+            //average = (sum / ages.Count);
             return average;
         }
         public double Exercise5(List<int> womenAge)

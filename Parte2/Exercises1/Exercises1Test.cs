@@ -102,7 +102,7 @@ namespace Exercises1
         [InlineData(new int[3]{4, 6, 8}, 6)]
         [InlineData(new int[2]{4, 6}, 5)]
         [InlineData(new int[4]{1, 2, 3, 4}, 2.5)]
-        [InlineData(new int[4]{1, 2, 0, 4}, 1)]
+        [InlineData(new int[4]{1, 2, 0, 4}, 1.5)]
         public void exercise4(int[] ages, double expected)
         {
             // Dado / Setup
