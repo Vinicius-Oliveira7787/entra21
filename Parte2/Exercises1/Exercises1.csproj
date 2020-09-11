@@ -2,8 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Entra21_2</RootNamespace>
-    <!-- <StartupObject>Entra21_2.Program</StartupObject> -->
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
