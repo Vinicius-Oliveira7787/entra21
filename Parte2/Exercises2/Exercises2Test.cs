@@ -21,6 +21,7 @@ namespace Exercises2
 
             Assert.Equal(expectedOutput, returnedValues);
         }
+        
         [Fact]
         public void ExerciseArrays1Q2()
         {
@@ -38,6 +39,7 @@ namespace Exercises2
             Assert.Equal(ordemDireta, returnedValuesDireto);
             Assert.Equal(ordemInversa, returnedValuesInverso);
         }   
+        
         [Fact]
         public void ExerciseArrays1Q3()
         {
@@ -55,6 +57,7 @@ namespace Exercises2
             Assert.Equal(expectedOutputTrue, returnedAnswerTrue);
             Assert.Equal(expectedOutputFalse, returnedAnswerFalse);
         }    
+        
         [Fact]
         public void ExerciseArrays1Q4()
         {
@@ -71,6 +74,7 @@ namespace Exercises2
             Assert.Equal(expectedOutputTrue, returnedAnswerTrue);
             Assert.Equal(expectedOutputFalse, returnedAnswerFalse);
         } 
+        
         [Fact]
         public void ExerciseArrays1Q5()
         {
@@ -84,5 +88,21 @@ namespace Exercises2
 
             Assert.Equal(expectedOutput, returnedAnswer);
         }
+        //[Fact]
+        // public void ExerciseArrays1Q6()
+        // {
+        //     // Dado / Setup
+        //     var exercises = new Program();
+        //     var arrayA = new List<double>(){12, 15, 52, 32};
+        //     var arrayB = new List<double>(){5, 24, 19, 29};
+        //     var arrayC = new List<double>();
+                            
+        //     // Quando / Ação
+        //     string returnedAnswer = exercises.ExerciseArrays1Q6(arrayA, arrayB, arrayC);
+
+        //     string expectedOutput = "2, 0, 2";
+
+        //     Assert.Equal(expectedOutput, returnedAnswer);
+        // }
     }
 }

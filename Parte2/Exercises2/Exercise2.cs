@@ -175,5 +175,32 @@ namespace Exercises2
         var returnedValues = $"{counter.aboveAverage}, {counter.average}, {counter.belowAverage}";
         return returnedValues;
         }
+//         public string ExerciseArrays1Q6(List<double> arrayA, List<double> arrayB, List<double> arrayC)
+//         {
+// // Leia um array A com 12 elementos. Após sua leitura, colocar os seus elementos em ordem crescente. 
+// // Depois ler um array B também com doze elementos, colocar os elementos de B em ordem decrescente. 
+// // Construir um array C, onde cada elemento de C é a soma do elemento correspondente de A com b. 
+// // Colocar em ordem crescente a matriz C e apresentar os seus valores.
+
+//         foreach (var item in arrayA)
+//         {
+//             var temporary = double.MinValue;
+//             for (int i = 0; i < arrayA.Count; i++)
+//             {
+//                 if (item > temporary && item > arrayC[i])
+//                 {
+//                     temporary = arrayC[i];
+//                     arrayC[i] = arrayA[i];
+//                     arrayA[i] = temporary;
+//                 }
+
+//                 if (temporary > item && temporary > arrayC[i])
+//                 {
+//                     double[,] sla = new double[2,3];
+//                     sla[arrayA[i], arrayB[i]; 
+//                 }
+//             }
+//         }
+        
     }
 }

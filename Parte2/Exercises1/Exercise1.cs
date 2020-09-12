@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Exercises1
 {
@@ -58,22 +59,23 @@ namespace Exercises1
         {
 // 4)Calcular a média de idade de uma turma qualquer. 
 // O algoritmo deve parar quando for digitada a idade igual a zero.    
-            double sum = 0;
-            var average = 0.0;
-            var zero = false;
-            int i = 0;
-            for (; i < ages.Count; i++)
-            {
-                if (ages[i] == 0)
-                {
-                    zero = true;
-                    // average = (sum / i);
-                    break;
-                }
-                sum += ages[i];
-            }
-            var sla = zero ? average = (sum / i) : average = (sum / ages.Count);
-            //average = (sum / ages.Count);
+            
+            // double sum = 0;
+            //var zero = false;
+            // int i = 0;
+            
+            // for (; i < ages.Count; i++)
+            // {
+                // if (ages[i] == 0)
+                // {
+                //     zero = true;
+                //     break;
+                // }
+                //sum += ages[i];
+            //}
+            //var average = zero ? sum / i : sum / ages.Count;
+
+            double average = (double)ages.Sum() / ages.Count;
             return average;
         }
         public double Exercise5(List<int> womenAge)
@@ -81,218 +83,80 @@ namespace Exercises1
             //5)Criar um algoritmo que peça o nome e a idade de 5 mulheres. 
             // Após informar estes dados, o programa deve mostrar apenas 
             // porcentagem de mulheres que estão com idade entre 18 e 35. 
-            var sum = 0;
-            var counter = womenAge.Count;
+
+            var count = womenAge.Where(item => item > 17 && item < 36).Count();
+            var percent = (count * 100) / womenAge.Count;
             
-            foreach (var item in womenAge)
-            {
-                if (item > 17 && item < 36)
-                {
-                    sum++;
-                }
-            }
-            
-            var percent = (sum * 100) / counter;
             return percent;
         }
-        public string Exercise6Cadastro()
-        {
-            //6)Criar um algoritmo que simule uma urna eletrônica. 
-            // Esta urna deve possuir dois candidatos e possui três modos. 
-            // O primeiro é o modo de CADASTRO, onde o sistema pergunta o nome de cada um dos dois candidatos. 
-            // Por medidas de segurança, para poder cadastrar um candidato na urna 
-            // o sistema deve solicitar ao usuário a senha para poder ter acesso (a senha do sistema é Pa$$w0rd). 
 
-            var password = "wrong_password";
-            while (password != "Pa$$w0rd")
-            {
-                if (password == "Pa$$w0rd")
-                {
-                    break;
-                }
-                password = "Pa$$w0rd";
-            }
-            return password;
-        }
-        public string Exercise6Votos(List<string> candidatesNames)
+        public string Exercise6(int firstCandidateVotes, int secondCandidateVotes)
         {
-            //List<string> candidatesNames
-            //O segundo modo é o modo de votos, onde o usuário informa 1 para votar no primeiro candidato 
-            // e 2 para votar no segundo candidato. 
-            // O terceiro modo, é o modo de apuração de votos, 
-            // onde o sistema verifica qual candidato tem mais votos. Caso o número de votos seja igual, 
-            // o sistema deve imprimir a mensagem "SEGUNDO TURNO", 
-            // caso contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
-            var firstCandidateVotes = 2;
-            var secondCandidateVotes = 0;
-            // var firstCandidateVotes = 0;
-            // var secondCandidateVotes = 2;
-            var winner = "";
+        //     List<string> candidatesNames
+        //     O segundo modo é o modo de votos, onde o usuário informa 1 para votar no primeiro candidato 
+        //     e 2 para votar no segundo candidato. 
+        //     O terceiro modo, é o modo de apuração de votos, 
+        //     onde o sistema verifica qual candidato tem mais votos. Caso o número de votos seja igual, 
+        //     o sistema deve imprimir a mensagem "SEGUNDO TURNO", 
+        //     caso contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
+        //     var firstCandidateVotes = 2;
+        //     var winner = "";
             
-            if (firstCandidateVotes > secondCandidateVotes)
-            {
-                winner = candidatesNames[0];
-            }
-            if (firstCandidateVotes < secondCandidateVotes)
-            {
-                winner = candidatesNames[1];
-            }
-            return winner;
+        //     if (firstCandidateVotes > secondCandidateVotes)
+        //     {
+        //         winner = candidatesNames[0];
+        //     }
+        //     if (firstCandidateVotes < secondCandidateVotes)
+        //     {
+        //         winner = candidatesNames[1];
+        //     }
+            return "";
         }
-        public string Exercise6SecondTurn(List<string> candidatesNames)
-        {
-            // O terceiro modo, é o modo de apuração de votos, 
-            // onde o sistema verifica qual candidato tem mais votos. Caso o número de votos seja igual, 
-            // o sistema deve imprimir a mensagem "SEGUNDO TURNO", 
-            // caso contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
 
-            var firstCandidateVotes = 2;
-            var secondCandidateVotes = 2;
-            var winner = "";
-            
-            if (firstCandidateVotes > secondCandidateVotes)
-            {
-                winner = candidatesNames[0];
-            }
-            else if (firstCandidateVotes < secondCandidateVotes)
-            {
-                winner = candidatesNames[1];
-            }
-            else if(firstCandidateVotes == secondCandidateVotes)
-            {
-                winner = "SEGUNDO TURNO";
-            }
-            return winner;
-        }
-        public double Exercise7()
+        public double Exercise7(int years, double perDay, double price)
         {
-        // 7)Calcular a quantidade de dinheiro gasta por um fumante. 
-        // Dados: o número de anos que ele fuma, o nº de cigarros fumados por dia e o preço de uma carteira.
-        var years = 2 * 365;
-        var cigarreteDays = 7;
-        var boxPrice = 2.30;
+// Calcular a quantidade de dinheiro gasta por um fumante. 
+// Dados: o número de anos que ele fuma, o nº de cigarros fumados por dia e o preço de uma carteira.
         
-        var spentAverage = years * cigarreteDays * boxPrice;
+        //var years = 2 * 365; //2 anos vezes 365 dias=1ano
+        //var cigarreteDays = 7;
+        //var boxPrice = 2.30;
+        
+        var spentAverage = (years * 365) * perDay * price;
         return spentAverage;
         }
-        public string Exercise8True()
+        public string Exercise8(int x, int y)
         {
-            int x = 6;
-            int y = 3;
-            string k = "";
-            if (x % y == 0)
-            {
-            k = "multiplo";
-            }
-            return k;
+// Ler dois números inteiros, X e Y, e apresentar mensagem informando se o X é múltiplo de Y.
+            var result = x % y == 0 ? "multiple" : "not multiple";
+            return result;
         }
-        public string Exercise8False()
-        {
-            int x = 3;
-            int y = 6;
-            string k = "";
-
-            if (x % y != 0)
-            {
-                k = "não é multiplo";
-            }
-            return k;
-        }
-        public string Exercise9True()
+        public string Exercise9(double firstNumber, double secondNumber, double thirdNumber)
         {
             // 9)Fazer um algoritmo para ler 03 números reais do teclado e verificar 
             // se o primeiro é maior que a soma dos outros dois.
 
-            var firstNumber = 8;
-            var secondNumber = 10;
-            var thirdNumber = 1;
             var biggestNumber = "";
             var sum = firstNumber + thirdNumber;
 
             if (secondNumber > sum)
             {
-                biggestNumber += "is bigger";
-            }
-            return biggestNumber;
-        }
-        public string Exercise9False()
-        {
-            // 9)Fazer um algoritmo para ler 03 números reais do teclado e verificar 
-            // se o primeiro é maior que a soma dos outros dois.
-
-            var firstNumber = 8;
-            var secondNumber = 10;
-            var thirdNumber = 3;
-            var biggestNumber = "";
-            var sum = firstNumber + thirdNumber;
-
-            if (secondNumber > sum)
-            {
-                biggestNumber += "is bigger";
-            }
-            else if(secondNumber < sum)
-            {
-                biggestNumber += "isn't bigger";
-            }
-            return biggestNumber;
-        }
-        public string Exercise9Equal()
-        {
-            // 9)Fazer um algoritmo para ler 03 números reais do teclado e verificar 
-            // se o primeiro é maior que a soma dos outros dois.
-
-            var firstNumber = 8;
-            var secondNumber = 10;
-            var thirdNumber = 2;
-            var biggestNumber = "";
-            var sum = firstNumber + thirdNumber;
-
-            if (secondNumber > sum)
-            {
-                biggestNumber += "is bigger";
+                biggestNumber = "is bigger";
             }
             else if (secondNumber < sum)
             {
-                biggestNumber += "isn't bigger";
+                biggestNumber = "isn't bigger";
             }
             else if (secondNumber == sum)
             {
-                biggestNumber += "equal";
+                biggestNumber = "equal";
                 
             }
             return biggestNumber;
         }
-        public string Exercise10FirstNumberBigger() 
+        public string Exercise10(double firstNumber, double secondNumber) 
         {
             var biggestNumber = "";
-            var firstNumber = 50;
-            var secondNumber = 49;
-            if (firstNumber > secondNumber)
-            {
-                biggestNumber += "FirstNumber is bigger";
-            }
-            return biggestNumber;
-        }
-        public string Exercise10SecondNumberBigger() 
-        {
-            var biggestNumber = "";
-            var firstNumber = 4562124;
-            var secondNumber = 24134652;
-            if (firstNumber > secondNumber)
-            {
-                biggestNumber += "FirstNumber is bigger";
-            }
-            if (firstNumber < secondNumber)
-            {
-                biggestNumber += "SecondNumber is bigger";
-            }
-            return biggestNumber;
-        }
-        public string Exercise10Equal() 
-        {
-            var biggestNumber = "";
-            var firstNumber = 50;
-            var secondNumber = 50;
             if (firstNumber > secondNumber)
             {
                 biggestNumber += "FirstNumber is bigger";
@@ -307,39 +171,23 @@ namespace Exercises1
             }
             return biggestNumber;
         }
-        public double Exercise11()
+        public string Exercise11(double firstNumber, double secondNumber)
         {
         // 11)Ler 02 números inteiros do teclado. Se o segundo for diferente de zero, 
         // calcular e imprimir o quociente do primeiro pelo segundo. Caso contrário, 
         // imprimir a mensagem: "DIVISÃO POR ZERO".
 
-        var firstAndSecondNumer = new List<double>(){10, 5};
-        var returnedResult = firstAndSecondNumer[0] / firstAndSecondNumer[1];
+var returnedResult = firstNumber != 0 && secondNumber != 0 ? $"{firstNumber / secondNumber}" : "DIVISÃO POR ZERO";
 
         return returnedResult;
         }
-        public string Exercise11ButIsDivisionByZero()
-        {
-
-        var firstAndSecondNumer = new List<double>(){10, 0};
-        var returnedResult = "";
-        for (int i = 0; i < firstAndSecondNumer.Count; i++)
-        {
-            if (firstAndSecondNumer[i] == 0)
-            {
-                returnedResult = "DIVISÃO POR ZERO";
-            }
-        }
-        return returnedResult;
-        }
-        public int Exercise12()
+        public double Exercise12(List<int> numbers)
         {
             //12)Ler 4 números inteiros e calcular a soma dos que forem pares.
 
-            var fourNumber = new List<int>(){1,2,3,4};
-            var sum = 0;
+            var sum = 0.0;
 
-            foreach (var item in fourNumber)
+            foreach (var item in numbers)
             {
                 if (item % 2 == 0)
                 {
@@ -348,11 +196,10 @@ namespace Exercises1
             }
             return sum;
         }
-        public double Exercise13()
+        public double Exercise13(List<double> numbers)
         {
-
-        var numbers = new List<double>(){1,2,3,4,5,6,7,8,9,10};
-        var biggestNumber = 0.0;
+//Ler 10 valores e determinar o maior dentre eles.            
+        var biggestNumber = double.MinValue;
 
         foreach (var item in numbers)
         {
@@ -395,24 +242,25 @@ namespace Exercises1
         }
         public string Exercise15(List<double> numbers)
         {
-        //15)Ler 10 números e imprimir quantos são múltiplos de 3 e quantos são múltiplos de 5.
-        var numbersMultipleByFive = 0;
-        var numbersMultipleByThree = 0;
-        foreach (var item in numbers)
-        {
-            if (item % 5 == 0)
+            //15)Ler 10 números e imprimir quantos são múltiplos de 3 e quantos são múltiplos de 5.
+            var numbersMultipleByFive = 0;
+            var numbersMultipleByThree = 0;
+            foreach (var item in numbers)
             {
-                numbersMultipleByFive++;
+                if (item % 5 == 0)
+                {
+                    numbersMultipleByFive++;
+                }
+                
+                if (item % 3 == 0)
+                {
+                    numbersMultipleByThree++;
+                }
             }
-            if (item % 3 == 0)
-            {
-                numbersMultipleByThree++;
-            }
+            var finalResult = $"{numbersMultipleByThree},{numbersMultipleByFive}";
+            return finalResult;
         }
-        var finalResult = $"{numbersMultipleByThree},{numbersMultipleByFive}";
-        return finalResult;
-        }
-        public string Exercise16(List<double> Salary)
+        public string Exercise16(double salary)
         {
         // 16)Ler o salário de uma pessoa e imprimir o Salário Líquido de acordo com a redução do imposto descrito ao lado:
         // Menor ou igual a R$ 600,00 - ISENTO
@@ -421,71 +269,60 @@ namespace Exercises1
         // Maior que R$ 2.000,00 - 30% desconto
         var returnedSalaryDiscount = "";
 
-        for (int i = 0; i < Salary.Count; i++)
+        if (salary <= 600)
         {
-            if (Salary[i] <= 600)
-            {
-                returnedSalaryDiscount += $"ISENTO,";    
-                continue;
-            }
+            returnedSalaryDiscount = $"ISENTO = {salary}";    
+        }
 
-            if(Salary[i] > 600 && Salary[i] < 1200)
-            {
-                //returnedSalaryDiscount += $"{Salary[i] * 0.80}";
-                returnedSalaryDiscount += " 20%,";
-                continue;
-            }
+        else if(salary > 600 && salary < 1200)
+        {
+            returnedSalaryDiscount += $"20% = {salary * 0.80}";
+        }
 
-            if(Salary[i] > 1200 && Salary[i] < 2000)
-            {
-                returnedSalaryDiscount += " 25%,";
-                continue;
-            }
+        else if(salary > 1200 && salary < 2000)
+        {
+            returnedSalaryDiscount += $"25% = {salary * 0.75}";
+        }
 
-            if(Salary[i] > 2000)
-            {
-                returnedSalaryDiscount += " 30%";
-            }
+        else if(salary > 2000)
+        {
+            returnedSalaryDiscount += $"30% = {salary * 0.70}";
         }
 
         return returnedSalaryDiscount;
         }
-        public List<double> Exercise17(List<int> tabuada)
+        public int[] Exercise17(int tabuada)
         {
 //17)Imprimir a tabuada de qualquer número fornecido pelo usuário até que o usuário forneça o valor –1.
 
-        var returnoTabuada = new List<double>();
-        foreach (var item in tabuada)
+        var returnoTabuada = new int[10];
+    
+        for (int i = 0; i < returnoTabuada.Length; i++)
         {
-            for (int i = 1; i < 11; i++)
-            {
-                var temporary = item * i;
-                returnoTabuada.Add(temporary);
-            }
+            returnoTabuada[i] = (tabuada * (i + 1));
         }
             return returnoTabuada;
         }
-        public List<string> Exercise18(List<double> apples)
+        public string Exercise18(int apples)
         {
-        // 18)As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia, 
-        // e R$ 1,00 se forem compradas pelo menos 12. 
-        // Escreva um programa que leia o número de maçãs compradas, calcule e
-        // escreva o custo total da compra. 
-        (double menosDeUmaDuzia, double maisDeUmaDuzia) apple = (1.30, 1.00);
-        var answers = new List<string>();
+// 18)As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia, 
+// e R$ 1,00 se forem compradas pelo menos 12. 
+// Escreva um programa que leia o número de maçãs compradas, calcule e
+// escreva o custo total da compra. 
+        
+        //mudar para constante
+        
+            (double lessThenTwelve, double moreThenTwelve) apple = (1.30, 1.00);
+            if (apples > 0)
+            {
+                return apples >= 12 ? $"R${apples * apple.moreThenTwelve}" : $"R${apples * apple.lessThenTwelve}";
+            }   
+            else
+            {
+                return "número de maçãs inválido!";
+            }     
+//var returnedApples = apples > 0 ? apple.answers = apples >= 12 ? $"R${apples * apple.moreThenTwelve}" : $"R${apples * apple.lessThenTwelve}" : "número de maçãs inválido!";
 
-        foreach (var item in apples)
-        {
-            if (item >= 12)
-            {
-                answers.Add($"R${item * apple.maisDeUmaDuzia}");
-            }
-            if (item < 12)
-            {
-                answers.Add($"R${item * apple.menosDeUmaDuzia}");
-            }
-        }
-        return answers;
         }
     }
 }

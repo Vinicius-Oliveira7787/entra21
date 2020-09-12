@@ -1,0 +1,37 @@
+// Assert.Collection(
+// returnedValues,
+// item1 => { Assert.Equal(tabuada[i] * i, item1); },
+// item2 => { Assert.Equal(tabuada[i] * i, item2); },
+// item3 => { Assert.Equal(tabuada[i] * i, item3); },
+// item4 => { Assert.Equal(tabuada[i] * i, item4); },
+// item5 => { Assert.Equal(tabuada[i] * i, item5); },
+// item6 => { Assert.Equal(tabuada[i] * i, item6); },
+// item7 => { Assert.Equal(tabuada[i] * i, item7); },
+// item8 => { Assert.Equal(tabuada[i] * i, item8); },
+// item9 => { Assert.Equal(tabuada[i] * i, item9); },
+// item10 => { Assert.Equal(tabuada[i] * i, item10); });
+
+1ª PARTE
+
+1- Solicite ao usuário que informe quantas horas e minutos ele trabalha por dia e qual o valor/hora de seu serviço. Imprima quanto dinheiro ele ganha ao longo de um dia trabalhado. A mensagem impressa ao usuário deve ter, no máximo, duas casas após a vírgula. (1p)
+
+2- Solicite ao usuário que informe uma palavra qualquer, porém ele deve digitar uma letra por vez. Quando o usuário informar a palavra “Finalizar”, a aplicação deve apresentar a palavra inteira. (1p)
+
+3- Solicite para 5 usuários que informem seus nomes e se são solteiros. Ao final apresente o nome de todos os usuários solteiros. (1p)
+
+4- Solicite ao usuário seu ano de nascimento e imprima se ele é ou não maior de idade. Caso o usuário digite um valor inválido, a aplicação deve pedir que ele digite novamente. (1p)
+
+2ª PARTE
+
+5- Solicite ao usuário que informe 5 números e armazene em um array. Toda vez que o usuário digitar um valor inválido, a aplicação deverá armazenas “null” no índice correspondente. Ao final, imprimir apenas os números válidos. (1p)
+
+6- Calcule e apresente a média salarial dos funcionários de uma empresa qualquer. A aplicação será encerrada quando o usuário digitar a palavra "calcular". Caso o usuário digite um valor negativo então a aplicação deve pedir seu salário novamente. (1.5p)
+
+7- Pergunte para 5 usuários a UF que representa o estado onde ele nasceu. A aplicação deverá mostrar uma lista com todas as opções para o usuário, e cada uma deve conter um ID numérico, o usuário digitará o número que representa sua UF. Ao final a aplicação deverá mostrar a porcentagem de usuários que nasceram em Santa Catarina. (1.5p)
+
+8- Solicite ao usuário que digite o nome dos alunos das turmas Matutino e Vespertino. 
+Cada turma possui 5 alunos. Armazene os nomes em dois arrays distintos de forma alternada, 
+ou seja, o primeiro nome deve ser armazenado no array da Matutino, o segundo nome deve ser armazenado 
+no array da Turma Vespertino, assim por diante. Ao final imprima apenas os nomes dos alunos 
+que estão estudando em período integral. Caso nenhum aluno esteja cadastrado em ambas as turmas, 
+imprimir a mensagem “todos os alunos estudam em meio período”. (2p)

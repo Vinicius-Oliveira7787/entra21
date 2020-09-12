@@ -24,8 +24,10 @@ namespace Exercises1
 
             Assert.Equal(expected, result);
         }
-        [Fact]
-        public void exercise1C_should_return_an_array_from_1_to_10_only_pairs()
+        
+        [Theory]
+        [InlineData(new int[5]{2,4,6,8,10})]
+        public void exercise1C_should_return_an_array_from_1_to_10_only_pairs(int[] expected)
         {
             // Dado que a aplicação está preparada. Quando o usuário chamar o exercício 1c,
             // então a aplicação deverá retornar os números de 1 a 10, mas somente os pares
@@ -37,27 +39,17 @@ namespace Exercises1
             int[] returnedValues = exercises.Exercise1C();
 
             // Deve / Asserções
-            var expectedOutput = new int[5]
-            {
-                2,4,6,8,10
-            };
-            //var expectedOutput = new int[]
-            //{
-            //1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47
-            //49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85,87,89,91,93,95,97,99,101,103,105,
-            //107,109,111,113,115,117,119,121,123,125,127,129,131,133,135,137,139,141,143,145,147,149,151,153,155,157,
-            //159,161,163,165,167,169,171,173,175,177,179,181,183,185,187,189,191,193,195,197,199
-            //}
-
             Assert.Equal(5, returnedValues.Length);
 
-            for (int i = 0; i < expectedOutput.Length; i++)
+            for (int i = 0; i < expected.Length; i++)
             {
-                Assert.Equal(expectedOutput[i], returnedValues[i]);
+                Assert.Equal(expected[i], returnedValues[i]);
             }
         }
-        [Fact]
-        public void exercise2_should_return_5050_the_final_result_from_the_sum_between_1_to_100()
+        
+        [Theory]
+        [InlineData(5050)]
+        public void exercise2(double expected)
         {
             // Dado / Setup
             var exercises = new Program();
@@ -66,10 +58,9 @@ namespace Exercises1
             int returnedValues = exercises.Exercise2();
 
             // Deve / Asserções
-           int expectedOutput = 5050;
-           
-           Assert.Equal(expectedOutput, returnedValues);
+           Assert.Equal(expected, returnedValues);
         }
+        
         [Fact]
         public void exercise3_should_return_an_array_from_1_to_200_only_odd()
         {
@@ -98,11 +89,13 @@ namespace Exercises1
                 Assert.Equal(expectedOutput[i], returnedValues[i]);
             }
         }
+        
         [Theory]
         [InlineData(new int[3]{4, 6, 8}, 6)]
         [InlineData(new int[2]{4, 6}, 5)]
         [InlineData(new int[4]{1, 2, 3, 4}, 2.5)]
-        [InlineData(new int[4]{1, 2, 0, 4}, 1.5)]
+        [InlineData(new int[2]{-15, -15}, -15)]
+        //[InlineData(new int[4]{1, 2, 0, 4}, 1.5)]
         public void exercise4(int[] ages, double expected)
         {
             // Dado / Setup
@@ -114,247 +107,238 @@ namespace Exercises1
             //deve / asserções
             Assert.Equal(expected, returnedValues);
         }
-        [Fact]
-        public void exercise5_should_60_percent_when_passed_18_23_and_24()
+        
+        [Theory]
+        [InlineData(new int[3]{18, 23, 24}, 100)]
+        [InlineData(new int[5]{17, 22, 91, 32, 35}, 60)]
+        [InlineData(new int[4]{1, 2, 3, 4}, 0)]
+        [InlineData(new int[2]{18, 17}, 50)]
+        public void exercise5(int[] ages, double expected)
         {
             // Dado / Setup
             var exercises = new Program();
             
-            var myList = new List<int>() {18, 23, 17, 36, 24};
-
             // Quando / Ação
-            double returnedValues = exercises.Exercise5(myList);
+            double returnedValues = exercises.Exercise5(ages.ToList());
 
             // Deve / Asserções
-            var expectedOutput = 60;
-
-            Assert.Equal(expectedOutput, returnedValues);
+            Assert.Equal(expected, returnedValues);
         }
-        [Fact]
-        public void exercise6()
+        // [Theory]
+        // [InlineData(2, 0)]
+        // public void exercise6(int firstCandidateVotes, int secondCandidateVotes, string expected)
+        // {
+        //     // Dado / Setup
+        //     var exercises = new Program();
+            
+
+        //     // Quando / Ação
+        //     //string returned = exercises.Exercise6();
+
+        //     // Deve / Asserções
+
+        //     //Assert.Equal(expected, returned);
+        // }
+        [Theory]
+        [InlineData(1, 3, 3.99, 4369.05)]
+        [InlineData(2, 7, 2.30, 11753)]
+        [InlineData(1, 1, 12.00, 4380)]
+        [InlineData(2, 2.5, 1.30, 2372.5)]
+        public void exercise7(int years, double perDay, double price, double expected)
         {
             // Dado / Setup
             var exercises = new Program();
             
-            var candidates = new List<string>() {"Superman", "Batman"};
-
             // Quando / Ação
-            string returnedPassword = exercises.Exercise6Cadastro();
-            string returnedVotes = exercises.Exercise6Votos(candidates);
-            string returnedVotesSecondTurn = exercises.Exercise6SecondTurn(candidates);
+            double returnedExercise = exercises.Exercise7(years, perDay, price);
 
             // Deve / Asserções
-            var expectedOutput = "Pa$$w0rd";
-            var espectedWinner = "Superman";
-            //var espectedWinner = "Batman";
-            var espectedSecondTurn = "SEGUNDO TURNO";
-
-            Assert.Equal(expectedOutput, returnedPassword);
-            Assert.Equal(espectedWinner, returnedVotes);
-            Assert.Equal(espectedSecondTurn, returnedVotesSecondTurn);
+            Assert.Equal(expected, returnedExercise);
         }
-        [Fact]
-        public void exercise7_should_return_11753()
+        [Theory]
+        [InlineData(6, 3, "multiple")]
+        [InlineData(-6, -3, "multiple")]
+        [InlineData(3, 6, "not multiple")]
+        [InlineData(1, 1, "multiple")]
+        [InlineData(1.30, 2.30, "not multiple")]
+        public void exercise8(int firstNumber, int secondNumber, string expected)
         {
             // Dado / Setup
             var exercises = new Program();
-            
+
             // Quando / Ação
-            double returnedExercise = exercises.Exercise7();
+            string returnedValues = exercises.Exercise8(firstNumber, secondNumber);
 
             // Deve / Asserções
-            var expectedOutput = 11753;
-
-            Assert.Equal(expectedOutput, returnedExercise);
+            Assert.Equal(expected, returnedValues);
         }
-        [Fact]
-        public void exercise8_read_two_numbers_X_Y_and_show_the_message_if_X_is_multiple_of_Y()
+        [Theory]
+        [InlineData(8, 10, 1, "is bigger")]
+        [InlineData(8, 10, 3, "isn't bigger")]
+        [InlineData(8, 10, 2, "equal")]
+        [InlineData(1.30, 2.30, 0.50,"is bigger")]
+        [InlineData(-2.30, -1.30, -0.50,"is bigger")]
+        public void exercise9(double firstNumber, double secondNumber, double thridNumber, string expected)
         {
             // Dado / Setup
             var exercises = new Program();
 
             // Quando / Ação
-            string returnedValuesTrue = exercises.Exercise8True();
-            string returnedValuesFalse = exercises.Exercise8False();
+            string returnedValues = exercises.Exercise9(firstNumber, secondNumber, thridNumber);
 
             // Deve / Asserções
-            var expectedOutputTrue = "multiplo";
-            var expectedOutputFalse = "não é multiplo";
-
-            Assert.Equal(expectedOutputTrue, returnedValuesTrue);
-            Assert.Equal(expectedOutputFalse, returnedValuesFalse);
+            Assert.Equal(expected, returnedValues);
         }
-        [Fact]
-        public void exercise9_read_three_numbers_and_check_if_the_firstNumber_is_bigger_then_the_sum_of_the_other_ones()
+        [Theory]
+        [InlineData(4646, 3410, "FirstNumber is bigger")]
+        [InlineData(-12, -8, "SecondNumber is bigger")]
+        [InlineData(10.30, 10.30, "They are equal")]
+        public void exercise10(double firstNumber, double secondNumber, string expected)
         {
+//10)Ler 02 números reais do teclado (A e B), verificar e imprimir qual deles é maior, 
+//ou a mensagem "A = B" caso sejam iguais.
+            
             // Dado / Setup
             var exercises = new Program();
 
             // Quando / Ação
-            string returnedValuesTrue = exercises.Exercise9True();
-            string returnedValuesFalse = exercises.Exercise9False();
-            string returnedValuesEqual = exercises.Exercise9Equal();
-            
+            string returnedValue = exercises.Exercise10(firstNumber, secondNumber);
 
             // Deve / Asserções
-            var expectedOutputTrue = "is bigger";
-            var expectedOutputFalse = "isn't bigger";
-            var expectedOutputEqual = "equal";
-
-            Assert.Equal(expectedOutputTrue, returnedValuesTrue);
-            Assert.Equal(expectedOutputFalse, returnedValuesFalse);
-            Assert.Equal(expectedOutputEqual, returnedValuesEqual);
+            Assert.Equal(expected, returnedValue);
         }
-        [Fact]
-        public void exercise10_compare_two_numbers_and_check_who_is_the_bigger_one_or_if_they_are_equal()
-        {
-            //10)Ler 02 números reais do teclado (A e B), verificar e imprimir qual deles é maior, 
-            //ou a mensagem "A = B" caso sejam iguais.
-            // Dado / Setup
-            var exercises = new Program();
-
-            // Quando / Ação
-            string returnedValueFirstNumberBigger = exercises.Exercise10FirstNumberBigger();
-            string returnedValueSecondNumberBigger = exercises.Exercise10SecondNumberBigger();
-            string returnedValueTheyAreEqual = exercises.Exercise10Equal();
-
-            string expectedOutputFirstNumberBigger = "FirstNumber is bigger";
-            string expectedOutputSecondNumberBigger = "SecondNumber is bigger";
-            string expectedOutputTheyAreEqual = "They are equal";
-            
-            Assert.Equal(expectedOutputFirstNumberBigger, returnedValueFirstNumberBigger);
-            Assert.Equal(expectedOutputSecondNumberBigger, returnedValueSecondNumberBigger);
-            Assert.Equal(expectedOutputTheyAreEqual, returnedValueTheyAreEqual);
-        }
-        [Fact]
-        public void exercise11()
+        [Theory]
+        [InlineData(10, 5, "2")]
+        [InlineData(-10, -5, "2")]
+        [InlineData(12, 0, "DIVISÃO POR ZERO")]
+        [InlineData(12.5, 8.5, "1,4705882352941178")]
+        public void exercise11(double firstNumber, double secondNumber, string expected)
         {
             // Dado / Setup
             var exercises = new Program();
 
             // Quando / Ação
-            double returnedValue = exercises.Exercise11();
-            string returnedValueDivisionByZero = exercises.Exercise11ButIsDivisionByZero();
+            string returnedValue = exercises.Exercise11(firstNumber, secondNumber);
 
-            double expectedOutput = 2;
-            string expectedOutputDivisionByZero = "DIVISÃO POR ZERP";
-            
-            Assert.Equal(expectedOutput, returnedValue);
-            Assert.Equal(expectedOutputDivisionByZero, expectedOutputDivisionByZero);
+            // Deve / Asserções
+            Assert.Equal(expected, returnedValue);
         }   
-        [Fact]
-        public void exercise12()
+        [Theory]
+        [InlineData(new int[4]{1, 2, 3, 4}, 6)]
+        [InlineData(new int[3]{18, 23, 24}, 42)]
+        [InlineData(new int[5]{17, 22, 91, 32, 35}, 54)]
+        [InlineData(new int[2]{18, 17}, 18)]
+        public void exercise12(int[] numbers, double expected)
         {
             // Dado / Setup
             var exercises = new Program();
 
             // Quando / Ação
-            double returnedValue = exercises.Exercise12();
-
-            double expectedOutput = 6;
+            double returnedValue = exercises.Exercise12(numbers.ToList());
             
-            Assert.Equal(expectedOutput, returnedValue);
+            // Deve / Asserções
+            Assert.Equal(expected, returnedValue);
         }   
-        [Fact]
-        public void exercise13()
+        [Theory]
+        [InlineData(new double[10]{1,2,3,4,5,6,7,8,9,10}, 10)]
+        [InlineData(new double[3]{18, 23, 24}, 24)]
+        [InlineData(new double[5]{17, 22, 91, 91.1, 35}, 91.1)]
+        [InlineData(new double[2]{-18, -17}, -17)]
+        public void exercise13(double[] numbers, double expected)
         {
             // Dado / Setup
             var exercises = new Program();
 
             // Quando / Ação
-            double returnedValue = exercises.Exercise13();
+            double returnedValue = exercises.Exercise13(numbers.ToList());
 
-            double expectedOutput = 10;
-            
-            Assert.Equal(expectedOutput, returnedValue);
+            // Deve / Asserções
+            Assert.Equal(expected, returnedValue);
         }   
-        [Fact]
-        public void exercise14()
+        [Theory]
+        [InlineData(28, 1, 17, "1,17,28")]
+        [InlineData(-32, -13, -24, "-32,-24,-13")]
+        [InlineData(9.99, 5.65, -17, "-17,5,65,9,99")]
+        public void exercise14(double firstNumber, double secondNumber, double thridNumber, string expected)
         {
             // Dado / Setup
             var exercises = new Program();
-            double firstNumber = 28;
-            double secondNumber = 1;
-            double thridNumber = 17;
 
             // Quando / Ação
             string returnedValue = exercises.Exercise14(firstNumber, secondNumber, thridNumber);
 
-            string expectedOutput = "1,17,28";
-            
-            Assert.Equal(expectedOutput, returnedValue);
+            // Deve / Asserções
+            Assert.Equal(expected, returnedValue);
         }   
-        [Fact]
-        public void exercise15()
+        [Theory]
+        [InlineData(new double[10]{5, 9.99, 18, 10, 9, 69, 6, 24, 9, 39}, "7,2")]
+        [InlineData(new double[5]{18, 23, -24, -25, -50}, "2,2")]
+        [InlineData(new double[3]{17.5, 22.35, 12.50}, "0,0")]
+        public void exercise15(double[] numbers, string expected)
         {
             // Dado / Setup
             var exercises = new Program();
-            var numbers = new List<double>(10){5, 9.99, 18, 10, 9, 69, 6, 24, 9, 39};
                             
             // Quando / Ação
-            string returnedValue = exercises.Exercise15(numbers);
+            string returnedValue = exercises.Exercise15(numbers.ToList());
 
-            string expectedOutput = "7,2";
-            
-            Assert.Equal(expectedOutput, returnedValue);
+            // Deve / Asserções
+            Assert.Equal(expected, returnedValue);
         }
-        [Fact]
-        public void exercise16()
+        [Theory]
+        [InlineData(560, "ISENTO = 560")]
+        [InlineData(700, "20% = 560")]
+        [InlineData(1800, "25% = 1350")]
+        [InlineData(10000, "30% = 7000")]
+        public void exercise16(double salary, string expected)
         {
             // Dado / Setup
             var exercises = new Program();
-            var salary = new List<double>(){600, 975, 1400, 5000};
                             
             // Quando / Ação
             string returnedValue = exercises.Exercise16(salary);
 
-            string expectedOutput = "ISENTO, 20%, 25%, 30%";
-            
-            Assert.Equal(expectedOutput, returnedValue);
+            // Deve / Asserções
+            Assert.Equal(expected, returnedValue);
         }   
-        [Fact]
-        public void exercise17()
+        [Theory]
+        [InlineData(1, new int[10]{1,2,3,4,5,6,7,8,9,10})]
+        [InlineData(2, new int[10]{2,4,6,8,10,12,14,16,18,20})]
+        [InlineData(3, new int[10]{3,6,9,12,15,18,21,24,27,30})]
+        [InlineData(4, new int[10]{4,8,12,16,20,24,28,32,36,40})]
+        [InlineData(5, new int[10]{5,10,15,20,25,30,35,40,45,50})]
+        [InlineData(6, new int[10]{6,12,18,24,30,36,42,48,54,60})]
+        [InlineData(7, new int[10]{7,14,21,28,35,42,49,56,63,70})]
+        [InlineData(8, new int[10]{8,16,24,32,40,48,56,64,72,80})]
+        [InlineData(9, new int[10]{9,18,27,36,45,54,63,72,81,90})]
+        [InlineData(10, new int[10]{10,20,30,40,50,60,70,80,90,100})]
+        public void exercise17(int tabuada, int[] expected)
         {
-                //     Assert.Collection(
-                // returnedValues,
-                // item1 => { Assert.Equal(tabuada[i] * i, item1); },
-                // item2 => { Assert.Equal(tabuada[i] * i, item2); },
-                // item3 => { Assert.Equal(tabuada[i] * i, item3); },
-                // item4 => { Assert.Equal(tabuada[i] * i, item4); },
-                // item5 => { Assert.Equal(tabuada[i] * i, item5); },
-                // item6 => { Assert.Equal(tabuada[i] * i, item6); },
-                // item7 => { Assert.Equal(tabuada[i] * i, item7); },
-                // item8 => { Assert.Equal(tabuada[i] * i, item8); },
-                // item9 => { Assert.Equal(tabuada[i] * i, item9); },
-                // item10 => { Assert.Equal(tabuada[i] * i, item10); });
+        
             // Dado / Setup
             var exercises = new Program();
-            var tabuada = new List<int>(){1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            //var tabuada = new List<int>(){1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
                             
             // Quando / Ação
-            List<double> returnedValues = exercises.Exercise17(tabuada);
-
-            var expectedOutput = new List<double>()
-            {
-                1,2,3,4,5,6,7,8,9,10,2,4,6,8,10,12,14,16,18,20,3,6,9,12,15,18,21,24,27,30,4,8,12,16,20,24,28,32,36,40,5,10,15,20,25,30,35,40,45,50,6,12,18,24,30,36,42,48,54,60,7,14,21,28,35,42,49,56,63,70,8,16,24,32,40,48,56,64,72,80,9,18,27,36,45,54,63,72,81,90,10,20,30,40,50,60,70,80,90,100
-            };
-           
-            Assert.Equal(expectedOutput, returnedValues);
+            int[] returnedValues = exercises.Exercise17(tabuada);
+            
+            // Deve / Asserções
+            Assert.Equal(expected, returnedValues);
         }
-        [Fact]
-        public void exercise18()
+        [Theory]
+        [InlineData(12, "R$12")]
+        [InlineData(11, "R$14,3")]
+        [InlineData(-1, "número de maçãs inválido!")]
+        public void exercise18(int apples, string expected)
         {
-
             // Dado / Setup
             var exercises = new Program();
-            var appleList = new List<double>(){12, 24, 10};
                             
             // Quando / Ação
-            List<string> returnedValues = exercises.Exercise18(appleList);
+            string returnedValues = exercises.Exercise18(apples);
 
-            var expectedOutput = new List<string>(){"R$12", "R$24", "R$13"};
-
-            Assert.Equal(expectedOutput, returnedValues);
+            // Deve / Asserções
+            Assert.Equal(expected, returnedValues);
         }
     }
 }
