@@ -100,8 +100,6 @@ namespace Exercises2
         //     // Quando / Ação
         //     string returnedAnswer = exercises.ExerciseArrays1Q6(arrayA, arrayB, arrayC);
 
-        //     string expectedOutput = "2, 0, 2";
-
         //     Assert.Equal(expectedOutput, returnedAnswer);
         // }
     }
