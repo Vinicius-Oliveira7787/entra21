@@ -290,7 +290,6 @@ namespace Exercises1
             {
                 return "número de maçãs inválido!";
             }     
-            //var returnedApples = apples > 0 ? apple.answers = apples >= 12 ? $"R${apples * apple.moreThenTwelve}" : $"R${apples * apple.lessThenTwelve}" : "número de maçãs inválido!";
         }
     }
 }
