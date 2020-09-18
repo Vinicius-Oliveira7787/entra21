@@ -125,7 +125,7 @@ namespace prova
         } 
 
         [Theory]
-        [InlineData(new string[5]{"Vinicius", "Ruan", "Rodrigo", "Bolsonaro","Trump"}, new string[5]{"Isabelle","Rilary","Gabriele","Patricia","Tatiane"}, new string[1]{"todos os alunos estudam em meio período"})]
+        [InlineData(new string[5]{"Vinicius", "Ruan", "Rodrigo", "Bolsonaro","Trump"}, new string[5]{"Isabelle","juliana","Gabriele","Patricia","Tatiane"}, new string[1]{"todos os alunos estudam em meio período"})]
         [InlineData(new string[8]{"Simlar", "Leo <3", "Guilherme", "Iago", "marcos", "Max", "Thiago", "Matheus"}, new string[8]{"Simlar", "Leo <3", "Guilherme", "Iago", "marcos", "Max", "Thiago", "Matheus"}, new string[8]{"Simlar", "Leo <3", "Guilherme", "Iago", "marcos", "Max", "Thiago", "Matheus"})]
         [InlineData(new string[2]{"Shaun", "Jesus"}, new string[2]{"Shaun", "C#"}, new string[1]{"Shaun"})]
         public void abc(string[] morningClass, string[] afternoonClass, string[] expected)

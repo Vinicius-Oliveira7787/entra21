@@ -74,15 +74,13 @@ namespace Exercises1
             int[] returnedValues = exercises.Exercise3();
 
             // Deve / Asserções
-            var expectedOutput = new int[]
+            var expectedOutput = new int[100]
             {
             1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47,
             49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85,87,89,91,93,95,97,99,101,103,105,
             107,109,111,113,115,117,119,121,123,125,127,129,131,133,135,137,139,141,143,145,147,149,151,153,155,157,
             159,161,163,165,167,169,171,173,175,177,179,181,183,185,187,189,191,193,195,197,199
             };
-
-            Assert.Equal(199, returnedValues.Length);
 
             for (int i = 0; i < expectedOutput.Length; i++)
             {
@@ -124,21 +122,24 @@ namespace Exercises1
             // Deve / Asserções
             Assert.Equal(expected, returnedValues);
         }
-        // [Theory]
-        // [InlineData(2, 0)]
-        // public void exercise6(int firstCandidateVotes, int secondCandidateVotes, string expected)
-        // {
-        //     // Dado / Setup
-        //     var exercises = new Program();
+       
+        [Theory]
+        [InlineData(new string[2]{"Batman", "Superman"}, new int[2]{2, 1}, "Vencedor é: Batman, com 2 votos")]
+        [InlineData(new string[2]{"Batman", "Superman"}, new int[2]{2, 2}, "SEGUNDO TURNO")]
+        [InlineData(new string[2]{"Dragon", "Hunter"}, new int[2]{2, 8}, "Vencedor é: Hunter, com 8 votos")]
+        [InlineData(new string[4]{"Dragon", "Hunter", "Knight", "Vecktor"}, new int[4]{0, 5, 9, 3}, "Vencedor é: Knight, com 9 votos")]
+        public void exercise6(string[] candidates, int[] votes, string expected)
+        {
+            // Dado / Setup
+            var exercises = new Program();
             
+            // Quando / Ação
+            string returned = exercises.Exercise6(candidates.ToList(), votes.ToList());
 
-        //     // Quando / Ação
-        //     //string returned = exercises.Exercise6();
+            // Deve / Asserções
+            Assert.Equal(expected, returned);
+        }
 
-        //     // Deve / Asserções
-
-        //     //Assert.Equal(expected, returned);
-        // }
         [Theory]
         [InlineData(1, 3, 3.99, 4369.05)]
         [InlineData(2, 7, 2.30, 11753)]
@@ -172,12 +173,13 @@ namespace Exercises1
             // Deve / Asserções
             Assert.Equal(expected, returnedValues);
         }
+       
         [Theory]
-        [InlineData(8, 10, 1, "is bigger")]
-        [InlineData(8, 10, 3, "isn't bigger")]
-        [InlineData(8, 10, 2, "equal")]
-        [InlineData(1.30, 2.30, 0.50,"is bigger")]
-        [InlineData(-2.30, -1.30, -0.50,"is bigger")]
+        [InlineData(10, 8, 1, "is bigger")]
+        [InlineData(10, 8, 3, "isn't bigger")]
+        [InlineData(10, 8, 2, "equal")]
+        [InlineData(2.30, 1.30, 0.50,"is bigger")]
+        [InlineData(-1.30, -2.30, -0.50,"is bigger")]
         public void exercise9(double firstNumber, double secondNumber, double thridNumber, string expected)
         {
             // Dado / Setup
@@ -189,6 +191,7 @@ namespace Exercises1
             // Deve / Asserções
             Assert.Equal(expected, returnedValues);
         }
+        
         [Theory]
         [InlineData(4646, 3410, "FirstNumber is bigger")]
         [InlineData(-12, -8, "SecondNumber is bigger")]
@@ -223,6 +226,7 @@ namespace Exercises1
             // Deve / Asserções
             Assert.Equal(expected, returnedValue);
         }   
+       
         [Theory]
         [InlineData(new int[4]{1, 2, 3, 4}, 6)]
         [InlineData(new int[3]{18, 23, 24}, 42)]
@@ -238,7 +242,8 @@ namespace Exercises1
             
             // Deve / Asserções
             Assert.Equal(expected, returnedValue);
-        }   
+        }  
+
         [Theory]
         [InlineData(new double[10]{1,2,3,4,5,6,7,8,9,10}, 10)]
         [InlineData(new double[3]{18, 23, 24}, 24)]
@@ -255,6 +260,7 @@ namespace Exercises1
             // Deve / Asserções
             Assert.Equal(expected, returnedValue);
         }   
+       
         [Theory]
         [InlineData(28, 1, 17, "1,17,28")]
         [InlineData(-32, -13, -24, "-32,-24,-13")]
@@ -270,6 +276,7 @@ namespace Exercises1
             // Deve / Asserções
             Assert.Equal(expected, returnedValue);
         }   
+       
         [Theory]
         [InlineData(new double[10]{5, 9.99, 18, 10, 9, 69, 6, 24, 9, 39}, "7,2")]
         [InlineData(new double[5]{18, 23, -24, -25, -50}, "2,2")]
@@ -285,8 +292,9 @@ namespace Exercises1
             // Deve / Asserções
             Assert.Equal(expected, returnedValue);
         }
+       
         [Theory]
-        [InlineData(560, "ISENTO = 560")]
+        [InlineData(560, "ISENTO")]
         [InlineData(700, "20% = 560")]
         [InlineData(1800, "25% = 1350")]
         [InlineData(10000, "30% = 7000")]
@@ -301,6 +309,7 @@ namespace Exercises1
             // Deve / Asserções
             Assert.Equal(expected, returnedValue);
         }   
+        
         [Theory]
         [InlineData(1, new int[10]{1,2,3,4,5,6,7,8,9,10})]
         [InlineData(2, new int[10]{2,4,6,8,10,12,14,16,18,20})]
@@ -325,6 +334,7 @@ namespace Exercises1
             // Deve / Asserções
             Assert.Equal(expected, returnedValues);
         }
+       
         [Theory]
         [InlineData(12, "R$12")]
         [InlineData(11, "R$14,3")]

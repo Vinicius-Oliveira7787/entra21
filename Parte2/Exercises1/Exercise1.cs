@@ -52,9 +52,9 @@ namespace Exercises1
         {
             var numberOddBelowTwoHundred = new int[199];
             
+            var counter = 0;
             for (int i = 1; i < 200; i+= 2)
             {
-                var counter = 0;
                 numberOddBelowTwoHundred[counter] = i;
                 counter++;
             }
@@ -97,7 +97,7 @@ namespace Exercises1
             return percent;
         }
 
-        public string Exercise6(int firstCandidateVotes, int secondCandidateVotes)
+        public string Exercise6(List<string> candidates, List<int> votes)
         {
             //     List<string> candidatesNames
             //     O segundo modo é o modo de votos, onde o usuário informa 1 para votar no primeiro candidato 
@@ -108,7 +108,35 @@ namespace Exercises1
             //     caso contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
             //     var firstCandidateVotes = 2;
 
-            return "";
+            var secondTurn = false;
+            (string name, int votes) winner = ("", 0);
+
+            for (int i = 0; i < candidates.Count; i++)
+            {
+                if (votes[i] > winner.votes)
+                {
+                    winner.votes = votes[i];
+                    winner.name = candidates[i];
+                }
+            }
+            
+            for (int i = 0; i < candidates.Count; i++)
+            {
+                if (winner.votes == votes[i] && winner.name != candidates[i])
+                {
+                    secondTurn = true;
+                    break;
+                }
+            }
+
+            if (secondTurn)
+            {
+                return "SEGUNDO TURNO";
+            }
+            else
+            {
+                return $"Vencedor é: {winner.name}, com {winner.votes} votos";
+            }
         }
 
         public double Exercise7(int years, double perDay, double price)
@@ -167,7 +195,7 @@ namespace Exercises1
         {
             //12)Ler 4 números inteiros e calcular a soma dos que forem pares.
 
-            return numbers.Where(item => item % 2 == 0).Count();
+            return numbers.Where(item => item % 2 == 0).Sum();
         }
      
         public double Exercise13(List<double> numbers)
