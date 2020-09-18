@@ -156,6 +156,7 @@ namespace Exercises1
             // Deve / Asserções
             Assert.Equal(expected, returnedExercise);
         }
+        
         [Theory]
         [InlineData(6, 3, "multiple")]
         [InlineData(-6, -3, "multiple")]
@@ -198,8 +199,8 @@ namespace Exercises1
         [InlineData(10.30, 10.30, "They are equal")]
         public void exercise10(double firstNumber, double secondNumber, string expected)
         {
-//10)Ler 02 números reais do teclado (A e B), verificar e imprimir qual deles é maior, 
-//ou a mensagem "A = B" caso sejam iguais.
+            //10)Ler 02 números reais do teclado (A e B), verificar e imprimir qual deles é maior, 
+            //ou a mensagem "A = B" caso sejam iguais.
             
             // Dado / Setup
             var exercises = new Program();
@@ -210,6 +211,7 @@ namespace Exercises1
             // Deve / Asserções
             Assert.Equal(expected, returnedValue);
         }
+       
         [Theory]
         [InlineData(10, 5, "2")]
         [InlineData(-10, -5, "2")]
@@ -326,10 +328,9 @@ namespace Exercises1
         
             // Dado / Setup
             var exercises = new Program();
-            //var tabuada = new List<int>(){1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
                             
             // Quando / Ação
-            int[] returnedValues = exercises.Exercise17(tabuada);
+            var returnedValues = exercises.Exercise17(tabuada);
             
             // Deve / Asserções
             Assert.Equal(expected, returnedValues);

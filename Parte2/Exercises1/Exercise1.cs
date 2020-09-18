@@ -58,28 +58,29 @@ namespace Exercises1
                 numberOddBelowTwoHundred[counter] = i;
                 counter++;
             }
+
             return numberOddBelowTwoHundred;
         }
        
         public double Exercise4(List<int> ages)
         {
-// 4)Calcular a média de idade de uma turma qualquer. 
-// O algoritmo deve parar quando for digitada a idade igual a zero.    
+            // 4)Calcular a média de idade de uma turma qualquer. 
+            // O algoritmo deve parar quando for digitada a idade igual a zero.    
             
             // double sum = 0;
-            //var zero = false;
+            // var zero = false;
             // int i = 0;
             
             // for (; i < ages.Count; i++)
             // {
-                // if (ages[i] == 0)
-                // {
-                //     zero = true;
-                //     break;
-                // }
-                //sum += ages[i];
-            //}
-            //var average = zero ? sum / i : sum / ages.Count;
+            //     if (ages[i] == 0)
+            //     {
+            //         zero = true;
+            //         break;
+            //     }
+            //     sum += ages[i];
+            // }
+            // var average = zero ? sum / i : sum / ages.Count;
 
             double average = (double)ages.Sum() / ages.Count;
             return average;
@@ -150,6 +151,7 @@ namespace Exercises1
         public string Exercise8(int x, int y)
         {
             // Ler dois números inteiros, X e Y, e apresentar mensagem informando se o X é múltiplo de Y.
+            
             return x % y == 0 ? "multiple" : "not multiple";
         }
         
@@ -285,18 +287,14 @@ namespace Exercises1
             return returnedSalaryDiscount;
         }
       
-        public int[] Exercise17(int tabuada)
+        public IEnumerable<int> Exercise17(int tabuada)
         {
             //17)Imprimir a tabuada de qualquer número fornecido pelo usuário até que o usuário forneça o valor –1.
 
-            var returnoTabuada = new int[10];
+            var multiplicationTable = new List<int>()
+            {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         
-            for (int i = 0; i < returnoTabuada.Length; i++)
-            {
-                returnoTabuada[i] = (tabuada * (i + 1));
-            }
-            
-            return returnoTabuada;
+            return multiplicationTable.Select(item => item * tabuada);
         }
       
         public string Exercise18(int apples)

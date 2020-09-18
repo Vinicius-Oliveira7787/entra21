@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace Exercises2
@@ -75,32 +76,23 @@ namespace Exercises2
             Assert.Equal(expectedOutputFalse, returnedAnswerFalse);
         } 
         
-        [Fact]
-        public void ExerciseArrays1Q5()
+        [Theory]
+        [InlineData(new double[4]{2,4,6,8}, "2, 0, 2")]
+        [InlineData(new double[4]{12, -4, 20, -25}, "2, 0, 2")] 
+        [InlineData(new double[4]{5.65, 2.5, 2.99, -2}, "3, 0, 1")] 
+        [InlineData(new double[2]{2.99, 3}, "1, 0, 1")] 
+        [InlineData(new double[2]{1, 1}, "0, 2, 0")] 
+        [InlineData(new double[7]{0, -1, 2.1, 5, 90, 2.59, 03}, "1, 0, 6")] 
+        public void ExerciseArrays1Q5(double[] myList, string expected)
         {
             // Dado / Setup
             var exercises = new Program();
                             
             // Quando / Ação
-            string returnedAnswer = exercises.ExerciseArrays1Q5();
+            string returnedAnswer = exercises.ExerciseArrays1Q5(myList.ToList());
 
-            string expectedOutput = "2, 0, 2";
-
-            Assert.Equal(expectedOutput, returnedAnswer);
+            // Deve / Asserções
+            Assert.Equal(expected, returnedAnswer);
         }
-        //[Fact]
-        // public void ExerciseArrays1Q6()
-        // {
-        //     // Dado / Setup
-        //     var exercises = new Program();
-        //     var arrayA = new List<double>(){12, 15, 52, 32};
-        //     var arrayB = new List<double>(){5, 24, 19, 29};
-        //     var arrayC = new List<double>();
-                            
-        //     // Quando / Ação
-        //     string returnedAnswer = exercises.ExerciseArrays1Q6(arrayA, arrayB, arrayC);
-
-        //     Assert.Equal(expectedOutput, returnedAnswer);
-        // }
     }
 }

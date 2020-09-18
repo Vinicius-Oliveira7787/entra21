@@ -56,15 +56,17 @@ namespace prova
         }
 
         [Theory]
-        [InlineData(2003, "Usuário menor de idade")]
-        [InlineData(2002, "Usuário maior de idade")]
-        public void should_say_if_the_user_is_under_age_or_above_age(int birthday, string expected)
+        [InlineData(new int[1]{2003}, new string[1]{"Usuário menor de idade"})]
+        [InlineData(new int[1]{2002}, new string[1]{"Usuário maior de idade"})]
+        [InlineData(new int[2]{2010, 2004}, new string[2]{"Usuário menor de idade", "Usuário menor de idade"})]
+        [InlineData(new int[3]{2002, 2001, 2000}, new string[3]{"Usuário maior de idade", "Usuário maior de idade", "Usuário maior de idade"})]
+        public void should_say_if_the_user_is_under_age_or_above_age(int[] birthday, string[] expected)
         {
             // Dado / Setup
             var exercises = new Program();
                             
             // Quando / Ação
-            string returnedValue = exercises.Exercise4(birthday);
+            var returnedValue = exercises.Exercise4(birthday.ToList());
 
             // Deve / Asserções
             Assert.Equal(expected, returnedValue);
