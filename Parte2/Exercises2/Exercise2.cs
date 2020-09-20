@@ -118,21 +118,17 @@ namespace Exercises2
             return message;
         } 
       
-        public string ExerciseArrays1Q4False()
+        public string Exercise4(double?[] firstArray, double[] secondArray)
         {
             // 4-Leia dois arrays A e B com 10 elementos.  
             // Em seguida, compare os arrays e verifique se os mesmos são iguais ou diferentes.
 
-            const int arrayLenght = 10;
-            
-            var firstArray = new double?[arrayLenght] {0, 2, 3, 1, 4, 25, 7, 8, 9, 15};
-            var secondArray = new double[arrayLenght] {45, 5, 10, 12, 5, 10, 578, 29, 51, 54};
             var saoIguais = false;
             var arraySaoIguais = true;
 
             foreach (var item in secondArray)
             {
-                for (int j = 0; j < arrayLenght; j++)
+                for (int j = 0; j < 10; j++)
                 {
                     if(firstArray[j] == item) 
                     {
@@ -148,8 +144,7 @@ namespace Exercises2
                 }
             }
             
-            var message = arraySaoIguais ? "São iguais" : "Não são iguais";
-            return message;
+            return arraySaoIguais ? "São iguais" : "Não são iguais";
         } 
        
         public string ExerciseArrays1Q5(List<double> myList)
@@ -175,6 +170,7 @@ namespace Exercises2
                 }
                 counter.belowAverage++;
             }
+            
             var returnedValues = $"{counter.aboveAverage}, {counter.average}, {counter.belowAverage}";
             return returnedValues;
         }
