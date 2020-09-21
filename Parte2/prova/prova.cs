@@ -69,15 +69,13 @@ namespace prova
             // Solicite ao usuário seu ano de nascimento e imprima se ele é ou não maior de idade.
             //Caso o usuário digite um valor inválido, a aplicação deve pedir que ele digite novamente.
 
-            var abc = usersBirthday.Select(item => 2020 - item).ToList();
-            var returnedAnswers = new List<string>();
-            
-            for (int i = 0; i < usersBirthday.Count; i++)
-            {
-                returnedAnswers.Add(abc[i] >= 18 ? "Usuário maior de idade" : "Usuário menor de idade");
-            }
-            
-            return returnedAnswers;
+            var abc = usersBirthday.Select(item => {
+                return 2020-item > 17
+                    ? "Usuário maior de idade"
+                    : "Usuário menor de idade";
+            }).ToList();
+
+            return abc;
         }
         
         public List<double> Exercise5(List<string> numbers, List<double> validNumbers)
