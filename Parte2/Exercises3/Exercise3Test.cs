@@ -57,6 +57,7 @@ namespace Exercises3
        
         [Theory]
         [InlineData(new double[5]{1.5, 2.75, 4, 4, 15.2,}, 19.45)]
+        [InlineData(new double[5]{0.1, 0.1, 4, 4, 0.1,}, 0.30000000000000004)]
         public void Exercise4(double[] numbers, double expected)
         {
             // Dado / Setup
@@ -71,6 +72,8 @@ namespace Exercises3
         
         [Theory]
         [InlineData(new double[12]{-1, 1.5, -6541, 12, 468, -654, -218, -41684, 2184, 11, 354, 15}, 7)]
+        [InlineData(new double[12]{-1, 0.1, -6541, -12, -468, -654, -218, -41684, -2184, -11, -354, -15}, 1)]
+        [InlineData(new double[12]{-1, -0.1, -6541, -12, -468, -654, -218, -41684, -2184, -11, -354, -15}, 0)]
         public void Exercise5(double[] List, double expected)
         {
             // Dado / Setup
@@ -85,6 +88,8 @@ namespace Exercises3
         
         [Theory]
         [InlineData(new double[12]{-1, 1.5, -6541, 12, 468, -654, -218, -41684, 2184, 11, 354, 15}, "Maior número: 2184, Posição do index: 8")]
+        [InlineData(new double[12]{-1, -1.5, -6541, -12, -468, -654, -218, -41684, -2184, -11, -354, 0}, "Maior número: 0, Posição do index: 11")]
+        [InlineData(new double[11]{-2, -1.5, -6541, -12, -468, -654, -218, -41684, -2184, -11, -354}, "Maior número: -1,5, Posição do index: 1")]
         public void Exercise6(double[] List, string expected)
         {
             // Dado / Setup

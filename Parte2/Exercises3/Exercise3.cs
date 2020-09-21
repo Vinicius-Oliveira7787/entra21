@@ -97,7 +97,7 @@ namespace Exercises3
             //Ler um vetor de 10 posições (aceitar somente números positivos). 
             //Escrever a seguir o valor do maior elemento de Q e a respectiva posição que ele ocupa no vetor.    
 
-            (double biggestNumber, int biggestNumberIndex) exercise = (0.0, 0);
+            (double biggestNumber, int biggestNumberIndex) exercise = (double.MinValue, 0);
 
             for (int i = 0; i < lazyList.Count; i++)
             {
