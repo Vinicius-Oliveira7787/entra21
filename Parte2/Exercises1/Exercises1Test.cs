@@ -49,7 +49,7 @@ namespace Exercises1
         
         [Theory]
         [InlineData(5050)]
-        public void exercise2(double expected)
+        public void should_return_the_sum_of_the_numbers_from_1_to_100(double expected)
         {
             // Dado / Setup
             var exercises = new Program();
@@ -94,7 +94,7 @@ namespace Exercises1
         [InlineData(new int[4]{1, 2, 3, 4}, 2.5)]
         [InlineData(new int[2]{-15, -15}, -15)]
         //[InlineData(new int[4]{1, 2, 0, 4}, 1.5)]
-        public void exercise4(int[] ages, double expected)
+        public void should_calculate_the_average_of_a_class(int[] ages, double expected)
         {
             // Dado / Setup
             var exercises = new Program();
@@ -111,7 +111,7 @@ namespace Exercises1
         [InlineData(new int[5]{17, 22, 91, 32, 35}, 60)]
         [InlineData(new int[4]{1, 2, 3, 4}, 0)]
         [InlineData(new int[2]{18, 17}, 50)]
-        public void exercise5(int[] ages, double expected)
+        public void should_calculate_the_percentage_of_wonmen_between_18_and_35_years_old(int[] ages, double expected)
         {
             // Dado / Setup
             var exercises = new Program();
@@ -128,7 +128,7 @@ namespace Exercises1
         [InlineData(new string[2]{"Batman", "Superman"}, new int[2]{2, 2}, "SEGUNDO TURNO")]
         [InlineData(new string[2]{"Dragon", "Hunter"}, new int[2]{2, 8}, "Vencedor é: Hunter, com 8 votos")]
         [InlineData(new string[4]{"Dragon", "Hunter", "Knight", "Vecktor"}, new int[4]{0, 5, 9, 3}, "Vencedor é: Knight, com 9 votos")]
-        public void exercise6(string[] candidates, int[] votes, string expected)
+        public void should_do_an_election(string[] candidates, int[] votes, string expected)
         {
             // Dado / Setup
             var exercises = new Program();
@@ -145,13 +145,13 @@ namespace Exercises1
         [InlineData(2, 7, 2.30, 11753)]
         [InlineData(1, 1, 12.00, 4380)]
         [InlineData(2, 2.5, 1.30, 2372.5)]
-        public void exercise7(int years, double perDay, double price, double expected)
+        public void calculate_the_value_spent_by_an_smoker(int years, double perDay, double price, double expected)
         {
             // Dado / Setup
             var exercises = new Program();
             
             // Quando / Ação
-            double returnedExercise = exercises.Exercise7(years, perDay, price);
+            var returnedExercise = exercises.Exercise7(years, perDay, price);
 
             // Deve / Asserções
             Assert.Equal(expected, returnedExercise);
@@ -163,7 +163,7 @@ namespace Exercises1
         [InlineData(3, 6, "not multiple")]
         [InlineData(1, 1, "multiple")]
         [InlineData(1.30, 2.30, "not multiple")]
-        public void exercise8(int firstNumber, int secondNumber, string expected)
+        public void show_if_the_first_number_is_multiple_of_the_second_number(int firstNumber, int secondNumber, string expected)
         {
             // Dado / Setup
             var exercises = new Program();
@@ -185,6 +185,7 @@ namespace Exercises1
         {
             // Dado / Setup
             var exercises = new Program();
+            // 1, 4 , 12.5
 
             // Quando / Ação
             string returnedValues = exercises.Exercise9(firstNumber, secondNumber, thridNumber);

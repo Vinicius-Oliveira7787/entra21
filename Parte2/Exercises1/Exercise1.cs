@@ -93,9 +93,7 @@ namespace Exercises1
             // porcentagem de mulheres que estão com idade entre 18 e 35. 
 
             var count = womenAge.Where(item => item > 17 && item < 36).Count();
-            var percent = (count * 100) / womenAge.Count;
-            
-            return percent;
+            return (count * 100) / womenAge.Count;
         }
 
         public string Exercise6(List<string> candidates, List<int> votes)
@@ -134,6 +132,7 @@ namespace Exercises1
             {
                 return "SEGUNDO TURNO";
             }
+            
             else
             {
                 return $"Vencedor é: {winner.name}, com {winner.votes} votos";
@@ -166,6 +165,7 @@ namespace Exercises1
             {
                 return "equal";
             }
+
             else
             {
                 return firstNumber > sum ? "is bigger" : "isn't bigger";
