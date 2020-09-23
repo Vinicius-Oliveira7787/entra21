@@ -45,19 +45,19 @@ namespace Exercises3
             return sameNumbers;
         }
        
-        public (string, string) Exercise3(List<string> peopleInterviewed, List<string> MenAndWomen)
+        public (string, string) Exercise3(List<(string genderAnswers, string genders)> peopleInterviewed)
         {    
             (int menDisliked, int womenLiked) Interview = (0,0);
             
-            for (int i = 0; i < MenAndWomen.Count; i++)
+            for (int i = 0; i < peopleInterviewed.Count; i++)
             {
-                if (MenAndWomen[i] == "man" &&  peopleInterviewed[i] == "no")
+                if (peopleInterviewed[i].genders == "man" &&  peopleInterviewed[i].genderAnswers == "no")
                 {
                     Interview.menDisliked++;
                     continue;
                 }
 
-                if (MenAndWomen[i] == "woman" &&  peopleInterviewed[i] == "yes")
+                else if (peopleInterviewed[i].genders == "woman" &&  peopleInterviewed[i].genderAnswers == "yes")
                 {
                     Interview.womenLiked++;
                 }
