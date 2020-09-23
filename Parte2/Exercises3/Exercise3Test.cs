@@ -21,20 +21,20 @@ namespace Exercises3
             Assert.Equal(expected, returnedAnswer);
         }
        
-        // [Theory]
-        // [InlineData(new double[10]{1, 165, 21, 13, 541, 48, 416, 151, 25, 25}, true)]
-        // [InlineData(new double[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, false)]
-        // public void Exercise2(double[] numbers, bool expected)
-        // {
-        //     // Dado / Setup
-        //     var exercises = new Program();
+        [Theory]
+        [InlineData(new double[10]{1, 165, 21, 13, 541, 48, 416, 151, 25, 25}, true)]
+        [InlineData(new double[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, false)]
+        public void Exercise2(double[] numbers, bool expected)
+        {
+            // Dado / Setup
+            var exercises = new Program();
                             
-        //     // Quando / Ação
-        //     var returnedAnswer = exercises.Exercise2(numbers.ToList());
+            // Quando / Ação
+            var returnedAnswer = exercises.Exercise2(numbers.ToList());
 
-        //     // Deve / Asserções
-        //     Assert.Equal(expected, returnedAnswer);
-        // }
+            // Deve / Asserções
+            Assert.Equal(expected, returnedAnswer);
+        }
        
         [Theory]
         [InlineData(new string[10]{"yes","yes","yes","yes","no","no","no","no","no","no"}, new string[10]{"man","woman","man","woman","man","woman","man","woman","man","woman"}, "30% men disliked, 20% women liked", "Liked: 4, Disliked: 6")]

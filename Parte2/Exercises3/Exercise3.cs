@@ -29,21 +29,20 @@ namespace Exercises3
         {
             //Dado um vetor qualquer com 10 números,faça um programa que informa se há ou não números repetidos nesse vetor.
 
-            var toComPreguica = false;
+            var sameNumbers = false;
 
-            foreach (var item in semCriatividade)
+            for (int i = 0; i < semCriatividade.Count; i++)
             {
-                for (int i = 1; i < semCriatividade.Count; i++)
+                for (int k = 0; k < semCriatividade.Count; k++)
                 {
-                    if(item == semCriatividade[i])
+                    if (i != k && semCriatividade[i] == semCriatividade[k])
                     {
-                        toComPreguica = true;
-                        break;
+                        sameNumbers = true;
                     }
                 }
             }
             
-            return toComPreguica;
+            return sameNumbers;
         }
        
         public (string, string) Exercise3(List<string> peopleInterviewed, List<string> MenAndWomen)
