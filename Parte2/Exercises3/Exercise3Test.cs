@@ -36,20 +36,21 @@ namespace Exercises3
             Assert.Equal(expected, returnedAnswer);
         }
        
-        [Theory]
-        [InlineData(new string[10]{"yes","yes","yes","yes","no","no","no","no","no","no"}, new string[10]{"man","woman","man","woman","man","woman","man","woman","man","woman"}, "30% men disliked, 20% women liked", "Liked: 4, Disliked: 6")]
-        [InlineData(new string[5]{"yes","yes","yes","yes","no"}, new string[5]{"woman","man","woman","man","woman"}, "0% men disliked, 40% women liked", "Liked: 4, Disliked: 1")]
-        [InlineData(new string[3]{"no", "no", "no"}, new string[3]{"man", "man", "man"}, "100% men disliked, 0% women liked", "Liked: 0, Disliked: 3")]
-        [InlineData(new string[2]{"yes", "yes"}, new string[2]{"woman", "woman"}, "0% men disliked, 100% women liked", "Liked: 2, Disliked: 0")]
-        [InlineData(new string[2]{"no", "yes"}, new string[2]{"man", "woman"}, "50% men disliked, 50% women liked", "Liked: 1, Disliked: 1")]
-        public void Exercise3(string[] peopleInterviewed, string[] menAndWomen, string peopleLikedOrDisliked, string menDislikedAndWomenLiked)
+        [Fact]
+        public void Exercise3()
         {
             // Dado / Setup
             var exercises = new Program();
-                            
+            (string gender, string genderAnswers) firstInterview = ("man", "not");
+            (string gender, string genderAnswers) secondInterview = ("woman", "yes");
+            (string gender, string genderAnswers) thirdInterview = ("woman", "not");
+            var peopleInterviewed = new List<(string gender, string genderAnswers)>(){firstInterview, secondInterview, thirdInterview};
+
             // Quando / Ação
-            var returnedGenderAnswers = exercises.Exercise3(peopleInterviewed.ToList(), menAndWomen.ToList());
-            var expected = (peopleLikedOrDisliked, menDislikedAndWomenLiked);
+            var returnedGenderAnswers = exercises.Exercise3(peopleInterviewed);
+         
+            // Esperado
+            (string percentageWomen, string percentageMen, int liked, int disliked) expected = ("50%", "100%", 2, 1);
 
             // Deve / Asserções
             Assert.Equal(expected, returnedGenderAnswers);

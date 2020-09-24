@@ -45,35 +45,32 @@ namespace Exercises3
             return sameNumbers;
         }
        
-        public (string, string) Exercise3(List<(string genderAnswers, string genders)> peopleInterviewed)
-        {    
-            (int menDisliked, int womenLiked) Interview = (0,0);
-            
-            for (int i = 0; i < peopleInterviewed.Count; i++)
-            {
-                if (peopleInterviewed[i].genders == "man" &&  peopleInterviewed[i].genderAnswers == "no")
-                {
-                    Interview.menDisliked++;
-                    continue;
-                }
+        public (string, string, int, int) Exercise3(List<(string genders, string genderAnswers)> peopleInterviewed)
+        {   
+            // 3)Um certa empresa fez uma pesquisa para saber 
+            // se as pessoas gostaram ou não de um novo produto lançado no mercado. 
+            // Para isso, forneceu-se o sexo do entrevistado e a sua resposta (sim ou não). 
+            // Sabendo-se que foram entrevistadas 10 pessoas, fazer um algoritmo que calcule e escreva:
+            // • O número de pessoas que responderam sim;
+            // • O número de pessoas que responderam não;
+            // • A percentagem de pessoas do sexo feminino que responderam sim;
+            // • A percentagem de pessoas do sexo masculino que responderam não; 
+           
+           var menCount = peopleInterviewed.Where(item => item.genders == "man").Count();
+           var womencount = peopleInterviewed.Where(item => item.genders == "woman").Count();
 
-                else if (peopleInterviewed[i].genders == "woman" &&  peopleInterviewed[i].genderAnswers == "yes")
-                {
-                    Interview.womenLiked++;
-                }
-            }
-            
-            var percentWomenLiked = (Interview.womenLiked * 100) / peopleInterviewed.Count;
-            var percentMenDisliked = (Interview.menDisliked * 100) / peopleInterviewed.Count;
+           var peopleWhoHaveLiked = peopleInterviewed.Where(item => item.genderAnswers == "yes").Count();
+           var peopleWhoHaveDisliked = peopleInterviewed.Where(item => item.genderAnswers == "not").Count();
 
-            var peopleLiked = peopleInterviewed.Where(item => item == "yes").Count();
-            var peopleDisliked = peopleInterviewed.Where(item => item == "no").Count();
-            
-            var totalAnswers = $"Liked: {peopleLiked}, Disliked: {peopleDisliked}";
-            var menDislikedAndWomenLiked = $"{percentMenDisliked}% men disliked, {percentWomenLiked}% women liked";
-            
-            (string Percentage, string LikedOrNot) people = (menDislikedAndWomenLiked, totalAnswers);
-            return people;
+            var menDisliked = peopleInterviewed.Where(item => item.genders == "man" && item.genderAnswers == "not").Count();
+            var womenLiked = peopleInterviewed.Where(item => item.genders == "woman" && item.genderAnswers == "yes").Count();
+
+           var percentageMan = (menDisliked * 100) / menCount;
+           var percentageWoman = (womenLiked * 100) / womencount;
+
+            (string percentageWomen, string percentageMen, int didNotLiked, int didLiked) returned = 
+            ($"{percentageWoman}%", $"{percentageMan}%", peopleWhoHaveDisliked, peopleWhoHaveLiked);
+            return returned;
         }
        
         public double ExerciseArrays2Q4(List<double> listaDoVetorDeUmaMatrizDeCincoElementosLol)
