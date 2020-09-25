@@ -224,7 +224,7 @@ namespace Exercises1
             var exercises = new Program();
 
             // Quando / Ação
-            string returnedValue = exercises.Exercise11(firstNumber, secondNumber);
+            var returnedValue = exercises.Exercise11(firstNumber, secondNumber);
 
             // Deve / Asserções
             Assert.Equal(expected, returnedValue);
