@@ -146,18 +146,18 @@ namespace entra21_tests
             // OBJETO election
             var election = new Election();
             (string name, string cpf) fernando = ("Fernando", "");
-            (string name, string cpf) ana = ("Ana", "");
+            (string name, string cpf) ana = ("Ana", "192.168.94.186");
             var candidates = new List<(string name, string cpf)>{fernando, ana};
             election.CreateCandidates(candidates, "Pa$$w0rd");
             var fernandoId = election.GetCandidateIdByName(fernando.name);
             var anaId = election.GetCandidateIdByName(ana.name);
+            var candidateCpf = election.GetCandidateIdByCpf(ana.cpf);
             
             // Quando / Ação
             // Estamos acessando o MÉTODO ShowMenu do OBJETO election
             election.Vote(anaId);
             election.Vote(fernandoId);
             var winners = election.GetWinners();
-            var candidateCpf = election.GetCandidateIdByCpf(ana.cpf);
 
             // Deve / Asserções
             var candidateFernando = winners.Find(x => x.id == fernandoId);
