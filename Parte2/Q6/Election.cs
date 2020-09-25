@@ -34,9 +34,9 @@ namespace entra21_tests
             return Candidates.First(x => x.name == name).id;
         }
 
-        public List<(Guid, string, int, string)> AllCandidatesWithSameName(string name)
+        public List<string> AllCandidatesWithSameName(List<string> allCandidateNames, string researchedName)
         {
-            return Candidates.Where(x => x.name == name).ToList();
+            return allCandidateNames.Where(item => item == researchedName).ToList();
         }
 
         public Guid GetCandidateIdByCpf(string candidateCpf)

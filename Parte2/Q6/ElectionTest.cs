@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace entra21_tests
@@ -145,13 +146,12 @@ namespace entra21_tests
             // Dado / Setup
             // OBJETO election
             var election = new Election();
-            (string name, string cpf) fernando = ("Fernando", "");
-            (string name, string cpf) ana = ("Ana", "192.168.94.186");
+            (string name, string cpf) fernando = ("Fernando", "512.151.184.65");
+            (string name, string cpf) ana = ("Ana", "192.168.186.94");
             var candidates = new List<(string name, string cpf)>{fernando, ana};
             election.CreateCandidates(candidates, "Pa$$w0rd");
-            var fernandoId = election.GetCandidateIdByName(fernando.name);
-            var anaId = election.GetCandidateIdByName(ana.name);
-            var candidateCpf = election.GetCandidateIdByCpf(ana.cpf);
+            var anaId = election.GetCandidateIdByCpf(ana.cpf);
+            var fernandoId = election.GetCandidateIdByCpf(fernando.cpf);
             
             // Quando / Ação
             // Estamos acessando o MÉTODO ShowMenu do OBJETO election
@@ -164,6 +164,34 @@ namespace entra21_tests
             var candidateAna = winners.Find(x => x.id == anaId);
             Assert.Equal(1, candidateFernando.votes);
             Assert.Equal(1, candidateAna.votes);
+        }
+
+        [Theory]
+        [InlineData(new string[5]{"Ana","Ana","Ana","Fernando", "Ruan"}, new string[3]{"Ana", "Ana", "Ana"}, "Ana")]
+        [InlineData(new string[5]{"José","José","José","José", "José"}, new string[5]{"José","José","José", "José", "José"}, "José")]
+        public void should_return_all_candidates_that_have_the_same_name(string[] candidatesNames, string[] expected, string searchName)
+        {
+            // Dado / Setup
+            // OBJETO election
+            var election = new Election();
+            (string name, string cpf) fernando = ("Fernando", "512.151.184.65");
+            (string name, string cpf) ana = ("Ana", "192.168.186.94");
+            var candidates = new List<(string name, string cpf)>{fernando, ana};
+            election.CreateCandidates(candidates, "Pa$$w0rd");
+            var candidatesWithSameName = election.AllCandidatesWithSameName(candidatesNames.ToList(), searchName);
+            
+            // Quando / Ação
+            // Estamos acessando o MÉTODO ShowMenu do OBJETO election
+            // election.Vote(anaId);
+            // election.Vote(fernandoId);
+            // var winners = election.GetWinners();
+
+            // Deve / Asserções
+            // var candidateFernando = winners.Find(x => x.id == fernandoId);
+            // var candidateAna = winners.Find(x => x.id == anaId);
+            // Assert.Equal(1, candidateFernando.votes);
+            // Assert.Equal(1, candidateAna.votes);
+            Assert.Equal(expected, candidatesWithSameName);
         }
     }
 }
