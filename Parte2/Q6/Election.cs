@@ -8,14 +8,14 @@ namespace entra21_tests
     {
         // Propriedade abaixo:
         // Sempre em PascalCase
-        public List<(Guid id, string name, int votes)> Candidates { get; set; }
+        public List<(Guid id, string name, int votes, string cpf)> Candidates { get; set; }
         
-        public bool CreateCandidates(List<string> candidateNames, string password)
+        public bool CreateCandidates(List<(string name, string cpf)> candidateNames, string password)
         {
             if (password == "Pa$$w0rd")
             {
                 Candidates = candidateNames.Select(candidateName => {
-                    return (Guid.NewGuid(), candidateName, 0);
+                    return (Guid.NewGuid(), candidateName.name, 0, candidateName.cpf);
                 }).ToList();
 
                 return true;
@@ -34,18 +34,23 @@ namespace entra21_tests
             return Candidates.First(x => x.name == name).id;
         }
 
+        public string GetCandidateIdByCpf(string candidateCpf)
+        {
+            return Candidates.First(x => x.name == candidateCpf).cpf;
+        }
+
         public void Vote(Guid id)
         {
             Candidates = Candidates.Select(candidate => {
                 return candidate.id == id
-                    ? (candidate.id, candidate.name, candidate.votes + 1)
+                    ? (candidate.id, candidate.name, candidate.votes + 1, "")
                     : candidate;
             }).ToList();
         }
 
-        public List<(Guid id, string name, int votes)> GetWinners()
+        public List<(Guid id, string name, int votes, string cpf)> GetWinners()
         {
-            var winners = new List<(Guid id, string name, int votes)>{Candidates[0]};
+            var winners = new List<(Guid id, string name, int votes, string cpf)>{Candidates[0]};
 
             for (int i = 1; i < Candidates.Count; i++)
             {
