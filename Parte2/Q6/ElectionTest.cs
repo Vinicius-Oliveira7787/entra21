@@ -11,7 +11,7 @@ namespace entra21_tests
         {
             // Dado / Setup
             var election = new Election();
-            (string name, string cpf) Jose = ("José","");
+            (string name, string cpf) Jose = ("José","164.231.468.28");
             var candidates = new List<(string name, string cpf)>{Jose};
 
             // Quando / Ação
@@ -29,12 +29,10 @@ namespace entra21_tests
 
             // OBJETO election
             var election = new Election();
-            (string name, string cpf) candidate = ("José", "");
+            (string name, string cpf) candidate = ("José", "165.321.845.26");
             var candidates = new List<(string name , string cpf)>{candidate};
 
             // Quando / Ação
-
-            // Estamos acessando o MÉTODO CreateCandidates do OBJETO election
             var created = election.CreateCandidates(candidates, "Pa$$w0rd");
 
             // Deve / Asserções
@@ -49,7 +47,6 @@ namespace entra21_tests
         public void should_not_generate_same_id_for_both_candidates()
         {
             // Dado / Setup
-
             // OBJETO election
             var election = new Election();
             (string name, string cpf) Jose = ("José", "216.528.315.95");
@@ -79,7 +76,6 @@ namespace entra21_tests
             var anaId = election.GetCandidateIdByCpf(ana.cpf);
 
             // Quando / Ação
-            // Estamos acessando o MÉTODO ShowMenu do OBJETO election
             election.Vote(fernandoId);
             election.Vote(fernandoId);
 
@@ -103,7 +99,6 @@ namespace entra21_tests
             var anaId = election.GetCandidateIdByCpf(ana.cpf);
             
             // Quando / Ação
-            // Estamos acessando o MÉTODO ShowMenu do OBJETO election
             election.Vote(anaId);
             election.Vote(anaId);
             var winners = election.GetWinners();
@@ -119,7 +114,6 @@ namespace entra21_tests
         public void should_return_both_candidates_when_occurs_draw()
         {
             // Dado / Setup
-            // OBJETO election
             var election = new Election();
             (string name, string cpf) fernando = ("Fernando", "651.151.341.15");
             (string name, string cpf) ana = ("Ana", "161.213.548.65");
@@ -129,7 +123,6 @@ namespace entra21_tests
             var anaId = election.GetCandidateIdByCpf(ana.cpf);
             
             // Quando / Ação
-            // Estamos acessando o MÉTODO ShowMenu do OBJETO election
             election.Vote(anaId);
             election.Vote(fernandoId);
             var winners = election.GetWinners();
@@ -155,7 +148,6 @@ namespace entra21_tests
             var fernandoId = election.GetCandidateIdByCpf(fernando.cpf);
             
             // Quando / Ação
-            // Estamos acessando o MÉTODO ShowMenu do OBJETO election
             election.Vote(anaId);
             election.Vote(fernandoId);
             var winners = election.GetWinners();
@@ -182,7 +174,7 @@ namespace entra21_tests
             election.CreateCandidates(candidates, "Pa$$w0rd");
             
             // Quando / Ação
-            var candidatesWithSameName = election.AllCandidatesWithSameName(candidatesNames.ToList(), searchName);
+            var candidatesWithSameName = election.AllCandidatesWithSameName(candidates, searchName);
 
             // Deve / Asserções
             Assert.Equal(expected, candidatesWithSameName);
