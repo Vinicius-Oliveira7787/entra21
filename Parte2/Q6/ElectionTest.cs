@@ -168,9 +168,11 @@ namespace entra21_tests
             // Dado / Setup
             // OBJETO election
             var election = new Election();
-            (string name, string cpf) fernando = ("Fernando", "512.151.184.65");
-            (string name, string cpf) ana = ("Ana", "192.168.186.94");
-            var candidates = new List<(string name, string cpf)>{fernando, ana};
+            // (string name, string cpf) fernando = ("Fernando", "512.151.184.65");
+            string fernando = "Fernando";
+            // (string name, string cpf) ana = ("Ana", "192.168.186.94");
+            string ana = "Ana";
+            var candidates = new List<string>{fernando, ana};
             election.CreateCandidates(candidates, "Pa$$w0rd");
             
             // Quando / Ação
