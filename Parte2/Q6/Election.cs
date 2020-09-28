@@ -29,6 +29,7 @@ namespace entra21_tests
         // ToDo: Criar método que retorne um Guid que represente o candidato pesquisado por CPF
 
         // ToDo: Este método deve retornar a lista de candidatos que tem o mesmo nome informado
+       
         // public Guid GetCandidateIdByName(string name)
         // {
         //     return Candidates.First(x => x.name == name).id;

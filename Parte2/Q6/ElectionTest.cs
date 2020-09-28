@@ -26,7 +26,6 @@ namespace entra21_tests
         public void should_create_candidates_when_password_is_correct()
         {
             // Dado / Setup
-
             // OBJETO election
             var election = new Election();
             (string name, string cpf) candidate = ("José", "165.321.845.26");
@@ -38,8 +37,10 @@ namespace entra21_tests
             // Deve / Asserções
             Assert.True(created);
             
+            var candidatesCounter = election.Candidates.Count;
+            
             // Estamos acessando a PROPRIEDADE Candidates, que faz parte do ESTADO do OBJETO election
-            Assert.Equal(1, election.Candidates.Count);
+            Assert.Equal(1, candidatesCounter);
             Assert.Equal(candidate.name, election.Candidates[0].name);
         }
 
@@ -160,24 +161,28 @@ namespace entra21_tests
         }
 
         [Theory]
-        [InlineData(new string[5]{"Ana","Ana","Ana","Fernando", "Ruan"}, new string[3]{"Ana", "Ana", "Ana"}, "Ana")]
-        [InlineData(new string[5]{"José","José","José","José", "José"}, new string[5]{"José","José","José", "José", "José"}, "José")]
-        [InlineData(new string[5]{"José","José","José","José", "José"}, new string[0], "Fernando")]
-        public void should_return_all_candidates_that_have_the_same_name(string[] candidatesNames, string[] expected, string searchName)
+        [InlineData("Ana")]
+        public void should_return_all_candidates_that_have_the_same_name(string searchName)
         {
             // Dado / Setup
             // OBJETO election
             var election = new Election();
-            // (string name, string cpf) fernando = ("Fernando", "512.151.184.65");
-            string fernando = "Fernando";
-            // (string name, string cpf) ana = ("Ana", "192.168.186.94");
-            string ana = "Ana";
-            var candidates = new List<string>{fernando, ana};
+            (string name, string cpf) candidate1 = ("Fernando", "512.151.184.65");
+            (string name, string cpf) candidate2 = ("Ana", "192.168.186.94");
+            (string name, string cpf) candidate3 = ("Ana", "051.312.876.78");
+            (string name, string cpf) candidate4 = ("Ana", "192.547.345.24");
+            var candidates = new List<(string name, string cpf)>{candidate1, candidate2, candidate3, candidate4};
             election.CreateCandidates(candidates, "Pa$$w0rd");
             
             // Quando / Ação
             var candidatesWithSameName = election.AllCandidatesWithSameName(candidates, searchName);
 
+            // (string name, string cpf) candidate1Test = ("Ana", "192.168.186.94");
+            // (string name, string cpf) candidate2Test = ("Ana", "051.312.876.78");
+            // (string name, string cpf) candidate3Test = ("Ana", "192.547.345.24");
+            // var expected = new List<(string name, string cpf)>{candidate1Test, candidate2Test, candidate3Test};
+            var expected = candidates.Where(item => item.name == searchName).ToList();
+            
             // Deve / Asserções
             Assert.Equal(expected, candidatesWithSameName);
         }
