@@ -62,41 +62,7 @@ namespace Exercises2
             return exist ? "O número existe no array" : "Número inexistente";
         }
       
-        // public string ExerciseArrays1Q4True()
-        // {
-        //     // 4-Leia dois arrays A e B com 10 elementos.  
-        //     // Em seguida, compare os arrays e verifique se os mesmos são iguais ou diferentes.
-
-        //     const int arrayLenght = 10;
-            
-        //     var firstArray = new double[arrayLenght] {0, 2, 3, 1, 4, 25, 7, 8, 9, 15};
-        //     var secondArray = new double[arrayLenght] {7, 1, 9, 1, 5, 10, 578, 29, 51, 2};
-        //     var saoIguais = false;
-        //     var arraySaoIguais = true;
-
-        //     foreach (var item in secondArray)
-        //     {
-        //         for (int j = 0; j < secondArray.Length; j++)
-        //         {
-        //             if(firstArray[j] == item) 
-        //             {
-        //                 saoIguais = true;
-        //                 firstArray[j] = null;
-        //                 arraySaoIguais = true;
-        //                 break;
-        //             }
-        //             if(!saoIguais)
-        //             {
-        //                 arraySaoIguais = false;
-        //             }
-        //         }
-        //     }
-            
-        //     var message = arraySaoIguais ? "São iguais" : "Não são iguais";
-        //     return message;
-        // } 
-      
-        public string Exercise4(double?[] firstArray, double[] secondArray)
+        public string Exercise4(List<double> firstArray, List<double> secondArray)
         {
             // 4-Leia dois arrays A e B com 10 elementos.  
             // Em seguida, compare os arrays e verifique se os mesmos são iguais ou diferentes.
@@ -104,22 +70,21 @@ namespace Exercises2
             var saoIguais = false;
             var arraySaoIguais = true;
 
-            foreach (var item in secondArray)
+            for (int i = 0; i < firstArray.Count; i++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int k = 0; k < secondArray.Count; k++)
                 {
-                    if(firstArray[j] == item) 
+                    if (i != k && firstArray[i] == secondArray[k])
                     {
                         saoIguais = true;
-                        firstArray[j] = null;
-                        arraySaoIguais = true;
                         break;
                     }
-                    if(!saoIguais)
-                    {
-                        arraySaoIguais = false;
-                    }
                 }
+            }
+    
+            if(!saoIguais)
+            {
+                arraySaoIguais = false;
             }
             
             return arraySaoIguais ? "São iguais" : "Não são iguais";
@@ -151,33 +116,6 @@ namespace Exercises2
             
             var returnedValues = $"{counter.aboveAverage}, {counter.average}, {counter.belowAverage}";
             return returnedValues;
-        }
-//         public string ExerciseArrays1Q6(List<double> arrayA, List<double> arrayB, List<double> arrayC)
-//         {
-// // Leia um array A com 12 elementos. Após sua leitura, colocar os seus elementos em ordem crescente. 
-// // Depois ler um array B também com doze elementos, colocar os elementos de B em ordem decrescente. 
-// // Construir um array C, onde cada elemento de C é a soma do elemento correspondente de A com b. 
-// // Colocar em ordem crescente a matriz C e apresentar os seus valores.
-
-//         foreach (var item in arrayA)
-//         {
-//             var temporary = double.MinValue;
-//             for (int i = 0; i < arrayA.Count; i++)
-//             {
-//                 if (item > temporary && item > arrayC[i])
-//                 {
-//                     temporary = arrayC[i];
-//                     arrayC[i] = arrayA[i];
-//                     arrayA[i] = temporary;
-//                 }
-
-//                 if (temporary > item && temporary > arrayC[i])
-//                 {
-//                     double[,] sla = new double[2,3];
-//                     sla[arrayA[i], arrayB[i]; 
-//                 }
-//             }
-//         }
-        
+        }        
     }
 }

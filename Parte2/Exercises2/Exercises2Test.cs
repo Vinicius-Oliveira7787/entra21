@@ -52,19 +52,19 @@ namespace Exercises2
             Assert.Equal(expected, returnedAnswer);
         }    
         
-        // [Theory]
-        // [InlineData(new double[10]{0, 2, 3, 1, 4, 25, 7, 8, 9, 15}, new double[10]{45, 5, 10, 12, 5, 10, 578, 29, 51, 54}, "Não são iguais")]
-        // public void ExerciseArrays1Q4(double[] firstArray, double[] secondArray, string expected)
-        // {
-        //     // Dado / Setup
-        //     var exercises = new Program();
+        [Theory]
+        [InlineData(new double[10]{0, 2, 3, 1, 4, 25, 7, 8, 9, 15}, new double[10]{45, 5, 10, 12, 5, 10, 578, 29, 51, 54}, "Não são iguais")]
+        public void ExerciseArrays1Q4(double[] firstArray, double[] secondArray, string expected)
+        {
+            // Dado / Setup
+            var exercises = new Program();
                             
-        //     // Quando / Ação
-        //     string returnedAnswerFalse = exercises.Exercise4(firstArray.ToList(), secondArray.ToList());
+            // Quando / Ação
+            string returnedAnswerFalse = exercises.Exercise4(firstArray.ToList(), secondArray.ToList());
 
-        //     // Deve / Asserções
-        //     Assert.Equal(expected, returnedAnswerFalse);
-        // } 
+            // Deve / Asserções
+            Assert.Equal(expected, returnedAnswerFalse);
+        } 
         
         [Theory]
         [InlineData(new double[4]{2,4,6,8}, "2, 0, 2")]
