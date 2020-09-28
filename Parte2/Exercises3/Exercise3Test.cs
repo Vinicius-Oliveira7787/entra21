@@ -97,7 +97,7 @@ namespace Exercises3
             var exercises = new Program();
                             
             // Quando / Ação
-            var returnedAnswer = exercises.ExerciseArrays2Q6(List.ToList());
+            var returnedAnswer = exercises.ExerciseArrays2Q6(List);
 
             // Deve / Asserções
             Assert.Equal(expected, returnedAnswer);

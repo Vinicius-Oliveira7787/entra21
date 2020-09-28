@@ -88,23 +88,15 @@ namespace Exercises3
             return lazyList.Where(item => item > 0).Count();
         }
        
-        public string ExerciseArrays2Q6(List<double> lazyList)     
+        public string ExerciseArrays2Q6(double[] lazyList)     
         {
             //Ler um vetor de 10 posições (aceitar somente números positivos). 
             //Escrever a seguir o valor do maior elemento de Q e a respectiva posição que ele ocupa no vetor.    
 
-            (double biggestNumber, int biggestNumberIndex) exercise = (double.MinValue, 0);
-
-            for (int i = 0; i < lazyList.Count; i++)
-            {
-                if(lazyList[i] > exercise.biggestNumber)
-                {
-                    exercise.biggestNumber = lazyList[i];
-                    exercise.biggestNumberIndex = i;
-                }
-            }
+            var biggestNumber = lazyList.Max();
+            var biggestNumberIndex = Array.IndexOf(lazyList, biggestNumber);
             
-            return $"Maior número: {exercise.biggestNumber}, Posição do index: {exercise.biggestNumberIndex}";
+            return $"Maior número: {biggestNumber}, Posição do index: {biggestNumberIndex}";
         }
       
         public double ExerciseArrays2Q7(List<double> numbers)
@@ -121,6 +113,7 @@ namespace Exercises3
                     equalNumbers++;
                 }
             }
+            var numbersCounter = numbers.Count;
 
             return equalNumbers;
         } 
@@ -130,8 +123,7 @@ namespace Exercises3
             //Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto. 
             //No final, imprima quantas destas são vogais.
 
-            var count = letters.Where(item => item == "a" || item == "e" || item == "i" || item == "o" || item == "u").Count();
-            return count;
+            return letters.Where(item => item == "a" || item == "e" || item == "i" || item == "o" || item == "u").Count();
         }
        
         public string ExerciseArrays2Q9(List<string> letters)
@@ -140,6 +132,7 @@ namespace Exercises3
             //No final, imprima a string resultante da soma das strings que residem em índices pares.
 
             var resultantString = "";
+            
             for (int i = 0; i < letters.Count; i++)
             {
                 if (i % 2 == 0)
@@ -147,6 +140,7 @@ namespace Exercises3
                     resultantString += letters[i]; 
                 }
             }
+
             return resultantString;
         }
     }

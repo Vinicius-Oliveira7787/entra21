@@ -22,19 +22,17 @@ namespace Exercises2
         }
         
         [Theory]
-        [InlineData(new double[10]{12, 24, 10, 25, 6, 25, 54, 25, 95, 248})]
-        public void ExerciseArrays1Q2(double[] arrayA)
+        [InlineData(new double[10]{12, 24, 10, 25, 6, 25, 54, 25, 95, 248}, new double[10]{248, 95, 25, 54, 25, 6, 25, 10, 24, 12})]
+        public void ExerciseArrays1Q2(double[] myArray, double[] myArrayReversed)
         {
             // Dado / Setup
             var exercises = new Program();
                             
             // Quando / Ação
-            var returnedValues = exercises.Exercise2(arrayA.ToList());
-
-            var ordemInversa = new List<double>(){248, 95, 25, 54, 25, 6, 25, 10, 24, 12};
+            var returnedValues = exercises.Exercise2(myArray.ToList());
 
             // Deve / Asserções
-            Assert.Equal(ordemInversa, returnedValues);
+            Assert.Equal(myArrayReversed, returnedValues);
         }   
         
         [Theory]

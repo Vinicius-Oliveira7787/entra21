@@ -203,16 +203,8 @@ namespace Exercises1
         public double Exercise13(List<double> numbers)
         {
             //Ler 10 valores e determinar o maior dentre eles.            
-            var biggestNumber = double.MinValue;
-
-            foreach (var item in numbers)
-            {
-                if (item > biggestNumber)
-                {
-                    biggestNumber = item;
-                }    
-            }
-            return biggestNumber;
+           
+            return numbers.Max();
         }
       
         public string Exercise14(double firstNumber, double secondNumber, double thirdNumber)
@@ -263,28 +255,14 @@ namespace Exercises1
             // Maior que R$ 1.200,00 e menor ou igual a R$2000 - 25% desconto
             // Maior que R$ 2.000,00 - 30% desconto
 
-            var returnedSalaryDiscount = "";
-            if (salary <= 600)
+            if (salary < 1200)
             {
-                returnedSalaryDiscount = $"ISENTO";
+                return salary > 600 ? $"20% = {salary * 0.80}" : $"ISENTO" ;
             }
-
-            else if(salary > 600 && salary < 1200)
+            else
             {
-                returnedSalaryDiscount = $"20% = {salary * 0.80}";
+                return salary > 2000 ? $"30% = {salary * 0.70}" : $"25% = {salary * 0.75}";
             }
-
-            else if(salary > 1200 && salary < 2000)
-            {
-                returnedSalaryDiscount = $"25% = {salary * 0.75}";
-            }
-
-            else if(salary > 2000)
-            {
-                returnedSalaryDiscount = $"30% = {salary * 0.70}";
-            }
-            
-            return returnedSalaryDiscount;
         }
       
         public IEnumerable<int> Exercise17(int tabuada)

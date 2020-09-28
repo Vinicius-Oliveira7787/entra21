@@ -53,14 +53,16 @@ namespace prova
                     solteiros = true;
                 }
             }
+            
             if (!solteiros)
             {
                 var temporary = new List<string>(){"Sem usuários solteiros"};
                 return temporary;
             }
+            
             else
             {
-            return returnedNames;
+                return returnedNames;
             }
         }
        
@@ -87,6 +89,7 @@ namespace prova
             for (int i = 0; i < numbers.Count; i++)
             {
                 var counter = 0.0;
+                
                 try
                 {
                     counter = double.Parse(numbers[i]);
