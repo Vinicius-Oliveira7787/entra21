@@ -39,24 +39,24 @@ namespace prova
             Assert.Equal(expected, returnedValue);
         }
 
-        public static TheoryData<(List<(string,string)>, List<(string,string)>)> testThirdQuestion()
+        public static TheoryData<(List<(string,string)>, List<string>)> testThirdQuestion()
         {
-            return new TheoryData<(List<(string, string)>, List<(string, string)>)>
+            return new TheoryData<(List<(string, string)>, List<string>)>
             {
                 (new List<(string,string)>{("eu","Casado"), ("você","Casado"), ("nós","Casado"), ("nozes","Casado"), ("pai","Casado")}, 
-                new List<(string,string)>{("Sem usuários solteiros","")}),
+                new List<string>{"Sem usuários solteiros"}),
 
                 (new List<(string,string)>{("Noeh","Solteiro"), ("Noah","Casado"), ("Dean","Solteiro"), ("Shaun","Solteiro"), ("Justin","Casado")}
-                ,new List<(string,string)>{("Noeh","Solteiro"), ("Dean","Solteiro"), ("Shaun","Solteiro")}),
+                ,new List<string>{"Noeh", "Dean", "Shaun"}),
 
                 (new List<(string,string)>{("Noeh","Solteiro"), ("Noah","Solteiro"), ("Dean","Solteiro"), ("Shaun","Solteiro"), ("Justin","Solteiro")}
-                ,new List<(string,string)>{("Noeh","Solteiro"), ("Noah","Solteiro"), ("Dean","Solteiro"), ("Shaun","Solteiro"), ("Justin","Solteiro")})
+                ,new List<string>{"Noeh", "Noah", "Dean", "Shaun", "Justin"})
             };
         }
         
         [Theory]
         [MemberData(nameof(testThirdQuestion))]
-        public void show_the_names_of_the_ones_that_are_single((List<(string, string)>, List<(string, string)>) people)
+        public void show_the_names_of_the_ones_that_are_single((List<(string, string)>, List<string>) people)
         {
             // Dado / Setup
             var exercises = new Program();

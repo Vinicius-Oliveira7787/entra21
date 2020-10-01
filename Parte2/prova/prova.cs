@@ -33,16 +33,25 @@ namespace prova
             return word;
         }
 
-        public List<(string, string)> Exercise3(List<(string name, string civil)> users)
+        public List<string> Exercise3(List<(string name, string civil)> users)
         {
             //Solicite para 5 usuários que informem seus nomes e se são solteiros. 
             //Ao final apresente o nome de todos os usuários solteiros.
 
-            var usersSingle = users.Where(item => item.civil == "Solteiro").ToList();
             
-            return usersSingle.Count < 1 
-                ? new List<(string, string)>(){("Sem usuários solteiros","")}
-                : usersSingle;
+            var usersSingle = users
+                .Where(item => item.civil == "Solteiro")
+                .Select(item => item.name)
+                .ToList();
+            
+            return usersSingle.Count < 1
+            ? new List<string>(){"Sem usuários solteiros"}
+            : usersSingle;
+            
+        // var usersSingle = users.Where(item => item.civil == "Solteiro");
+        // return usersSingle.Count < 1 
+        //     ? new List<(string, string)>(){("Sem usuários solteiros","")}
+        //     : usersSingle;
         }
        
         public List<string> Exercise4(List<int> usersBirthday)
