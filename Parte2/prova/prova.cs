@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace prova
 {
@@ -24,14 +23,11 @@ namespace prova
             // Quando o usuário informar a palavra “Finalizar”, a aplicação deve apresentar a palavra inteira.
 
             var word = "";
+            var indexBreak = letters.IndexOf("Finalizar");
             
-            foreach (var item in letters)
+            for (int i = 0; i < indexBreak ; i++)
             {
-                if (item == "Finalizar")
-                {
-                    break;
-                }
-                word += item;
+                word+=letters[i];
             }
             
             return word;
@@ -56,8 +52,7 @@ namespace prova
             
             if (!solteiros)
             {
-                var temporary = new List<string>(){"Sem usuários solteiros"};
-                return temporary;
+                return new List<string>(){"Sem usuários solteiros"};
             }
             
             else
@@ -71,13 +66,11 @@ namespace prova
             // Solicite ao usuário seu ano de nascimento e imprima se ele é ou não maior de idade.
             //Caso o usuário digite um valor inválido, a aplicação deve pedir que ele digite novamente.
 
-            var abc = usersBirthday.Select(item => {
+            return usersBirthday.Select(item => {
                 return 2020-item > 17
                     ? "Usuário maior de idade"
                     : "Usuário menor de idade";
             }).ToList();
-
-            return abc;
         }
         
         public List<double> Exercise5(List<string> numbers, List<double> validNumbers)

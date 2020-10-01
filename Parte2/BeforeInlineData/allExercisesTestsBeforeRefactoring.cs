@@ -19,6 +19,7 @@ namespace Entra21_2
             Assert.Equal(resultadoEsperado[i], result[i]);
             }
         }
+        
         [Fact]
         public void exercise1B_should_return_an_array_from_10_to_1()
         {
@@ -33,6 +34,7 @@ namespace Entra21_2
             Assert.Equal(resultadoEsperado[i], result[i]);
             }
         }
+        
         [Fact]
         public void exercise1C_should_return_an_array_from_1_to_10_only_pairs()
         {
@@ -65,6 +67,7 @@ namespace Entra21_2
                 Assert.Equal(expectedOutput[i], returnedValues[i]);
             }
         }
+       
         [Fact]
         public void exercise2_should_return_5050_the_final_result_from_the_sum_between_1_to_100()
         {
@@ -82,6 +85,7 @@ namespace Entra21_2
            
            Assert.Equal(expectedOutput, returnedValues);
         }
+     
         [Fact]
         public void exercise3_should_return_an_array_from_1_to_200_only_odd()
         {
@@ -110,6 +114,7 @@ namespace Entra21_2
                 Assert.Equal(expectedOutput[i], returnedValues[i]);
             }
         }
+    
         [Fact]
         public void exercise4_should_calculate_the_average_of_the_class_and_stop_when_the_user_digit_equal_0()
         {
@@ -130,6 +135,7 @@ namespace Entra21_2
 
             Assert.Equal(expectedOutput, returnedValues);
         }
+     
         [Fact]
         public void exercise5_should_60_percent_when_passed_18_23_and_24()
         {
@@ -146,6 +152,7 @@ namespace Entra21_2
 
             Assert.Equal(expectedOutput, returnedValues);
         }
+    
         [Fact]
         public void exercise6()
         {
@@ -169,6 +176,7 @@ namespace Entra21_2
             Assert.Equal(espectedWinner, returnedVotes);
             Assert.Equal(espectedSecondTurn, returnedVotesSecondTurn);
         }
+    
         [Fact]
         public void exercise7_should_return_11753()
         {
@@ -183,6 +191,7 @@ namespace Entra21_2
 
             Assert.Equal(expectedOutput, returnedExercise);
         }
+     
         [Fact]
         public void exercise8_read_two_numbers_X_Y_and_show_the_message_if_X_is_multiple_of_Y()
         {
@@ -200,6 +209,7 @@ namespace Entra21_2
             Assert.Equal(expectedOutputTrue, returnedValuesTrue);
             Assert.Equal(expectedOutputFalse, returnedValuesFalse);
         }
+   
         [Fact]
         public void exercise9_read_three_numbers_and_check_if_the_firstNumber_is_bigger_then_the_sum_of_the_other_ones()
         {
@@ -221,6 +231,7 @@ namespace Entra21_2
             Assert.Equal(expectedOutputFalse, returnedValuesFalse);
             Assert.Equal(expectedOutputEqual, returnedValuesEqual);
         }
+    
         [Fact]
         public void exercise10_compare_two_numbers_and_check_who_is_the_bigger_one_or_if_they_are_equal()
         {
@@ -242,6 +253,7 @@ namespace Entra21_2
             Assert.Equal(expectedOutputSecondNumberBigger, returnedValueSecondNumberBigger);
             Assert.Equal(expectedOutputTheyAreEqual, returnedValueTheyAreEqual);
         }
+     
         [Fact]
         public void exercise11()
         {
@@ -258,6 +270,7 @@ namespace Entra21_2
             Assert.Equal(expectedOutput, returnedValue);
             Assert.Equal(expectedOutputDivisionByZero, expectedOutputDivisionByZero);
         }   
+    
         [Fact]
         public void exercise12()
         {
@@ -271,6 +284,7 @@ namespace Entra21_2
             
             Assert.Equal(expectedOutput, returnedValue);
         }   
+    
         [Fact]
         public void exercise13()
         {
@@ -284,6 +298,7 @@ namespace Entra21_2
             
             Assert.Equal(expectedOutput, returnedValue);
         }   
+     
         [Fact]
         public void exercise14()
         {
@@ -300,6 +315,7 @@ namespace Entra21_2
             
             Assert.Equal(expectedOutput, returnedValue);
         }   
+    
         [Fact]
         public void exercise15()
         {
@@ -314,6 +330,7 @@ namespace Entra21_2
             
             Assert.Equal(expectedOutput, returnedValue);
         }
+    
         [Fact]
         public void exercise16()
         {
@@ -328,6 +345,7 @@ namespace Entra21_2
             
             Assert.Equal(expectedOutput, returnedValue);
         }   
+    
         [Fact]
         public void exercise17()
         {
@@ -357,6 +375,7 @@ namespace Entra21_2
            
             Assert.Equal(expectedOutput, returnedValues);
         }
+    
         [Fact]
         public void exercise18()
         {
@@ -372,6 +391,7 @@ namespace Entra21_2
 
             Assert.Equal(expectedOutput, returnedValues);
         }
+    
         [Fact]
         public void ExerciseArrays1Q1()
         {
@@ -388,6 +408,7 @@ namespace Entra21_2
 
             Assert.Equal(expectedOutput, returnedValues);
         }
+    
         [Fact]
         public void ExerciseArrays1Q2()
         {
@@ -405,6 +426,7 @@ namespace Entra21_2
             Assert.Equal(ordemDireta, returnedValuesDireto);
             Assert.Equal(ordemInversa, returnedValuesInverso);
         }   
+    
         [Fact]
         public void ExerciseArrays1Q3()
         {
@@ -422,6 +444,7 @@ namespace Entra21_2
             Assert.Equal(expectedOutputTrue, returnedAnswerTrue);
             Assert.Equal(expectedOutputFalse, returnedAnswerFalse);
         }    
+    
         [Fact]
         public void ExerciseArrays1Q4()
         {
@@ -438,6 +461,7 @@ namespace Entra21_2
             Assert.Equal(expectedOutputTrue, returnedAnswerTrue);
             Assert.Equal(expectedOutputFalse, returnedAnswerFalse);
         } 
+    
         [Fact]
         public void ExerciseArrays1Q5()
         {
@@ -451,6 +475,7 @@ namespace Entra21_2
 
             Assert.Equal(expectedOutput, returnedAnswer);
         }
+    
         [Fact]
         public void ExerciseArrays2Q1()
         {
@@ -464,6 +489,7 @@ namespace Entra21_2
 
             Assert.Equal(expectedOutput, returnedAnswer);
         }
+    
         [Fact]
         public void ExerciseArrays2Q2()
         {
@@ -477,6 +503,7 @@ namespace Entra21_2
 
             Assert.Equal(expectedOutput, returnedAnswer);
         }
+    
         [Fact]
         public void ExerciseArrays2Q3ReturnYesOrNo()
         {
@@ -493,6 +520,7 @@ var expectedOutputPercentageMenDislikedWomenLiked = "30% dos homens não gostara
             Assert.Equal(expectedOutput, returnedAnswer);
             Assert.Equal(expectedOutputPercentageMenDislikedWomenLiked, returnedGenderAnswers);
         }
+    
         [Fact]
         public void ExerciseArrays2Q4()
         {
@@ -506,6 +534,7 @@ var expectedOutputPercentageMenDislikedWomenLiked = "30% dos homens não gostara
 
             Assert.Equal(expectedOutput, returnedAnswer);
         }
+    
         [Fact]
         public void ExerciseArrays2Q5()
         {
@@ -519,6 +548,7 @@ var expectedOutputPercentageMenDislikedWomenLiked = "30% dos homens não gostara
 
             Assert.Equal(expectedOutput, returnedAnswer);
         }
+    
         [Fact]
         public void ExerciseArrays2Q6()
         {
@@ -532,6 +562,7 @@ var expectedOutputPercentageMenDislikedWomenLiked = "30% dos homens não gostara
 
             Assert.Equal(expectedOutput, returnedAnswer);
         }
+    
         [Fact]
         public void ExerciseArrays2Q7()
         {
@@ -545,6 +576,7 @@ var expectedOutputPercentageMenDislikedWomenLiked = "30% dos homens não gostara
 
             Assert.Equal(expectedOutput, returnedAnswer);
         }
+    
         [Fact]
         public void ExerciseArrays2Q8()
         {
@@ -559,6 +591,7 @@ var expectedOutputPercentageMenDislikedWomenLiked = "30% dos homens não gostara
 
             Assert.Equal(expectedOutput, returnedAnswer);
         }
+    
         [Fact]
         public void ExerciseArrays2Q9()
         {

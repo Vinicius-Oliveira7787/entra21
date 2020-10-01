@@ -39,6 +39,15 @@ namespace prova
             Assert.Equal(expected, returnedValue);
         }
 
+        public static TheoryData<(List<(string,string)>, List<(string,string)>)> testThirdQuestion()
+        {
+            return new TheoryData<(List<(string, string)>, List<(string, string)>)>
+            {
+                (new List<(string,string)>{("eu","solteiro"), ("você","solteiro"), ("nós","solteiro"), ("nozes","solteiro"), ("pai","solteiro")}, 
+                new List<(string,string)>{("sem usuários solteiros","")})
+            };
+        }
+        
         [Theory]
         [InlineData(new string[5]{"eu","você","nós","nozes","pai"}, new string[5]{"não","não","não","não","não"}, new string[1]{"Sem usuários solteiros"})]
         [InlineData(new string[5]{"Noeh","Noah","Dean","Shaun","Justin"}, new string[5]{"sim","não","sim","sim","não"}, new string[3]{"Noeh","Dean","Shaun"})]

@@ -14,6 +14,7 @@ namespace Entra21_2
             }
             return array;
         } 
+      
         public int[] Exercise1B()
         {
             var arrayB = new int[10];
@@ -23,6 +24,7 @@ namespace Entra21_2
             }
             return arrayB;
         }
+    
         public int[] Exercise1C()
         {
             var numbers = new int[5];
@@ -34,6 +36,7 @@ namespace Entra21_2
             }
             return numbers;
         }
+    
         public int Exercise2()
         {
             var finalResult = 0;
@@ -43,6 +46,7 @@ namespace Entra21_2
             }
             return finalResult;
         }
+    
         public int[] Exercise3()
         {
             var numberOddBelowTwoHundred = new int[199];
@@ -54,6 +58,7 @@ namespace Entra21_2
             }
             return numberOddBelowTwoHundred;
         }
+    
         public double Exercise4(List<int> ages)
         {
             // 4)Calcular a média de idade de uma turma qualquer. 
@@ -73,6 +78,7 @@ namespace Entra21_2
             
             return average;
         }
+    
         public double Exercise5(List<int> womenAge)
         {
             //5)Criar um algoritmo que peça o nome e a idade de 5 mulheres. 
@@ -92,6 +98,7 @@ namespace Entra21_2
             var percent = (sum * 100) / counter;
             return percent;
         }
+    
         public string Exercise6Cadastro()
         {
             //6)Criar um algoritmo que simule uma urna eletrônica. 
@@ -111,6 +118,7 @@ namespace Entra21_2
             }
             return password;
         }
+     
         public string Exercise6Votos(List<string> candidatesNames)
         {
             //List<string> candidatesNames
@@ -136,6 +144,7 @@ namespace Entra21_2
             }
             return winner;
         }
+    
         public string Exercise6SecondTurn(List<string> candidatesNames)
         {
             // O terceiro modo, é o modo de apuração de votos, 
@@ -161,6 +170,7 @@ namespace Entra21_2
             }
             return winner;
         }
+    
         public double Exercise7()
         {
         // 7)Calcular a quantidade de dinheiro gasta por um fumante. 
@@ -172,6 +182,7 @@ namespace Entra21_2
         var spentAverage = years * cigarreteDays * boxPrice;
         return spentAverage;
         }
+    
         public string Exercise8True()
         {
             int x = 6;
@@ -183,6 +194,7 @@ namespace Entra21_2
             }
             return k;
         }
+     
         public string Exercise8False()
         {
             int x = 3;
@@ -195,6 +207,7 @@ namespace Entra21_2
             }
             return k;
         }
+     
         public string Exercise9True()
         {
             // 9)Fazer um algoritmo para ler 03 números reais do teclado e verificar 
@@ -212,6 +225,7 @@ namespace Entra21_2
             }
             return biggestNumber;
         }
+     
         public string Exercise9False()
         {
             // 9)Fazer um algoritmo para ler 03 números reais do teclado e verificar 
@@ -233,6 +247,7 @@ namespace Entra21_2
             }
             return biggestNumber;
         }
+     
         public string Exercise9Equal()
         {
             // 9)Fazer um algoritmo para ler 03 números reais do teclado e verificar 
@@ -259,6 +274,7 @@ namespace Entra21_2
             }
             return biggestNumber;
         }
+     
         public string Exercise10FirstNumberBigger() 
         {
             var biggestNumber = "";
@@ -270,6 +286,7 @@ namespace Entra21_2
             }
             return biggestNumber;
         }
+    
         public string Exercise10SecondNumberBigger() 
         {
             var biggestNumber = "";
@@ -285,6 +302,7 @@ namespace Entra21_2
             }
             return biggestNumber;
         }
+    
         public string Exercise10Equal() 
         {
             var biggestNumber = "";
@@ -304,6 +322,7 @@ namespace Entra21_2
             }
             return biggestNumber;
         }
+    
         public double Exercise11()
         {
         // 11)Ler 02 números inteiros do teclado. Se o segundo for diferente de zero, 
@@ -315,6 +334,7 @@ namespace Entra21_2
 
         return returnedResult;
         }
+    
         public string Exercise11ButIsDivisionByZero()
         {
 
@@ -329,6 +349,7 @@ namespace Entra21_2
         }
         return returnedResult;
         }
+    
         public int Exercise12()
         {
             //12)Ler 4 números inteiros e calcular a soma dos que forem pares.
@@ -345,6 +366,7 @@ namespace Entra21_2
             }
             return sum;
         }
+    
         public double Exercise13()
         {
 
@@ -360,6 +382,7 @@ namespace Entra21_2
         }
         return biggestNumber;
         }
+     
         public string Exercise14(double firstNumber, double secondNumber, double thirdNumber)
         {
             //14)Ler três valores e colocá-los em ordem.
@@ -390,6 +413,7 @@ namespace Entra21_2
 
             return finalResult;
         }
+     
         public string Exercise15(List<double> numbers)
         {
         //15)Ler 10 números e imprimir quantos são múltiplos de 3 e quantos são múltiplos de 5.
@@ -409,6 +433,7 @@ namespace Entra21_2
         var finalResult = $"{numbersMultipleByThree},{numbersMultipleByFive}";
         return finalResult;
         }
+    
         public string Exercise16(List<double> Salary)
         {
         // 16)Ler o salário de uma pessoa e imprimir o Salário Líquido de acordo com a redução do imposto descrito ao lado:
@@ -447,6 +472,7 @@ namespace Entra21_2
 
         return returnedSalaryDiscount;
         }
+     
         public List<double> Exercise17(List<int> tabuada)
         {
         //17)Imprimir a tabuada de qualquer número fornecido pelo usuário até que o usuário forneça o valor –1.
@@ -462,6 +488,7 @@ namespace Entra21_2
         }
             return returnoTabuada;
         }
+    
         public List<string> Exercise18(List<double> apples)
         {
         // 18)As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia, 
@@ -484,6 +511,7 @@ namespace Entra21_2
         }
         return answers;
         }
+     
         public List<double> ExerciseArrays1Q1(List<double> arrayA, List<double> ArrayB)
         {
         //Leia dois arrays A e B com 15 elementos. Construir um array C, 
@@ -498,6 +526,7 @@ namespace Entra21_2
         
         return arrayC;
         }
+    
         public List<double> ExerciseArrays1Q2Direto(List<double> arrayA)
         {
         //Ler um array com 10 inteiros e mostrar os números na ordem direta e inversa a que foram lidos.
@@ -509,6 +538,7 @@ namespace Entra21_2
         }
         return formaDireta;
         }
+    
         public List<double> ExerciseArrays1Q2Inverso(List<double> arrayA)
         {
         //Ler um array com 10 inteiros e mostrar os números na ordem direta e inversa a que foram lidos.
@@ -520,6 +550,7 @@ namespace Entra21_2
         }
         return formaInversa;
         }
+    
         public string ExerciseArrays1Q3True(List<double> arrayA)
         {
 //Leia 10 elementos e armazene em um array A. Em seguida, 
@@ -540,6 +571,7 @@ namespace Entra21_2
         var answer = exist ? "O número existe no array" : "Número inexistente";
         return answer;
         }
+    
         public string ExerciseArrays1Q3False(List<double> arrayA)
         {
 
@@ -557,6 +589,7 @@ namespace Entra21_2
         var answer = exist ? "O número existe no array" : "Número inexistente";
         return answer;
         }
+    
         public string ExerciseArrays1Q4True()
         {
             // 4-Leia dois arrays A e B com 10 elementos.  
@@ -590,6 +623,7 @@ namespace Entra21_2
             var message = arraySaoIguais ? "São iguais" : "Não são iguais";
             return message;
         } 
+   
         public string ExerciseArrays1Q4False()
         {
             // 4-Leia dois arrays A e B com 10 elementos.  
@@ -623,6 +657,7 @@ namespace Entra21_2
             var message = arraySaoIguais ? "São iguais" : "Não são iguais";
             return message;
         } 
+     
         public string ExerciseArrays1Q5()
         {
         //Leia um array A com 15 elementos, e calcule a média aritmética dos mesmos, 
@@ -654,6 +689,7 @@ namespace Entra21_2
         var returnedValues = $"{counter.aboveAverage}, {counter.average}, {counter.belowAverage}";
         return returnedValues;
         }
+    
         public List<double> ExerciseArrays2Q1()
         {
 //Popule dois vetores com 10 valores cada. Após esta operação, troque o conteúdo dos vetores.            
@@ -672,6 +708,7 @@ namespace Entra21_2
         }
         return returnedList;
         }
+     
         public bool ExerciseArrays2Q2()
         {
 //Dado um vetor qualquer com 10 números,faça um programa que informa se há ou não números repetidos nesse vetor.
@@ -691,6 +728,7 @@ namespace Entra21_2
         }
         return toComPreguica;
         }
+     
         public string ExerciseArrays2Q3YesOrNo()
         {
 // Um certa empresa fez uma pesquisa para saber se as pessoas gostaram ou não 
@@ -712,6 +750,7 @@ namespace Entra21_2
         var returnedAnswers = $"{peopleLiked} pessoas gostaram, {peopleDisliked} pessoas não gostaram";
         return returnedAnswers;
         }
+      
         public string ExerciseArrays2Q3PercentageMenDislikedWomenLiked()
         {    
         var peopleInterviewed = new List<string>(){"yes","yes","yes","yes","no","no","no","no","no","no"};
@@ -736,6 +775,7 @@ namespace Entra21_2
 var returnedAnswers = $"{percentMenDisliked}% dos homens não gostaram, {percentWomenLiked}% das mulheres gostaram";
         return returnedAnswers;
         }
+    
         public double ExerciseArrays2Q4()
         {
 //Desenvolver um programa que efetue a leitura de cinco elementos de uma matriz 
@@ -753,6 +793,7 @@ var returnedAnswers = $"{percentMenDisliked}% dos homens não gostaram, {percent
         }
         return totalSum;
         }
+     
         public int ExerciseArrays2Q5()     
         {
 //Contar quantos valores de um vetor de 10 posições são positivos.
@@ -768,6 +809,7 @@ var returnedAnswers = $"{percentMenDisliked}% dos homens não gostaram, {percent
         }
         return positiveValuesCounter;
         }
+    
         public string ExerciseArrays2Q6()     
         {
 //Ler um vetor de 10 posições (aceitar somente números positivos). 
@@ -788,6 +830,7 @@ var returnedAnswers = $"{percentMenDisliked}% dos homens não gostaram, {percent
         var abc = $"Maior número: {exercise.biggestNumber}, Posição do index: {exercise.biggestNumberIndex}";
         return abc;
         }
+     
         public double ExerciseArrays2Q7()
         {
 //Crie e popule um vetor A e imprima na tela o número de vezes que existe um número 
@@ -804,6 +847,7 @@ var returnedAnswers = $"{percentMenDisliked}% dos homens não gostaram, {percent
         }
         return equalNumbers;
         } 
+    
         public double ExerciseArrays2Q8(List<string> letters)    
         {
 //Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto. 
@@ -819,6 +863,7 @@ var returnedAnswers = $"{percentMenDisliked}% dos homens não gostaram, {percent
         }
         return returnedNumberOfvowels;
         }
+     
         public string ExerciseArrays2Q9(List<string> letters)
         {
 //Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto. 
