@@ -33,32 +33,16 @@ namespace prova
             return word;
         }
 
-        public List<string> Exercise3(List<string> names, List<string> answers)
+        public List<(string, string)> Exercise3(List<(string name, string civil)> users)
         {
             //Solicite para 5 usuários que informem seus nomes e se são solteiros. 
             //Ao final apresente o nome de todos os usuários solteiros.
 
-            var returnedNames = new List<string>();
-            var solteiros = false;
-
-            for (int k = 0; k < answers.Count; k++)
-            {
-                if (answers[k] == "sim")
-                {
-                    returnedNames.Add(names[k]);
-                    solteiros = true;
-                }
-            }
+            var usersSingle = users.Where(item => item.civil == "Solteiro").ToList();
             
-            if (!solteiros)
-            {
-                return new List<string>(){"Sem usuários solteiros"};
-            }
-            
-            else
-            {
-                return returnedNames;
-            }
+            return usersSingle.Count < 1 
+                ? new List<(string, string)>(){("Sem usuários solteiros","")}
+                : usersSingle;
         }
        
         public List<string> Exercise4(List<int> usersBirthday)
@@ -73,39 +57,35 @@ namespace prova
             }).ToList();
         }
         
-        public List<double> Exercise5(List<string> numbers, List<double> validNumbers)
+        public List<double> Exercise5(List<string> numbers)
         {
             // Solicite ao usuário que informe 5 números e armazene em um array. 
             // Toda vez que o usuário digitar um valor inválido, a aplicação 
             // deverá armazenas “null” no índice correspondente. Ao final, imprimir apenas os números válidos.
 
-            for (int i = 0; i < numbers.Count; i++)
-            {
-                var counter = 0.0;
-                
+            var validNumbers = new List<double>();
+
+            numbers.ForEach(item => {
                 try
                 {
-                    counter = double.Parse(numbers[i]);
-                }
-                catch (System.Exception)
-                {
-                    numbers[i] = null;
-                }
-                
-                if (numbers[i] != null)
-                {
+                    var counter = double.Parse(item);
                     validNumbers.Add(counter);
                 }
-            }
+                    
+                catch(System.Exception)
+                {
+                    item = null;
+                }
+            });
             
             return validNumbers;
         }
         
         public double Exercise6(List<string> salary)
         {
-            //Calcule e apresente a média salarial dos funcionários de uma empresa qualquer. 
-            //A aplicação será encerrada quando o usuário digitar a palavra "calcular". Caso o usuário 
-            //digite um valor negativo então a aplicação deve pedir seu salário novamente.
+            // Calcule e apresente a média salarial dos funcionários de uma empresa qualquer. 
+            // A aplicação será encerrada quando o usuário digitar a palavra "calcular". Caso o usuário 
+            // digite um valor negativo então a aplicação deve pedir seu salário novamente.
 
             (double sum, double index) numbers = (0, 0);
 
@@ -120,25 +100,24 @@ namespace prova
                 try
                 {
                     temporary = Double.Parse(salary[i]);
+                    
+                    if (temporary < 0)
+                    {
+                        salary[i] = null;
+                        continue;
+                    }
                 }
+                
                 catch (System.Exception)
                 {
                     salary[i] = null;
                     continue;
                 }
-        
-                if (temporary < 0)
-                {
-                    salary[i] = null;
-                    continue;
-                }
                 
-                else if (temporary > 0)
-                {
-                    numbers.sum += temporary;
-                    numbers.index++;
-                }
+                numbers.sum += temporary;
+                numbers.index++;
             }
+            
             return numbers.sum / numbers.index;
         }
         
@@ -151,6 +130,7 @@ namespace prova
 
             var count = users.Where(item => item == "42 SC").Count();
             var total = (count * 100) / users.Count;
+            
             return $"{total}%";
         }
 
@@ -183,6 +163,7 @@ namespace prova
                 students.Add("todos os alunos estudam em meio período");
                 return students;
             }
+            
             else
             {
                 return students;

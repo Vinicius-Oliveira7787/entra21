@@ -43,25 +43,29 @@ namespace prova
         {
             return new TheoryData<(List<(string, string)>, List<(string, string)>)>
             {
-                (new List<(string,string)>{("eu","solteiro"), ("você","solteiro"), ("nós","solteiro"), ("nozes","solteiro"), ("pai","solteiro")}, 
-                new List<(string,string)>{("sem usuários solteiros","")})
+                (new List<(string,string)>{("eu","Casado"), ("você","Casado"), ("nós","Casado"), ("nozes","Casado"), ("pai","Casado")}, 
+                new List<(string,string)>{("Sem usuários solteiros","")}),
+
+                (new List<(string,string)>{("Noeh","Solteiro"), ("Noah","Casado"), ("Dean","Solteiro"), ("Shaun","Solteiro"), ("Justin","Casado")}
+                ,new List<(string,string)>{("Noeh","Solteiro"), ("Dean","Solteiro"), ("Shaun","Solteiro")}),
+
+                (new List<(string,string)>{("Noeh","Solteiro"), ("Noah","Solteiro"), ("Dean","Solteiro"), ("Shaun","Solteiro"), ("Justin","Solteiro")}
+                ,new List<(string,string)>{("Noeh","Solteiro"), ("Noah","Solteiro"), ("Dean","Solteiro"), ("Shaun","Solteiro"), ("Justin","Solteiro")})
             };
         }
         
         [Theory]
-        [InlineData(new string[5]{"eu","você","nós","nozes","pai"}, new string[5]{"não","não","não","não","não"}, new string[1]{"Sem usuários solteiros"})]
-        [InlineData(new string[5]{"Noeh","Noah","Dean","Shaun","Justin"}, new string[5]{"sim","não","sim","sim","não"}, new string[3]{"Noeh","Dean","Shaun"})]
-        [InlineData(new string[5]{"Noeh","Noah","Dean","Shaun","Justin"}, new string[5]{"sim","sim","sim","sim","sim"}, new string[5]{"Noeh","Noah","Dean","Shaun","Justin"})]
-        public void show_the_names_of_the_ones_that_are_single(string[] names, string[] answers, string[] expected)
+        [MemberData(nameof(testThirdQuestion))]
+        public void show_the_names_of_the_ones_that_are_single((List<(string, string)>, List<(string, string)>) people)
         {
             // Dado / Setup
             var exercises = new Program();
                             
             // Quando / Ação
-            List<string> returnedValue = exercises.Exercise3(names.ToList(), answers.ToList());
+            var returnedValue = exercises.Exercise3(people.Item1);
 
             // Deve / Asserções
-            Assert.Equal(expected, returnedValue);
+            Assert.Equal(people.Item2, returnedValue);
         }
 
         [Theory]
@@ -88,10 +92,9 @@ namespace prova
         {
             // Dado / Setup
             var exercises = new Program();
-            var validNumbers = new double[0];
                             
             // Quando / Ação
-            List<double> returnedValue = exercises.Exercise5(numbers.ToList(), validNumbers.ToList());
+            List<double> returnedValue = exercises.Exercise5(numbers.ToList());
 
             // Deve / Asserções
             Assert.Equal(expected, returnedValue);
