@@ -21,7 +21,7 @@ namespace prova
         {
             // Solicite ao usuário que informe uma palavra qualquer, porém ele deve digitar uma letra por vez.
             // Quando o usuário informar a palavra “Finalizar”, a aplicação deve apresentar a palavra inteira.
-
+        
             var word = "";
             var indexBreak = letters.IndexOf("Finalizar");
             
