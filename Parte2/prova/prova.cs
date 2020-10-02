@@ -98,34 +98,51 @@ namespace prova
 
             (double sum, double index) numbers = (0, 0);
 
-            for (var i = 0; i < salary.Count; i++)
-            {    
-                if (salary[i] == "calcular")
-                {
-                    break;
-                }
+            // for (var i = 0; i < salary.Count; i++)
+            // {    
+            //     if (salary[i] == "calcular")
+            //     {
+            //         break;
+            //     }
                 
-                var temporary = 0.0;
+            //     var temporary = 0.0;
+            //     try
+            //     {
+            //         temporary = Double.Parse(salary[i]);
+                    
+            //         if (temporary < 0)
+            //         {
+            //             salary[i] = null;
+            //             continue;
+            //         }
+            //     }
+                
+            //     catch (System.Exception)
+            //     {
+            //         salary[i] = null;
+            //         continue;
+            //     }
+                
+            //     numbers.sum += temporary;
+            //     numbers.index++;
+            // }
+            var indexBreak = salary.IndexOf("Calcular");
+
+            for (int i = 0; i < indexBreak; i++)
+            {
+                double temporary = 0;
                 try
                 {
-                    temporary = Double.Parse(salary[i]);
                     
-                    if (temporary < 0)
-                    {
-                        salary[i] = null;
-                        continue;
-                    }
                 }
                 
                 catch (System.Exception)
                 {
-                    salary[i] = null;
-                    continue;
-                }
-                
-                numbers.sum += temporary;
-                numbers.index++;
+                    
+                }             
             }
+
+            
             
             return numbers.sum / numbers.index;
         }
