@@ -48,10 +48,10 @@ namespace prova
             ? new List<string>(){"Sem usuários solteiros"}
             : usersSingle;
             
-        // var usersSingle = users.Where(item => item.civil == "Solteiro");
-        // return usersSingle.Count < 1 
-        //     ? new List<(string, string)>(){("Sem usuários solteiros","")}
-        //     : usersSingle;
+            // var usersSingle = users.Where(item => item.civil == "Solteiro");
+            // return usersSingle.Count < 1 
+            //     ? new List<(string, string)>(){("Sem usuários solteiros","")}
+            //     : usersSingle;
         }
        
         public List<string> Exercise4(List<int> usersBirthday)
