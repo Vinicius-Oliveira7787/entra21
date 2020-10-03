@@ -21,25 +21,24 @@ namespace Exercises2
         return arrayC;
         }
       
-        public List<double> Exercise2(List<double> arrayA)
+        public List<(double,double)> Exercise2(List<double> arrayA)
         {
             //Ler um array com 10 inteiros e mostrar os números na ordem direta e inversa a que foram lidos.
             
             var formas = new List<(double direto, double reverso)>();
-            // var formaInversa = new List<double>();
 
+            var arrayADireto = formas.Select(item => item.direto).ToList();
+            
             for (int i = 0; i < arrayA.Count; i++)
             {
-                formas.
+                arrayADireto.Add(arrayA[i]);
             }
-            
-            for (int i = arrayA.Count - 1; i >= 0 ; i--)
-            {
-                formaInversa.Add(arrayA[i]);
-            }
-            (List<double>, List<double>) tupla = (formaDireta, formaInversa);
 
-            return formaInversa;
+            arrayA.Reverse();
+
+            formas.Add((arrayADireto,arrayA));
+
+            return formas;
         }
       
         public string Exercise3(double search, List<double> arrayA)
