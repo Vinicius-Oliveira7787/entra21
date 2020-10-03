@@ -96,15 +96,19 @@ namespace prova
             // A aplicação será encerrada quando o usuário digitar a palavra "calcular". Caso o usuário 
             // digite um valor negativo então a aplicação deve pedir seu salário novamente.
 
-            var indexBreak = salary.IndexOf("Calcular");
             var temporary = new List<double>();
 
-            for (int i = 0; i < indexBreak; i++)
+            for (int i = 0; i < salary.Count; i++)
             {
+                if (salary[i] == "calcular")
+                {
+                    break;
+                }
+    
                 try
                 {
                     var abc = double.Parse(salary[i]);
-                    if (abc > 0)
+                    if (abc > -1)
                     {
                         temporary.Add(abc);
                     }

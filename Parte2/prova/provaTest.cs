@@ -102,7 +102,7 @@ namespace prova
        
         [Theory]
         [InlineData(new string[5]{"11","12","-1","13","calcular"}, 12)]
-        [InlineData(new string[8]{"-6","53","543,99","abc","1","12,99","calcular","12"}, 152.745)]
+        [InlineData(new string[8]{"-6","53","543,99","abc","1","12,99","calcular","12"}, 152.745)] // 610,98
         [InlineData(new string[8]{"-15","24","135,20","calcular","-564","74,068","calcular","01"}, 79.6)]
         public void should_calculate_the_salary_of_the_employees(string[] salary, double expected)
         {
