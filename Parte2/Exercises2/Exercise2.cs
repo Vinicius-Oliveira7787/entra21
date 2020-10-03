@@ -25,20 +25,20 @@ namespace Exercises2
         {
             //Ler um array com 10 inteiros e mostrar os números na ordem direta e inversa a que foram lidos.
             
-            var formaDireta = new List<double>(){};
-            var formaInversa = new List<double>(){};
+            var formas = new List<(double direto, double reverso)>();
+            // var formaInversa = new List<double>();
 
             for (int i = 0; i < arrayA.Count; i++)
             {
-                formaDireta.Add(arrayA[i]);
+                formas.
             }
             
             for (int i = arrayA.Count - 1; i >= 0 ; i--)
             {
                 formaInversa.Add(arrayA[i]);
             }
+            (List<double>, List<double>) tupla = (formaDireta, formaInversa);
 
-            // (List<double> direto, List<double> inverso) abc = (formaDireta, formaInversa);
             return formaInversa;
         }
       
@@ -111,11 +111,11 @@ namespace Exercises2
                     counter.average++;
                     continue;
                 }
+                
                 counter.belowAverage++;
             }
             
-            var returnedValues = $"{counter.aboveAverage}, {counter.average}, {counter.belowAverage}";
-            return returnedValues;
+            return $"{counter.aboveAverage}, {counter.average}, {counter.belowAverage}";
         }        
     }
 }

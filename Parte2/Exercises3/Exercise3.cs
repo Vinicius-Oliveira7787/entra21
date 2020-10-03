@@ -68,8 +68,8 @@ namespace Exercises3
            var percentageMan = (menDisliked * 100) / menCount;
            var percentageWoman = (womenLiked * 100) / womencount;
 
-            (string percentageWomen, string percentageMen, int didNotLiked, int didLiked) returned = 
-            ($"{percentageWoman}%", $"{percentageMan}%", peopleWhoHaveDisliked, peopleWhoHaveLiked);
+            (string percentageWomen, string percentageMen, int didNotLiked, int didLiked) 
+            returned = ($"{percentageWoman}%", $"{percentageMan}%", peopleWhoHaveDisliked, peopleWhoHaveLiked);
             return returned;
         }
        

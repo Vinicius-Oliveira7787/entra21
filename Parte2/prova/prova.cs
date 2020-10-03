@@ -96,55 +96,24 @@ namespace prova
             // A aplicação será encerrada quando o usuário digitar a palavra "calcular". Caso o usuário 
             // digite um valor negativo então a aplicação deve pedir seu salário novamente.
 
-            (double sum, double index) numbers = (0, 0);
-
-            // for (var i = 0; i < salary.Count; i++)
-            // {    
-            //     if (salary[i] == "calcular")
-            //     {
-            //         break;
-            //     }
-                
-            //     var temporary = 0.0;
-            //     try
-            //     {
-            //         temporary = Double.Parse(salary[i]);
-                    
-            //         if (temporary < 0)
-            //         {
-            //             salary[i] = null;
-            //             continue;
-            //         }
-            //     }
-                
-            //     catch (System.Exception)
-            //     {
-            //         salary[i] = null;
-            //         continue;
-            //     }
-                
-            //     numbers.sum += temporary;
-            //     numbers.index++;
-            // }
             var indexBreak = salary.IndexOf("Calcular");
+            var temporary = new List<double>();
 
             for (int i = 0; i < indexBreak; i++)
             {
-                double temporary = 0;
                 try
                 {
-                    
+                    var abc = double.Parse(salary[i]);
+                    if (abc > 0)
+                    {
+                        temporary.Add(abc);
+                    }
                 }
                 
-                catch (System.Exception)
-                {
-                    
-                }             
+                catch (System.Exception){}             
             }
 
-            
-            
-            return numbers.sum / numbers.index;
+            return temporary.Sum() / temporary.Count();
         }
         
         public string Exercise7(List<string> users)
@@ -155,12 +124,10 @@ namespace prova
             // Ao final a aplicação deverá mostrar a porcentagem de usuários que nasceram em Santa Catarina.
 
             var count = users.Where(item => item == "42 SC").Count();
-            var total = (count * 100) / users.Count;
-            
-            return $"{total}%";
+            return $"{(count * 100) / users.Count}%";
         }
 
-        public List<string> Exercise8(List<string> morningClass, List<string> afternoonClass)
+        public List<string> Exercise8(List<(string morningClass, string afternoonClass)> students)
         {
             // Solicite ao usuário que digite o nome dos alunos das turmas Matutino e Vespertino. 
             // Cada turma possui 5 alunos. Armazene os nomes em dois arrays distintos de forma alternada, 
@@ -169,31 +136,14 @@ namespace prova
             //os nomes dos alunos que estão estudando em período integral. Caso nenhum aluno esteja 
             //cadastrado em ambas as turmas, imprimir a mensagem “todos os alunos estudam em meio período”.
 
-            var students = new List<string>();
-            var onlyHalfPeriodStudents = true;
+            var returnedStudents = students
+                .Where(item => item.morningClass == item.afternoonClass)
+                .Select(item => item.morningClass)
+                .ToList();
 
-            foreach (var morningStudent in morningClass)
-            {
-                foreach (var afternoonStudent in afternoonClass)
-                {
-                    if (morningStudent == afternoonStudent)
-                    {
-                        students.Add(morningStudent);
-                        onlyHalfPeriodStudents = false;
-                    }
-                }
-            }
-
-            if (onlyHalfPeriodStudents)
-            {
-                students.Add("todos os alunos estudam em meio período");
-                return students;
-            }
-            
-            else
-            {
-                return students;
-            }
+            return returnedStudents.Count < 1
+            ? new List<string>(){"todos os alunos estudam em meio período"}
+            : returnedStudents;
         }
     }
 }

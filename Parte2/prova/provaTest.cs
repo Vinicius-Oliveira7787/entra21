@@ -138,20 +138,31 @@ namespace prova
             Assert.Equal(expected, returnedValue);
         } 
 
+        public static TheoryData<(List<(string,string)>, List<string>)> testQuestionEight()
+        {
+            return new TheoryData<(List<(string, string)>, List<string>)>
+            {
+                (new List<(string,string)>{("Vinicius","Isabelle"),("Ruan","Gabriele"),("Rodrigo","Patricia"),("Bolsonaro","juliana"),("Trump","Tatiane")}, 
+                new List<string>{"todos os alunos estudam em meio período"}),
+                (new List<(string,string)>{("Simlar","Simlar"),("Leo <3","Leo <3"),("Guilherme","Guilherme"),("Iago","Iago"),("marcos","marcos"),("Max","Max"),("Thiago","Thiago"),("Matheus","Matheus")}, 
+                new List<string>{"Simlar", "Leo <3", "Guilherme", "Iago", "marcos", "Max", "Thiago", "Matheus"}),
+                (new List<(string,string)>{("Shaun","Shaun"),("Jesus","C#")}, 
+                new List<string>{"Shaun"})
+            };
+        }
+
         [Theory]
-        [InlineData(new string[5]{"Vinicius", "Ruan", "Rodrigo", "Bolsonaro","Trump"}, new string[5]{"Isabelle","juliana","Gabriele","Patricia","Tatiane"}, new string[1]{"todos os alunos estudam em meio período"})]
-        [InlineData(new string[8]{"Simlar", "Leo <3", "Guilherme", "Iago", "marcos", "Max", "Thiago", "Matheus"}, new string[8]{"Simlar", "Leo <3", "Guilherme", "Iago", "marcos", "Max", "Thiago", "Matheus"}, new string[8]{"Simlar", "Leo <3", "Guilherme", "Iago", "marcos", "Max", "Thiago", "Matheus"})]
-        [InlineData(new string[2]{"Shaun", "Jesus"}, new string[2]{"Shaun", "C#"}, new string[1]{"Shaun"})]
-        public void abc(string[] morningClass, string[] afternoonClass, string[] expected)
+        [MemberData(nameof(testQuestionEight))]
+        public void abc((List<(string morningClass, string afternoonClass)>, List<string>) students)
         {
             // Dado / Setup
             var exercises = new Program();
                             
             // Quando / Ação
-            List<string> returnedValue = exercises.Exercise8(morningClass.ToList(), afternoonClass.ToList());
+            List<string> returnedValue = exercises.Exercise8(students.Item1);
 
             // Deve / Asserções
-            Assert.Equal(expected, returnedValue);
+            Assert.Equal(students.Item2, returnedValue);
         } 
     }
 }
