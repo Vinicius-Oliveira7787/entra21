@@ -20,19 +20,32 @@ namespace Exercises2
             // Deve / Asserções
             Assert.Equal(expected, returnedValues);
         }
-        
+
+        public static TheoryData<(List<double>, List<(double,double)>)> questionThereeTest()
+        {
+            return new TheoryData<(List<double>, List<(double, double)>)>
+            {
+                (new List<double>{12, 24, 10, 25, 6, 25, 54, 25, 95, 248}
+                    , new List<(double,double)>{(12,248), (24,95), (10,25), (25,54),
+                    (6,25), (25,6), (54,25), (25,10), (95,24), (248,12)}),
+
+                (new List<double>{-15, 22.5, 524, 123, 6}
+                    , new List<(double,double)>{(-15,6), (22.5,123), (524,524), (123,22.5), (6,-15)})
+            };
+        }
+
         [Theory]
-        [InlineData(new double[10]{12, 24, 10, 25, 6, 25, 54, 25, 95, 248}, new double[10]{248, 95, 25, 54, 25, 6, 25, 10, 24, 12})]
-        public void ExerciseArrays1Q2(double[] myArray, double[] myArrayReversed)
+        [MemberData(nameof(questionThereeTest))]
+        public void ExerciseArrays1Q2((List<double>, List<(double,double)>) myList)
         {
             // Dado / Setup
             var exercises = new Program();
                             
             // Quando / Ação
-            var returnedValues = exercises.Exercise2(myArray.ToList());
+            var returnedValues = exercises.Exercise2(myList.Item1);
 
             // Deve / Asserções
-            Assert.Equal(myArrayReversed, returnedValues);
+            Assert.Equal(myList.Item2, returnedValues);
         }   
         
         [Theory]

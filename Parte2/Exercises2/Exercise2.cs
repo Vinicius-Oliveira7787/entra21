@@ -35,8 +35,10 @@ namespace Exercises2
             }
 
             arrayA.Reverse();
-
-            formas.Add((arrayADireto,arrayA));
+            for (int i = 0; i < arrayA.Count; i++)
+            {
+                formas.Add((arrayADireto[i],arrayA[i]));
+            }
 
             return formas;
         }
