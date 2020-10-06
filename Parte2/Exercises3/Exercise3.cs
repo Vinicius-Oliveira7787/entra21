@@ -113,7 +113,6 @@ namespace Exercises3
                     equalNumbers++;
                 }
             }
-            var numbersCounter = numbers.Count;
 
             return equalNumbers;
         } 
@@ -123,7 +122,9 @@ namespace Exercises3
             //Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto. 
             //No final, imprima quantas destas são vogais.
 
-            return letters.Where(item => item == "a" || item == "e" || item == "i" || item == "o" || item == "u").Count();
+            return letters
+                .Where(item => item == "a" || item == "e" || item == "i" || item == "o" || item == "u")
+                .Count();
         }
        
         public string ExerciseArrays2Q9(List<string> letters)

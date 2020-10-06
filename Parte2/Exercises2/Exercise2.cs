@@ -47,18 +47,10 @@ namespace Exercises2
         {
             //Leia 10 elementos e armazene em um array A. Em seguida, 
             // solicite pelo teclado um número qualquer e pesquise no array se o número existe. 
-            // Caso, seja verdade imprima a mensagem: “O número existe no array”, caso contrário “Número inexistente”.
+            // Caso, seja verdade imprima a mensagem: “O número existe no array”, 
+            // caso contrário “Número inexistente”.
 
-            var exist = false;
-
-            foreach (var item in arrayA)
-            {
-                if (search == item)
-                {
-                    exist = true;
-                    break;
-                }
-            }
+            var exist = arrayA.Contains(search);
             
             return exist ? "O número existe no array" : "Número inexistente";
         }

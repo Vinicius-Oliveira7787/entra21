@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -37,7 +36,6 @@ namespace prova
         {
             //Solicite para 5 usuários que informem seus nomes e se são solteiros. 
             //Ao final apresente o nome de todos os usuários solteiros.
-
             
             var usersSingle = users
                 .Where(item => item.civil == "Solteiro")
@@ -47,11 +45,6 @@ namespace prova
             return usersSingle.Count < 1
             ? new List<string>(){"Sem usuários solteiros"}
             : usersSingle;
-            
-            // var usersSingle = users.Where(item => item.civil == "Solteiro");
-            // return usersSingle.Count < 1 
-            //     ? new List<(string, string)>(){("Sem usuários solteiros","")}
-            //     : usersSingle;
         }
        
         public List<string> Exercise4(List<int> usersBirthday)
@@ -97,14 +90,10 @@ namespace prova
             // digite um valor negativo então a aplicação deve pedir seu salário novamente.
 
             var temporary = new List<double>();
+            var indexBreaker = salary.IndexOf("calcular");
 
-            for (int i = 0; i < salary.Count; i++)
+            for (int i = 0; i < indexBreaker; i++)
             {
-                if (salary[i] == "calcular")
-                {
-                    break;
-                }
-    
                 try
                 {
                     var abc = double.Parse(salary[i]);
@@ -113,7 +102,6 @@ namespace prova
                         temporary.Add(abc);
                     }
                 }
-                
                 catch (System.Exception){}             
             }
 
