@@ -20,7 +20,7 @@ namespace Exercises2
             // Deve / Asserções
             Assert.Equal(expected, returnedValues);
         }
-
+        
         public static TheoryData<(List<double>, List<(double,double)>)> questionThereeTest()
         {
             return new TheoryData<(List<double>, List<(double, double)>)>
@@ -46,7 +46,7 @@ namespace Exercises2
 
             // Deve / Asserções
             Assert.Equal(myList.Item2, returnedValues);
-        }   
+        }    
         
         [Theory]
         [InlineData(25, new double[10]{12, 24, 10, 25, 6, 25, 54, 25, 95, 248}, "O número existe no array")]
