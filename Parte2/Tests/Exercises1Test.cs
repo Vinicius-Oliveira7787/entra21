@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using Xunit;
+using Domain;
 using System.Linq;
 
-namespace Exercises1
+namespace Tests
 {
     public class Exercises1Test
     {
@@ -10,7 +11,7 @@ namespace Exercises1
         [InlineData(new int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, new int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})]
         public void exercise1A_should_return_an_array_from_1_to_10(int[] numbers, int[] expected)
         {
-            var exercicio1 = new Program();
+            var exercicio1 = new Exercises1();
             var result = exercicio1.Exercise1A(numbers.ToList());
 
             Assert.Equal(expected, numbers);
@@ -19,7 +20,7 @@ namespace Exercises1
         [InlineData(new int[10]{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}, new int[10]{10, 9, 8, 7, 6, 5, 4, 3, 2, 1})]
         public void exercise1B_should_return_an_array_from_10_to_1(int[] numbers, int[] expected)
         {
-            var exercicio1 = new Program();
+            var exercicio1 = new Exercises1();
             var result = exercicio1.Exercise1B(numbers.ToList());
 
             Assert.Equal(expected, result);
@@ -33,7 +34,7 @@ namespace Exercises1
             // então a aplicação deverá retornar os números de 1 a 10, mas somente os pares
 
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
 
             // Quando / Ação
             int[] returnedValues = exercises.Exercise1C();
@@ -52,7 +53,7 @@ namespace Exercises1
         public void should_return_the_sum_of_the_numbers_from_1_to_100(double expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
 
             // Quando / Ação
             int returnedValues = exercises.Exercise2();
@@ -68,7 +69,7 @@ namespace Exercises1
             // então a aplicação deverá retornar os números de 1 a 10, mas somente os pares
 
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
 
             // Quando / Ação
             int[] returnedValues = exercises.Exercise3();
@@ -97,7 +98,7 @@ namespace Exercises1
         public void should_calculate_the_average_of_a_class(int[] ages, double expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
             
             // Quando / Ação
             double returnedValues = exercises.Exercise4(ages.ToList());
@@ -114,7 +115,7 @@ namespace Exercises1
         public void should_calculate_the_percentage_of_wonmen_between_18_and_35_years_old(int[] ages, double expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
             
             // Quando / Ação
             double returnedValues = exercises.Exercise5(ages.ToList());
@@ -131,7 +132,7 @@ namespace Exercises1
         public void should_do_an_election(string[] candidates, int[] votes, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
             
             // Quando / Ação
             string returned = exercises.Exercise6(candidates.ToList(), votes.ToList());
@@ -148,7 +149,7 @@ namespace Exercises1
         public void calculate_the_value_spent_by_an_smoker(int years, double perDay, double price, double expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
             
             // Quando / Ação
             var returnedExercise = exercises.Exercise7(years, perDay, price);
@@ -166,7 +167,7 @@ namespace Exercises1
         public void show_if_the_first_number_is_multiple_of_the_second_number(int firstNumber, int secondNumber, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
 
             // Quando / Ação
             string returnedValues = exercises.Exercise8(firstNumber, secondNumber);
@@ -184,7 +185,7 @@ namespace Exercises1
         public void exercise9(double firstNumber, double secondNumber, double thridNumber, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
             // 1, 4 , 12.5
 
             // Quando / Ação
@@ -204,7 +205,7 @@ namespace Exercises1
             //ou a mensagem "A = B" caso sejam iguais.
             
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
 
             // Quando / Ação
             string returnedValue = exercises.Exercise10(firstNumber, secondNumber);
@@ -221,7 +222,7 @@ namespace Exercises1
         public void exercise11(double firstNumber, double secondNumber, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
 
             // Quando / Ação
             var returnedValue = exercises.Exercise11(firstNumber, secondNumber);
@@ -238,7 +239,7 @@ namespace Exercises1
         public void exercise12(int[] numbers, double expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
 
             // Quando / Ação
             double returnedValue = exercises.Exercise12(numbers.ToList());
@@ -255,7 +256,7 @@ namespace Exercises1
         public void exercise13(double[] numbers, double expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
 
             // Quando / Ação
             double returnedValue = exercises.Exercise13(numbers.ToList());
@@ -271,7 +272,7 @@ namespace Exercises1
         public void exercise14(double firstNumber, double secondNumber, double thridNumber, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
 
             // Quando / Ação
             string returnedValue = exercises.Exercise14(firstNumber, secondNumber, thridNumber);
@@ -287,7 +288,7 @@ namespace Exercises1
         public void exercise15(double[] numbers, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
                             
             // Quando / Ação
             string returnedValue = exercises.Exercise15(numbers.ToList());
@@ -304,7 +305,7 @@ namespace Exercises1
         public void exercise16(double salary, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
                             
             // Quando / Ação
             string returnedValue = exercises.Exercise16(salary);
@@ -328,7 +329,7 @@ namespace Exercises1
         {
         
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
                             
             // Quando / Ação
             var returnedValues = exercises.Exercise17(tabuada);
@@ -344,7 +345,7 @@ namespace Exercises1
         public void exercise18(int apples, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises1();
                             
             // Quando / Ação
             string returnedValues = exercises.Exercise18(apples);

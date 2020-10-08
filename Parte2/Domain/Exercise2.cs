@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Exercises2
+namespace Domain
 {
-    class Program
+    public class Exercises2
     {
         public List<double> ExerciseArrays1Q1(List<double> arrayA, List<double> ArrayB)
         {
@@ -21,7 +21,7 @@ namespace Exercises2
         return arrayC;
         }
       
-        public List<(double,double)> Exercise2(List<double> arrayA)
+        public List<(double,double)> ExerciseArrays1Q2(List<double> arrayA)
         {
             //Ler um array com 10 inteiros e mostrar os números na ordem direta e inversa a que foram lidos.
             

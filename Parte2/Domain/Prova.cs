@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace prova
+namespace Domain
 {
-    class Program
+    public class Prova
     {
         public string Exercise1(double hours, double minutes, double serviceHour)
         {

@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Exercises3
+namespace Domain
 {
-    class Program
+    public class Exercises3
     {
         public List<double> Exercise1(List<double> firstList, List<double> secondList)
         {

@@ -1,11 +1,11 @@
 using Xunit;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Domain;
 
-namespace prova
+namespace Tests
 {
-    public class UnitTest1
+    public class ProvaTest
     {
         [Theory]
         [InlineData(2, 24, 12, "029")]
@@ -14,7 +14,7 @@ namespace prova
         public void calculate_the_money_earned_per_day(double hours, double minutes, double serviceHour, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Prova();
                             
             // Quando / Ação
             string returnedValue = exercises.Exercise1(hours, minutes, serviceHour);
@@ -30,7 +30,7 @@ namespace prova
         public void one_leter_per_time_and_should_stop_when_digit_equal_finalizar(string[] leters, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Prova();
                             
             // Quando / Ação
             string returnedValue = exercises.Exercise2(leters.ToList());
@@ -59,7 +59,7 @@ namespace prova
         public void show_the_names_of_the_ones_that_are_single((List<(string, string)>, List<string>) people)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Prova();
                             
             // Quando / Ação
             var returnedValue = exercises.Exercise3(people.Item1);
@@ -76,7 +76,7 @@ namespace prova
         public void should_say_if_the_user_is_under_age_or_above_age(int[] birthday, string[] expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Prova();
                             
             // Quando / Ação
             var returnedValue = exercises.Exercise4(birthday.ToList());
@@ -91,7 +91,7 @@ namespace prova
         public void should_show_only_valid_numbers(string[] numbers, double[] expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Prova();
                             
             // Quando / Ação
             List<double> returnedValue = exercises.Exercise5(numbers.ToList());
@@ -107,7 +107,7 @@ namespace prova
         public void should_calculate_the_salary_of_the_employees(string[] salary, double expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Prova();
                             
             // Quando / Ação
             double returnedValue = exercises.Exercise6(salary.ToList());
@@ -123,7 +123,7 @@ namespace prova
         public void should_calculate_the_percentage_of_people_born_in_SC(string[] users, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Prova();
             var uf = new List<string>()
             {
             "11 RO", "12 AC", "13 AM", "14 RR", "15 PA", "16 AP", "17 TO", "21 MA", "22 PI", 
@@ -156,7 +156,7 @@ namespace prova
         public void abc((List<(string morningClass, string afternoonClass)>, List<string>) students)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Prova();
                             
             // Quando / Ação
             List<string> returnedValue = exercises.Exercise8(students.Item1);

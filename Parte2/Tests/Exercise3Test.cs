@@ -1,17 +1,18 @@
 using System.Collections.Generic;
 using System.Linq;
+using Domain;
 using Xunit;
 
-namespace Exercises3
+namespace Tests
 {
-    public class UnitTest1
+    public class Exercises3Test
     {
         [Theory]
         [InlineData(new double[4]{1, 2, 3, 4}, new double[4]{5, 6, 7, 8}, new double[8]{0.5, 2, 4.5, 8, 12.5, 18, 24.5, 32})]
         public void Exercise1(double[] firstList, double[] secondList, double[] expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises3();
                             
             // Quando / Ação
             List<double> returnedAnswer = exercises.Exercise1(firstList.ToList(), secondList.ToList());
@@ -26,7 +27,7 @@ namespace Exercises3
         public void Exercise2(double[] numbers, bool expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises3();
                             
             // Quando / Ação
             var returnedAnswer = exercises.Exercise2(numbers.ToList());
@@ -39,7 +40,7 @@ namespace Exercises3
         public void Exercise3()
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises3();
             (string gender, string genderAnswers) firstInterview = ("man", "not");
             (string gender, string genderAnswers) secondInterview = ("woman", "yes");
             (string gender, string genderAnswers) thirdInterview = ("woman", "not");
@@ -61,7 +62,7 @@ namespace Exercises3
         public void Exercise4(double[] numbers, double expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises3();
                             
             // Quando / Ação
             var returnedAnswer = exercises.ExerciseArrays2Q4(numbers.ToList());
@@ -77,7 +78,7 @@ namespace Exercises3
         public void Exercise5(double[] List, double expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises3();
                             
             // Quando / Ação
             var returnedAnswer = exercises.ExerciseArrays2Q5(List.ToList());
@@ -93,7 +94,7 @@ namespace Exercises3
         public void Exercise6(double[] List, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises3();
                             
             // Quando / Ação
             var returnedAnswer = exercises.ExerciseArrays2Q6(List);
@@ -109,7 +110,7 @@ namespace Exercises3
         public void Exercise7(double[] numbers, double expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises3();
                             
             // Quando / Ação
             double returnedAnswer = exercises.ExerciseArrays2Q7(numbers.ToList());
@@ -125,7 +126,7 @@ namespace Exercises3
         public void Exercise8(string[] letters, int expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises3();
                             
             // Quando / Ação
             double returnedAnswer = exercises.ExerciseArrays2Q8(letters.ToList());
@@ -141,7 +142,7 @@ namespace Exercises3
         public void Exercise9(string[] letters, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises3();
                             
             // Quando / Ação
             var returnedAnswer = exercises.ExerciseArrays2Q9(letters.ToList());

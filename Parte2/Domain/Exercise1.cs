@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Exercises1
+namespace Domain
 {
-    class Program
+    public class Exercises1
     {
         public List<int> Exercise1A(List<int> array)
         {

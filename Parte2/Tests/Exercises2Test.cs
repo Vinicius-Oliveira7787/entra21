@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+using Domain;
 using Xunit;
 
-namespace Exercises2
+namespace Tests
 {
-    public class UnitTest1
+    public class Exercises2Test
     {
         [Theory]
         [InlineData(new double[15]{24, 48, 20, 50,12,5,69,345,47,69,70,363,1651,152,1216}, new double[15]{12, 24, 10, 25, 6,25,54,25,95,248,154,125,384,1684,134}, new double[15]{12,24,10,25,6,-20,15,320,-48,-179,-84,238,1267,-1532,1082})]
@@ -12,7 +13,7 @@ namespace Exercises2
         {
 
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises2();
                             
             // Quando / Ação
             List<double> returnedValues = exercises.ExerciseArrays1Q1(arrayA.ToList(), arrayB.ToList());
@@ -21,7 +22,7 @@ namespace Exercises2
             Assert.Equal(expected, returnedValues);
         }
         
-        public static TheoryData<(List<double>, List<(double,double)>)> questionThereeTest()
+        public static TheoryData<(List<double>, List<(double,double)>)> questionTwoTest()
         {
             return new TheoryData<(List<double>, List<(double, double)>)>
             {
@@ -35,14 +36,14 @@ namespace Exercises2
         }
 
         [Theory]
-        [MemberData(nameof(questionThereeTest))]
+        [MemberData(nameof(questionTwoTest))]
         public void ExerciseArrays1Q2((List<double>, List<(double,double)>) myList)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises2();
                             
             // Quando / Ação
-            var returnedValues = exercises.Exercise2(myList.Item1);
+            var returnedValues = exercises.ExerciseArrays1Q2(myList.Item1);
 
             // Deve / Asserções
             Assert.Equal(myList.Item2, returnedValues);
@@ -54,7 +55,7 @@ namespace Exercises2
         public void ExerciseArrays1Q3(double search, double[] array, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises2();
                             
             // Quando / Ação
             var returnedAnswer = exercises.Exercise3(search, array.ToList());
@@ -68,7 +69,7 @@ namespace Exercises2
         public void ExerciseArrays1Q4(double[] firstArray, double[] secondArray, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises2();
                             
             // Quando / Ação
             string returnedAnswerFalse = exercises.Exercise4(firstArray.ToList(), secondArray.ToList());
@@ -87,7 +88,7 @@ namespace Exercises2
         public void ExerciseArrays1Q5(double[] myList, string expected)
         {
             // Dado / Setup
-            var exercises = new Program();
+            var exercises = new Exercises2();
                             
             // Quando / Ação
             string returnedAnswer = exercises.ExerciseArrays1Q5(myList.ToList());
