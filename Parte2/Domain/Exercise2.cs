@@ -21,23 +21,25 @@ namespace Domain
         return arrayC;
         }
       
-        public List<(double,double)> ExerciseArrays1Q2(List<double> arrayA)
+        public List<(double,double)> ExerciseArrays1Q2(List<double> array)
         {
             //Ler um array com 10 inteiros e mostrar os números na ordem direta e inversa a que foram lidos.
             
             var formas = new List<(double direto, double reverso)>();
+            // var counter = 0;
 
-            var arrayADireto = formas.Select(item => item.direto).ToList();
+            // for (int i = array.Count - 1; i >= 0 ; i--)
+            // {
+            //     formas.Add((array[counter], array[i]));
+            //     counter++;
+            // }
             
-            for (int i = 0; i < arrayA.Count; i++)
-            {
-                arrayADireto.Add(arrayA[i]);
-            }
+            var counter = array.Count -1;
 
-            arrayA.Reverse();
-            for (int i = 0; i < arrayA.Count; i++)
+            for (int i = 0; i < array.Count; i++)
             {
-                formas.Add((arrayADireto[i],arrayA[i]));
+                formas.Add((array[i], array[counter]));
+                counter--;
             }
 
             return formas;
