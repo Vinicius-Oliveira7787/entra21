@@ -8,7 +8,7 @@ namespace entra21_tests
     public class ElectionTest
     {
         [Fact]
-        public void should_not_create_candidates_when_password_is_incorrect()
+        public void Should_not_create_candidates_when_password_is_incorrect()
         {
             // Dado / Setup
             var election = new Election();
@@ -24,7 +24,7 @@ namespace entra21_tests
         }
 
         [Fact]
-        public void should_create_candidates_when_password_is_correct()
+        public void Should_create_candidates_when_password_is_correct()
         {
             // Dado / Setup
 
@@ -42,14 +42,12 @@ namespace entra21_tests
             Assert.True(created);
 
             // Estamos acessando a PROPRIEDADE Candidates, que faz parte do ESTADO do OBJETO election
-            var electionCounter = election.Candidates.Count;
-            
-            Assert.Equal(1, electionCounter);
+            Assert.Equal(1, election.Candidates.Count);
             Assert.Equal(Jose.Id, election.Candidates.ElementAt(0).Id);
         }
 
         [Fact]
-        public void should_vote_twice_in_candidate_Jose()
+        public void Should_vote_twice_in_candidate_Jose()
         {
             // Dado / Setup
             // OBJETO election
@@ -73,7 +71,27 @@ namespace entra21_tests
         }
 
         [Fact]
-        public void should_return_Ana_as_winner_when_only_Ana_receives_votes()
+        public void Should_return_false_and_not_vote_when_CPF_is_invalid()
+        {
+            // Dado / Setup
+            // OBJETO election
+            var election = new Election();
+            var Jose = new Candidate("José", "895.456.214-78");
+            var candidates = new List<Candidate>{Jose};
+
+            election.CreateCandidates(candidates, "Pa$$w0rd");
+
+            // Quando / Ação
+            var voteResult = election.Vote("1321");
+
+            // Deve / Asserções
+            var candidateJose = election.Candidates.First(x => x.Id == Jose.Id);
+            Assert.Equal(0, candidateJose.Votes);
+            Assert.False(voteResult);
+        }
+
+        [Fact]
+        public void Should_return_Ana_as_winner_when_only_Ana_receives_votes()
         {
             // Dado / Setup
             // OBJETO election
@@ -90,15 +108,13 @@ namespace entra21_tests
             var winners = election.GetWinners();
 
             // Deve / Asserções
-            var winnersCounter = winners.Count;
-
-            Assert.Equal(1, winnersCounter);
+            Assert.Equal(1, winners.Count);
             Assert.Equal(Ana.Id, winners[0].Id);
             Assert.Equal(2, winners[0].Votes);
         }
 
         [Fact]
-        public void should_return_both_candidates_when_occurs_draw()
+        public void Should_return_both_candidates_when_occurs_draw()
         {
             // Dado / Setup
             // OBJETO election
