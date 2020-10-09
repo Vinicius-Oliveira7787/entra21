@@ -91,8 +91,8 @@ namespace Domain
             //em seguida, diga quantos dos elementos lidos estão abaixo, acima e na média
 
             (int aboveAverage, int average, int belowAverage) counter = (0, 0, 0);
-            
             var average = myList.Sum() / myList.Count;
+            
             foreach (var item in myList)
             {
                 if (item > average)
