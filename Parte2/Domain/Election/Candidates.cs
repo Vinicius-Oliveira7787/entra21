@@ -61,7 +61,7 @@ namespace Domain
             {
                 sum += int.Parse(temp[i].ToString()) * multiplier1[i];
             }
-
+// 873.143.810-54
             rest = sum % 11;
 
             rest = rest < 2 ? 0 : 11 - rest;
