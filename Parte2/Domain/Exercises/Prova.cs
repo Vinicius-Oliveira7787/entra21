@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -136,6 +137,56 @@ namespace Domain
             return returnedStudents.Count < 1
             ? new List<string>(){"todos os alunos estudam em meio período"}
             : returnedStudents;
+        }
+
+        public void Huann()
+        {
+            // System.Console.WriteLine("Digite o dia de nascimento.");
+            // var diaNascimento = int.Parse(Console.ReadLine());
+            var diaNascimento = 23;
+
+            // System.Console.WriteLine("Digite o mês de nascimento.");
+            // var mesNascimento = int.Parse(Console.ReadLine());
+            var mesNascimento = 5;
+
+            // System.Console.WriteLine("Digite o ano de nascimento.");
+            // var anoNascimento = int.Parse(Console.ReadLine());
+            var anoNascimento = 2004;
+ 
+            var anoAtual = DateTime.Now.Year;
+            
+            var totalDiasNascimento = 0;
+            for (int mes = mesNascimento; mes < 13; mes++)
+            {
+                totalDiasNascimento += DateTime.DaysInMonth(anoNascimento, mes);
+            }
+            anoNascimento++;
+
+            var diasAteHoje = 0;
+            for (int ano = anoNascimento; ano < anoAtual + 1; ano++)
+            {
+                if (ano == anoAtual)
+                {
+                    for (int mes = 1; mes < DateTime.Now.Month; mes++)
+                    {
+                        diasAteHoje += DateTime.DaysInMonth(anoNascimento, mes);
+                    }
+
+                    diasAteHoje += DateTime.Now.Day;
+                    break;
+                }
+
+                for (int mes = 1; mes < 13; mes++)
+                {
+                    diasAteHoje += DateTime.DaysInMonth(anoNascimento, mes);
+                }
+                anoNascimento++;
+            }
+
+            var final = diasAteHoje + (totalDiasNascimento - diaNascimento);
+            // 21.900 = 60 anos
+            var mensagem = final > 21900 ? "você é idoso" : "você é jovem";
+            System.Console.WriteLine(mensagem);
         }
     }
 }

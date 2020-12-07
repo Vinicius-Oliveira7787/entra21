@@ -164,5 +164,13 @@ namespace Tests
             // Deve / Asserções
             Assert.Equal(students.Item2, returnedValue);
         } 
+
+        [Fact]
+        public void huann()
+        {
+            var exercises = new Prova();
+                            
+            exercises.Huann();
+        }
     }
 }
